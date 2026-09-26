@@ -264,7 +264,7 @@
             "@algolia/autocomplete-plugin-query-suggestions"
         ].createQuerySuggestionsPlugin({
             searchClient,
-            indexName: "instant_search_demo_query_suggestions",
+            indexName: "whitsats_github_io_1vxcocg7p2_pages",
             getSearchParams: () =>
                 recentSearchesPlugin.data.getAlgoliaSearchParams({
                     hitsPerPage: 6,
@@ -308,11 +308,29 @@
             container: "#searchbox",
             openOnFocus: true,
             detachedMediaQuery: "none",
+            // 清空输入时（含点 × 按钮）同步重置下方结果区
+            onReset() {
+                setInstantSearchUiState({ query: "" });
+            },
             onSubmit({ state }) {
                 setInstantSearchUiState({ query: state.query });
             },
             plugins: [recentSearchesPlugin, querySuggestionsPlugin],
         });
+
+        // 输入即搜：监听 autocomplete 渲染出的输入框，防抖 250ms 后同步到结果区
+        // （autocomplete-js 没有 onInputChange 回调，手动监听最稳妥）
+        (function bindLiveSearch() {
+            var input = document.querySelector("#searchbox .aa-Input");
+            if (!input) return;
+            var timer = null;
+            input.addEventListener("input", function () {
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    setInstantSearchUiState({ query: input.value });
+                }, 250);
+            });
+        })();
 
         // 搜索面板交互
         document
@@ -570,7 +588,16 @@
         // 添加键盘快捷键 - 按ESC关闭搜索面板
         document.addEventListener("keydown", function (e) {
             if (e.key === "Escape") {
-                document.getElementById("search-panel").classList.add("hidden");
+                var panel = document.getElementById("search-panel");
+                var input = document.querySelector("#searchbox .aa-Input");
+                // 两段式关闭：第一段先清词收起联想，第二段才收起整个面板
+                if (input && input.value) {
+                    input.value = "";
+                    setInstantSearchUiState({ query: "" });
+                    if (input) input.blur();
+                    return;
+                }
+                panel.classList.add("hidden");
             }
 
             // 按Ctrl+K或Command+K打开搜索面板
