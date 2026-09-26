@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+<title>完全免费的 AI 辅助编码 Agent：Freebuff 架构解析、多端形态与工程落地指南 |
+        W&#39;Blog</title>
+<meta name="algolia-site-verification" content="415B756FDB4308CC" />
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+/>
+<link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous"
+/>
+<link
+    rel="shortcut icon"
+    href="https://whitsats.github.io//favicon.ico?v=1790420076802"
+/>
+<link rel="stylesheet" href="https://whitsats.github.io//styles/main.css" />
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-L6R12L2QHC"
+></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-L6R12L2QHC");
+</script>
+
+
+        <meta name="description" content="
+摘要：在 Claude Code、Cursor、Windsurf 等工具订阅费用与 API Token 消耗居高不下的当下，基于 Codebuff 多智能体框架的 Freebuff 凭借“广告赞助覆盖成本、100% 免费使用”的模式迅速引..." />
+        <meta
+            name="keywords"
+            content=""
+        />
+    </head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar" :class="{ 'full-height': menuVisible }">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a class="site-title-container" href="https://whitsats.github.io/">
+                <img
+                    src="https://whitsats.github.io//images/avatar.png?v=1790420076802"
+                    class="site-logo"
+                />
+                <h1 class="site-title">W&#39;Blog</h1>
+            </a>
+            <div class="menu-btn" @click="menuVisible = !menuVisible">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+             
+            <a href="/" class="site-nav"> 首页 </a>
+              
+            <a href="/archives" class="site-nav"> 归档 </a>
+              
+            <a href="/tags" class="site-nav"> 标签 </a>
+              
+            <a href="/post/about" class="site-nav"> 关于 </a>
+             
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container">
+             
+            <a
+                class="social-link"
+                href="https://github.com/whitsats"
+                target="_blank"
+            >
+                <i class="fab fa-github"></i>
+            </a>
+                     
+        </div>
+        <div class="site-description">兴趣是最好的老师</div>
+        <div class="site-footer">
+            Powered by <a href="https://github.com/whitsats" target="_blank">whitsats❤️</a> |
+            <a
+                class="rss"
+                href="https://whitsats.github.io//atom.xml"
+                target="_blank"
+                >RSS</a
+            >
+        </div>
+    </div>
+</div>
+
+
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+                        <h2 class="post-title">完全免费的 AI 辅助编码 Agent：Freebuff 架构解析、多端形态与工程落地指南</h2>
+                        <div class="post-date">2026-08-28</div>
+                        
+                        <div class="post-content" v-pre>
+                            <blockquote>
+<p><strong>摘要</strong>：在 Claude Code、Cursor、Windsurf 等工具订阅费用与 API Token 消耗居高不下的当下，基于 Codebuff 多智能体框架的 <strong>Freebuff</strong> 凭借“广告赞助覆盖成本、100% 免费使用”的模式迅速引发开发者关注。本文重点剖析 Freebuff 的<strong>免费额度机制、美区虚拟网卡激活 Full Mode 的核心技巧、多模型分级梯度、全端配额打通规则</strong>，并提供一份保姆级的 <strong>Freebuff CLI 终端工程化实战指南</strong>。</p>
+<p>🔗 <strong>官方注册与接入入口</strong>：<a href="https://freebuff.com/?ref=ref-a3543149-12f0-4585-b6e0-c46e4def789b">Freebuff 官方平台（含邀请直达）</a></p>
+</blockquote>
+<hr>
+<h2 id="一-核心定位与多智能体架构简述">一、 核心定位与多智能体架构（简述）</h2>
+<p>Freebuff 并非单纯的模型套壳，其底层基于开源多智能体框架 <code>CodebuffAI/codebuff</code>，通过将复杂的编码任务拆解至不同的专精子智能体（如定位代码上下文的 <code>file-picker</code>、深度推演逻辑的 <code>thinker</code>、生成代码 Diff 的 <code>code-editor</code> 以及终端审查的 <code>code-reviewer</code>），实现端到端的自主代码变更。</p>
+<pre><code class="language-mermaid">flowchart LR
+    User[&quot;开发者指令 (CLI / Web)&quot;] --&gt; Orchestrator[&quot;Codebuff 调度主控&quot;]
+    Orchestrator --&gt; Subagents[&quot;9+ 专精子智能体集群&lt;br/&gt;(Thinker / FilePicker / Editor / Reviewer)&quot;]
+    Subagents --&gt; ModelPool[&quot;模型调度池&lt;br/&gt;(Luna / DeepSeek / MiMo / GLM)&quot;]
+    ModelPool --&gt; Execution[&quot;本地文件改写 &amp; 终端执行&quot;]
+</code></pre>
+<hr>
+<h2 id="二-免费额度-模型梯度与美区虚拟网卡限制核心必读">二、 免费额度、模型梯度与美区虚拟网卡限制（核心必读）</h2>
+<p>许多开发者首次使用 Freebuff 时会发现只能使用单一的 MiMo 模型且 Session 次数极少，这是由于网络环境未满足全功能判定所致。深入理解其<strong>网络判定机制</strong>与<strong>模型梯度池</strong>是顺畅使用的前提。</p>
+<h3 id="21-网络环境关键技巧开启美区虚拟网卡tun-模式">2.1 网络环境关键技巧：开启美区虚拟网卡（TUN 模式）</h3>
+<p>Freebuff 内置严格的地域与代理流量检测逻辑，并划分了两种截然不同的运行模式：</p>
+<figure data-type="image" tabindex="1"><img src="https://whitsats.github.io//post-images/1787901330779.png" alt="" loading="lazy"></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运行模式</th>
+<th style="text-align:left">网络触发条件</th>
+<th style="text-align:left">开放模型池</th>
+<th style="text-align:left">额度与 Session 限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Full Mode（全功能模式）</strong></td>
+<td style="text-align:left"><strong>开启美区虚拟网卡（TUN 模式）</strong>，接管终端全局流量</td>
+<td style="text-align:left"><strong>全部模型解锁</strong>：GPT-5.6 Luna、GLM 5.3 Flash、DeepSeek V4 Flash、MiMo 2.5</td>
+<td style="text-align:left">享有每日 5 次 Premium 独立 Session + 两个 Unlimited 无限模型</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Limited Mode（受限模式）</strong></td>
+<td style="text-align:left">未开启虚拟网卡、普通网页代理或非白名单地区直连</td>
+<td style="text-align:left"><strong>仅限单一 MiMo 2.5 模型</strong>，高端模型全部锁定不可选</td>
+<td style="text-align:left">Session 每日严重缩减（仅 3 次或更低）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!IMPORTANT]<br>
+<strong>关键避坑指南（国内开发者必看）</strong>：<br>
+终端（CLI）发起的 HTTP/WebSocket 流量通常不经过浏览器常规代理插件。<strong>必须开启代理客户端的“虚拟网卡 / TUN 模式（美区节点）”</strong>，实现全系统流量接管，Freebuff 才能正确识别并激活完备的 <strong>Full Mode</strong>。</p>
+</blockquote>
+<hr>
+<h3 id="22-真实的模型分级与-session-计量矩阵">2.2 真实的模型分级与 Session 计量矩阵</h3>
+<p>从实测的控制面板可以看到，Freebuff 将模型划分为三大清晰层级：</p>
+<pre><code class="language-mermaid">graph TD
+    A[Freebuff 全功能模型矩阵] --&gt; B[&quot;1. PREMIUM 旗舰层 (每日 5 Sessions)&quot;]
+    A --&gt; C[&quot;2. UNLIMITED 无限层 (完全不扣 Session)&quot;]
+    A --&gt; D[&quot;3. REFERRAL 邀请解锁层 (专属高阶模型)&quot;]
+
+    B --&gt; B1[&quot;GPT-5.6 Luna (综合主力 / 高推理 / 支持图片)&quot;]
+    B --&gt; B2[&quot;GLM 5.3 Flash (深度推理 / 支持图片 / 每日 2 次独立试用)&quot;]
+
+    C --&gt; C1[&quot;DeepSeek V4 Flash 07/31 (智能极速 / 轮换限时开放)&quot;]
+    C --&gt; C2[&quot;MiMo 2.5 (均衡稳健 / 支持图片 / 完全无限次保底)&quot;]
+
+    D --&gt; D1[&quot;GLM 5.2 顶级开源模型 (邀请好友即可解锁)&quot;]
+    D --&gt; D2[&quot;Earn Trust 机制 (额外累加更多每日可用 Sessions)&quot;]
+</code></pre>
+<h4 id="1-premium-旗舰层每日-5-个会话窗口">1. PREMIUM 旗舰层（每日 5 个会话窗口）</h4>
+<ul>
+<li><strong>Session 机制</strong>：标准账户每日重置 <strong>5 个 Session</strong>（每个 Session 约 1 小时连续开发窗口，例如 <code>0 of 5 used · resets in 23h 55m</code>）。</li>
+<li><strong>GPT-5.6 Luna</strong>：全能主力旗舰，具备高推理能力（Reasoning: high）并支持图像多模态输入，适用于复杂全栈重构与算法编写。</li>
+<li><strong>GLM 5.3 Flash</strong>：深度推理模型（Deep reasoning + Images），当前官方提供每天 2 次独立试用 Session。</li>
+</ul>
+<h4 id="2-unlimited-无限层完全不消耗-5-次-premium-配额">2. UNLIMITED 无限层（完全不消耗 5 次 Premium 配额）</h4>
+<ul>
+<li><strong>DeepSeek V4 Flash 07/31</strong>：<code>Smart &amp; Fast · Reasoning: high</code>，擅长代码推演与快速修 Bug，特定时段开放（如 Back at 18:00），完全不占用 5 次 Premium 额度。</li>
+<li><strong>MiMo 2.5</strong>：<code>Balanced · Images</code>，表现均衡且支持多模态，属于永久保底的无限次模型。</li>
+</ul>
+<h4 id="3-referral-邀请与任务奖励glm-52-与额度提升">3. REFERRAL 邀请与任务奖励（GLM 5.2 与额度提升）</h4>
+<ul>
+<li><strong>解锁 GLM 5.2</strong>：界面提示 <code>✦ Refer friends → GLM 5.2, top open-source model</code>，通过分享邀请链接邀请好友注册，即可直接解锁顶级开源模型 GLM 5.2 的调用权限。</li>
+<li><strong>提升 Session 上限</strong>：参与平台的 <code>Earn Trust</code> 互动任务与好友邀请，每日可用的 Session 配额可从基础的 5 次进一步提升（最高可达 7+ 次）。</li>
+</ul>
+<hr>
+<h3 id="23-订阅管理与额度扩容方案全端打通">2.3 订阅管理与额度扩容方案（全端打通）</h3>
+<p>除了每日免费赠送的 5 个 Session 与保底无限模型外，Freebuff 在订阅后台（<code>settings?tab=subscription</code>）也为重度高频开发者提供了高性价比的会话扩容方案：</p>
+<blockquote>
+<p>[!TIP]<br>
+<strong>免费优先原则（Free Sessions Always Used First）</strong>：<br>
+无论用户是否购买付费套餐，系统<strong>每天永远优先消耗免费赠送的 5 个 Session</strong>；付费购买的额外时间仅在免费额度耗尽后才会接替扣除。</p>
+</blockquote>
+<h4 id="付费扩展档位对比表">付费扩展档位对比表</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方案名称</th>
+<th style="text-align:left">首月优惠价 / 常规价格</th>
+<th style="text-align:left">每日额外新增时长</th>
+<th style="text-align:left">月度累计新增时长</th>
+<th style="text-align:left">等效 Token 价值</th>
+<th style="text-align:left">核心适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Free 免费版</strong></td>
+<td style="text-align:left"><strong>$0 / 永久免费</strong></td>
+<td style="text-align:left">5 次/天 会话 (~5小时)</td>
+<td style="text-align:left">基础 150 小时/月</td>
+<td style="text-align:left">广告赞助覆盖</td>
+<td style="text-align:left">日常模块开发、个人开源项目、代码审查</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Starter 进阶版</strong></td>
+<td style="text-align:left"><strong>$5 首月</strong>（次月 $8/月）</td>
+<td style="text-align:left"><strong>+3 小时 / 天</strong> 旗舰模型</td>
+<td style="text-align:left">+50 小时 / 月</td>
+<td style="text-align:left">约 $40 Token（5倍超值）</td>
+<td style="text-align:left">每天有多段集中编码需求的独立开发者</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Plus 专业版</strong></td>
+<td style="text-align:left"><strong>$22 首月</strong>（次月 $25/月）</td>
+<td style="text-align:left"><strong>+7 小时 / 天</strong> 旗舰模型</td>
+<td style="text-align:left">+125 小时 / 月</td>
+<td style="text-align:left">约 $100 Token（4倍超值）</td>
+<td style="text-align:left">全职高强度开发、重度重构与团队全天候使用</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>多端额度统一打通</strong>：<code>Sessions work everywhere — Web, Desktop and the CLI share one allowance</code>。用户账号下的 Session 额度在 CLI 终端、Desktop 客户端与 Web 生成器之间完全同步共享，无需分端重复配置。</p>
+</blockquote>
+<hr>
+<h2 id="三-freebuff-cli-深度实战指南核心操作">三、 Freebuff CLI 深度实战指南（核心操作）</h2>
+<p>Freebuff 的核心生产力形态是其命令行工具（CLI）。它直接内嵌在本地终端中，拥有读取本地代码、生成 Diff 并执行测试命令的完整权限。</p>
+<h3 id="31-环境准备与一键安装">3.1 环境准备与一键安装</h3>
+<p>Freebuff CLI 依赖 Node.js 环境（要求 Node.js 18 及以上版本）。</p>
+<pre><code class="language-bash"># 1. 检查本地 Node.js 版本
+node -v   # 建议 &gt;= v18.0.0
+
+# 2. 全局安装 Freebuff CLI
+npm install -g freebuff
+
+# 3. 验证安装是否成功
+freebuff --version
+</code></pre>
+<h3 id="32-首次启动与身份认证">3.2 首次启动与身份认证</h3>
+<ol>
+<li><strong>开启美区虚拟网卡（TUN 全局模式）</strong>；</li>
+<li>进入本地待开发工程的根目录并启动：<pre><code class="language-bash">cd ~/my-project
+freebuff
+</code></pre>
+</li>
+<li><strong>浏览器 OAuth 鉴权</strong>：终端首次运行时会输出授权链接并自动调起浏览器，使用 GitHub 或 Google 账号登录完成绑定即可。</li>
+</ol>
+<hr>
+<h3 id="33-核心指令与标准工程工作流">3.3 核心指令与标准工程工作流</h3>
+<p>在实际项目演进中，严禁随意输入模糊提示词让 AI 大面积盲写。Freebuff 设计了一套标准的阶段式命令，保障代码修改安全可控：</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    actor Dev as 开发者
+    participant CLI as Freebuff 终端
+    participant Agent as 智能体集群
+    participant Workspace as 本地代码库
+
+    Dev-&gt;&gt;CLI: 1. 执行 /interview (需求对齐)
+    CLI-&gt;&gt;Agent: 交互式澄清边界与入参规范
+    Agent--&gt;&gt;Dev: 确认功能设计契约
+    Dev-&gt;&gt;CLI: 2. 执行 /plan (生成方案)
+    CLI-&gt;&gt;Agent: 定位受影响文件并生成执行计划
+    Agent--&gt;&gt;Dev: 呈现涉及的文件路径与改动清单
+    Dev-&gt;&gt;CLI: 3. 确认执行修改 (Proceed)
+    CLI-&gt;&gt;Workspace: 应用代码变更并输出 Unified Diff
+    Dev-&gt;&gt;CLI: 4. 执行 /review (代码走查)
+    CLI-&gt;&gt;Agent: 审计潜在 Bug 与破坏性变更
+    Agent--&gt;&gt;Dev: 输出审计结果与优化建议
+</code></pre>
+<h4 id="step-1-需求对齐与契约澄清-interview">Step 1: 需求对齐与契约澄清 (<code>/interview</code>)</h4>
+<p>在着手大功能前，输入 <code>/interview</code> 启动交互式采访模式。智能体会根据你的初步想法，反向提出关键技术决策问题（如：状态持久化方案、错误码规范、依赖包版本兼容等），确保开发边界清晰。</p>
+<h4 id="step-2-方案推演与实施规划-plan">Step 2: 方案推演与实施规划 (<code>/plan</code>)</h4>
+<p>输入 <code>/plan &lt;具体改动目标&gt;</code>。此时 <code>thinker</code> 与 <code>file-picker</code> 智能体会通读相关代码，输出一份详细的实施规划文档，标明涉及的每一处文件与函数改动，但<strong>暂不修改磁盘文件</strong>，供开发者审阅。</p>
+<h4 id="step-3-代码自动实施与-unified-diff-校验">Step 3: 代码自动实施与 Unified Diff 校验</h4>
+<p>在确认 Plan 方案可行后，输入确认指令。<code>code-editor</code> 智能体会生成精准的 Diff 补丁并落盘。终端会高亮展示修改差异（Green/Red 增删行），方便开发者直观比对。</p>
+<h4 id="step-4-代码质量走查与静态审计-review">Step 4: 代码质量走查与静态审计 (<code>/review</code>)</h4>
+<p>在功能完成后，输入 <code>/review</code>。智能体会自动比对本次会话的所有 <code>git diff</code>，检查是否存在未处理的异常分支、内存泄露隐患或命名规范问题。</p>
+<hr>
+<h3 id="34-cli-常用快捷命令与高级技巧">3.4 CLI 常用快捷命令与高级技巧</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">常用命令 / 语法</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">典型应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>/model</code></td>
+<td style="text-align:left">弹出模型选择面板，动态切换当前使用的底层大模型</td>
+<td style="text-align:left">复杂架构推演时切至 Luna/DeepSeek，普通小修切至 MiMo</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/interview</code></td>
+<td style="text-align:left">启动需求澄清会话，明确功能契约与边界</td>
+<td style="text-align:left">复杂业务逻辑开发前的设计对齐</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/plan</code></td>
+<td style="text-align:left">制定多文件修改的实施计划</td>
+<td style="text-align:left">大规模代码重构或新增独立模块</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/review</code></td>
+<td style="text-align:left">针对当前代码变更进行静态质量与安全审计</td>
+<td style="text-align:left">提交 Pull Request 前的自检自查</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/reset</code></td>
+<td style="text-align:left">清理当前会话上下文，重新开始新任务</td>
+<td style="text-align:left">切换至无关的独立任务，避免上下文污染</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/compact</code></td>
+<td style="text-align:left">压缩当前长对话的历史上下文</td>
+<td style="text-align:left">遇到超长会话导致 Token 膨胀时保留关键摘要</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/help</code></td>
+<td style="text-align:left">查看 CLI 完整内置指令帮助手册</td>
+<td style="text-align:left">快速查阅支持的操作语法</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@&lt;filename&gt;</code></td>
+<td style="text-align:left">强制显式引用特定文件或目录至上下文</td>
+<td style="text-align:left">精确指定需要修改或参考的目标源码文件</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="四-多端形态概览与选型矩阵">四、 多端形态概览与选型矩阵</h2>
+<p>除了 CLI 终端版，Freebuff 还提供了另外三种形态，覆盖不同开发场景：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">产品形态</th>
+<th style="text-align:left">适配平台</th>
+<th style="text-align:left">核心定位</th>
+<th style="text-align:left">典型使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>CLI 终端版</strong></td>
+<td style="text-align:left">Windows / macOS / Linux (Node.js)</td>
+<td style="text-align:left">本地工程深度编码主力</td>
+<td style="text-align:left">资深开发者日常编码、终端排错、项目重构</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Desktop 桌面端</strong></td>
+<td style="text-align:left">原生安装包 (.exe / .dmg / .AppImage)</td>
+<td style="text-align:left">本地多 Agent 并发控制台</td>
+<td style="text-align:left">喜欢图形化 Diff 对比与多任务并行管理的开发者</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Web 生成器</strong></td>
+<td style="text-align:left">现代浏览器免安装</td>
+<td style="text-align:left">对话式全栈快速原型构建</td>
+<td style="text-align:left">零本地环境搭建，快速制作 Demo / Landing Page</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Cloud 工作区</strong></td>
+<td style="text-align:left">浏览器 + 绑定 GitHub</td>
+<td style="text-align:left">远程云端容器沙箱</td>
+<td style="text-align:left">随时随地云端修改 GitHub 仓库代码并提 PR</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="五-专属邀请与极速上手">五、 专属邀请与极速上手</h2>
+<p>Freebuff 依托创新的广告赞助模式，让每一位开发者都能免费享受到顶级 Multi-Agent 编码体验。如果您希望提升每日可用 Session 配额并解锁 GLM 高阶算力，欢迎通过以下专属通道注册：</p>
+<blockquote>
+<p>[!TIP]<br>
+📌 <strong>立即获取 Freebuff 完整体验资格（解锁全量模型池）</strong>：<br>
+点击专属链接完成接入，即刻开启免费 AI 编码之旅：<br>
+👉 <strong><a href="https://freebuff.com/?ref=ref-a3543149-12f0-4585-b6e0-c46e4def789b">https://freebuff.com/?ref=ref-a3543149-12f0-4585-b6e0-c46e4def789b</a></strong></p>
+</blockquote>
+<h3 id="3-步极速上手清单">3 步极速上手清单</h3>
+<ol>
+<li>点击上方专属邀请链接注册并激活账号；</li>
+<li>开启美区虚拟网卡（TUN 全局模式）；</li>
+<li>本地终端执行 <code>npm install -g freebuff</code>，进入项目目录键入 <code>freebuff</code>，输入 <code>/model</code> 挑选 GPT-5.6 Luna / DeepSeek 开始编码！</li>
+</ol>
+
+                        </div>
+                         
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://whitsats.github.io/post/spring-boot-ji-jian-he-xin-jiang-yi-ji-yu-intellij-idea-shi-zhan/">
+                                <h3 class="post-title">
+                                    Spring Boot 极简核心讲义 (基于 IntelliJ IDEA 实战)
+                                </h3>
+                            </a>
+                        </div>
+                          
+                        <div id="gitalk-container" data-aos="fade-in"></div>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            menuVisible: false,
+        },
+    });
+</script>
+
+
+<!-- Algolia Search -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/instantsearch.css@8/themes/satellite-min.css"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic@1.11.0/dist/theme.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.10.5/dist/algoliasearch-lite.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.78.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@1.19.1/dist/umd/index.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-query-suggestions@1.19.1/dist/umd/index.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-recent-searches@1.19.1/dist/umd/index.production.min.js"></script>
+
+<!-- Algolia Search Button and Container -->
+<div id="search-container">
+    <!-- 搜索按钮 -->
+    <div class="search-btn-wrapper">
+        <button id="search-toggle-btn" title="搜索">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>
+
+<!-- 搜索面板 (独立于按钮，居中显示) -->
+<div id="search-panel" class="hidden">
+    <div class="search-panel-content">
+        <div class="search-panel-header">
+            <h3>搜索</h3>
+            <button id="close-search-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="searchbox"></div>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+    </div>
+    <div class="search-panel-overlay"></div>
+</div>
+
+<script>
+    // Algolia Search Implementation
+    (function () {
+        const searchClient = algoliasearch(
+            "1VXCOCG7P2",
+            "35a939430a6999044879d9abf650cae7"
+        );
+        const search = instantsearch({
+            indexName: "whitsats_github_io_1vxcocg7p2_pages",
+            searchClient,
+            future: { preserveSharedStateOnUnmount: true },
+        });
+
+        // Connect virtual search box
+        const virtualSearchBox = instantsearch.connectors.connectSearchBox(
+            () => {}
+        );
+
+        search.addWidgets([
+            virtualSearchBox({}),
+            instantsearch.widgets.hits({
+                container: "#hits",
+                templates: {
+                    item: (hit, { html, components }) => html`
+                        <article>
+                            <a href="${hit.url}">
+                                <h3>
+                                    ${components.Highlight({
+                                        hit: hit,
+                                        attribute: "title",
+                                    })}
+                                </h3>
+                                <p>
+                                    ${components.Highlight({
+                                        hit: hit,
+                                        attribute: "description",
+                                    })}
+                                </p>
+                            </a>
+                        </article>
+                    `,
+                },
+            }),
+            instantsearch.widgets.configure({ hitsPerPage: 8 }),
+            instantsearch.widgets.pagination({ container: "#pagination" }),
+        ]);
+
+        search.start();
+
+        // Autocomplete implementation
+        const recentSearchesPlugin = window[
+            "@algolia/autocomplete-plugin-recent-searches"
+        ].createLocalStorageRecentSearchesPlugin({
+            key: "instantsearch",
+            limit: 3,
+            transformSource: ({ source }) => ({
+                ...source,
+                onSelect({ setIsOpen, setQuery, item, event }) {
+                    onSelect({ setQuery, setIsOpen, event, query: item.label });
+                },
+            }),
+        });
+
+        const querySuggestionsPlugin = window[
+            "@algolia/autocomplete-plugin-query-suggestions"
+        ].createQuerySuggestionsPlugin({
+            searchClient,
+            indexName: "instant_search_demo_query_suggestions",
+            getSearchParams: () =>
+                recentSearchesPlugin.data.getAlgoliaSearchParams({
+                    hitsPerPage: 6,
+                }),
+            transformSource: ({ source }) => ({
+                ...source,
+                sourceId: "querySuggestionsPlugin",
+                onSelect({ setIsOpen, setQuery, event, item }) {
+                    onSelect({ setQuery, setIsOpen, event, query: item.query });
+                },
+                getItems: (params) =>
+                    params.state.query ? source.getItems(params) : [],
+            }),
+        });
+
+        function setInstantSearchUiState(uiState) {
+            search.mainIndex.setIndexUiState({ page: 1, ...uiState });
+        }
+
+        function onSelect({ setIsOpen, setQuery, event, query }) {
+            if (isModifierEvent(event)) {
+                return;
+            }
+
+            setQuery(query);
+            setIsOpen(false);
+            setInstantSearchUiState({ query });
+        }
+
+        function isModifierEvent(event) {
+            return (
+                event.button === 1 ||
+                event.altKey ||
+                event.ctrlKey ||
+                event.metaKey ||
+                event.shiftKey
+            );
+        }
+
+        window["@algolia/autocomplete-js"].autocomplete({
+            container: "#searchbox",
+            openOnFocus: true,
+            detachedMediaQuery: "none",
+            onSubmit({ state }) {
+                setInstantSearchUiState({ query: state.query });
+            },
+            plugins: [recentSearchesPlugin, querySuggestionsPlugin],
+        });
+
+        // 搜索面板交互
+        document
+            .getElementById("search-toggle-btn")
+            .addEventListener("click", function (e) {
+                // 防止拖动时触发点击事件
+                if (e.target.classList.contains("dragging")) {
+                    return;
+                }
+                document
+                    .getElementById("search-panel")
+                    .classList.remove("hidden");
+                // 聚焦搜索框
+                setTimeout(() => {
+                    const searchInput = document.querySelector(".aa-Input");
+                    if (searchInput) {
+                        searchInput.focus();
+                    }
+                }, 100);
+            });
+
+        // 搜索按钮拖动功能
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let elementStartX = 0;
+        let elementStartY = 0;
+        let animationId = null;
+
+        const searchContainer = document.getElementById("search-container");
+        const searchBtn = document.getElementById("search-toggle-btn");
+
+        // 禁用拖动时的transition，提高性能
+        function disableTransition() {
+            searchContainer.style.transition = "none";
+        }
+
+        function enableTransition() {
+            searchContainer.style.transition = "all 0.2s ease";
+        }
+
+        // 鼠标拖动
+        searchBtn.addEventListener("mousedown", function (e) {
+            isDragging = false;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+
+            const rect = searchContainer.getBoundingClientRect();
+            elementStartX = rect.left;
+            elementStartY = rect.top;
+
+            searchBtn.classList.add("grabbing");
+            disableTransition();
+
+            document.addEventListener("mousemove", handleMouseMove, {
+                passive: false,
+            });
+            document.addEventListener("mouseup", handleMouseUp, {
+                passive: true,
+            });
+            e.preventDefault();
+        });
+
+        // 触摸拖动
+        searchBtn.addEventListener("touchstart", function (e) {
+            isDragging = false;
+            const touch = e.touches[0];
+            dragStartX = touch.clientX;
+            dragStartY = touch.clientY;
+
+            const rect = searchContainer.getBoundingClientRect();
+            elementStartX = rect.left;
+            elementStartY = rect.top;
+
+            searchBtn.classList.add("grabbing");
+            disableTransition();
+
+            document.addEventListener("touchmove", handleTouchMove, {
+                passive: false,
+            });
+            document.addEventListener("touchend", handleTouchEnd, {
+                passive: true,
+            });
+            e.preventDefault();
+        });
+
+        function handleMouseMove(e) {
+            const deltaX = e.clientX - dragStartX;
+            const deltaY = e.clientY - dragStartY;
+
+            if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+                if (!isDragging) {
+                    isDragging = true;
+                    searchBtn.classList.add("dragging");
+                }
+            }
+
+            if (isDragging) {
+                // 使用requestAnimationFrame确保流畅的拖动
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                animationId = requestAnimationFrame(() => {
+                    updatePosition(
+                        elementStartX + deltaX,
+                        elementStartY + deltaY
+                    );
+                });
+                e.preventDefault();
+            }
+        }
+
+        function handleTouchMove(e) {
+            const touch = e.touches[0];
+            const deltaX = touch.clientX - dragStartX;
+            const deltaY = touch.clientY - dragStartY;
+
+            if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+                if (!isDragging) {
+                    isDragging = true;
+                    searchBtn.classList.add("dragging");
+                }
+            }
+
+            if (isDragging) {
+                // 使用requestAnimationFrame确保流畅的拖动
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                animationId = requestAnimationFrame(() => {
+                    updatePosition(
+                        elementStartX + deltaX,
+                        elementStartY + deltaY
+                    );
+                });
+                e.preventDefault();
+            }
+        }
+
+        function handleMouseUp() {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+            finishDrag();
+        }
+
+        function handleTouchEnd() {
+            document.removeEventListener("touchmove", handleTouchMove);
+            document.removeEventListener("touchend", handleTouchEnd);
+            finishDrag();
+        }
+
+        function finishDrag() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+
+            searchBtn.classList.remove("grabbing");
+            enableTransition();
+
+            // 延迟移除dragging类，防止立即触发点击事件
+            setTimeout(() => {
+                searchBtn.classList.remove("dragging");
+            }, 100);
+        }
+
+        function updatePosition(x, y) {
+            // 获取视窗尺寸
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const containerSize = 46; // 按钮容器的实际大小
+
+            // 限制拖动范围，保持按钮完全在视窗内
+            x = Math.max(0, Math.min(x, viewportWidth - containerSize));
+            y = Math.max(0, Math.min(y, viewportHeight - containerSize));
+
+            // 使用transform而不是left/top，提高性能
+            searchContainer.style.transform = `translate(${x}px, ${y}px)`;
+            searchContainer.style.left = "0";
+            searchContainer.style.top = "0";
+            searchContainer.style.right = "auto";
+            searchContainer.style.bottom = "auto";
+
+            // 节流保存位置，避免频繁写入localStorage
+            clearTimeout(updatePosition.saveTimer);
+            updatePosition.saveTimer = setTimeout(() => {
+                localStorage.setItem(
+                    "searchButtonPosition",
+                    JSON.stringify({ x, y })
+                );
+            }, 500);
+        }
+
+        // 恢复保存的位置
+        function restorePosition() {
+            const savedPosition = localStorage.getItem("searchButtonPosition");
+            if (savedPosition) {
+                try {
+                    const { x, y } = JSON.parse(savedPosition);
+                    // 使用transform恢复位置
+                    searchContainer.style.transform = `translate(${x}px, ${y}px)`;
+                    searchContainer.style.left = "0";
+                    searchContainer.style.top = "0";
+                    searchContainer.style.right = "auto";
+                    searchContainer.style.bottom = "auto";
+                } catch (e) {
+                    console.log("Failed to restore search button position");
+                }
+            }
+        }
+
+        // 页面加载时恢复位置
+        window.addEventListener("load", restorePosition);
+
+        document
+            .getElementById("close-search-btn")
+            .addEventListener("click", function () {
+                document.getElementById("search-panel").classList.add("hidden");
+            });
+
+        // 点击遮罩层关闭搜索面板
+        document.addEventListener("DOMContentLoaded", function () {
+            const overlay = document.querySelector(".search-panel-overlay");
+            if (overlay) {
+                overlay.addEventListener("click", function () {
+                    document
+                        .getElementById("search-panel")
+                        .classList.add("hidden");
+                });
+            }
+
+            // 确保搜索容器始终可见
+            const searchContainer = document.getElementById("search-container");
+            if (searchContainer) {
+                // 将搜索容器添加到body末尾，确保它不会被其他元素影响
+                document.body.appendChild(searchContainer);
+            }
+
+            // 将搜索面板添加到body末尾
+            const searchPanel = document.getElementById("search-panel");
+            if (searchPanel) {
+                document.body.appendChild(searchPanel);
+            }
+        });
+
+        // 处理搜索完成后的状态
+        search.on("render", function () {
+            // 确保搜索按钮始终可见
+            const searchBtn = document.getElementById("search-toggle-btn");
+            if (searchBtn) {
+                searchBtn.style.display = "flex";
+            }
+        });
+
+        // 添加键盘快捷键 - 按ESC关闭搜索面板
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+                document.getElementById("search-panel").classList.add("hidden");
+            }
+
+            // 按Ctrl+K或Command+K打开搜索面板
+            if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+                e.preventDefault();
+                document
+                    .getElementById("search-panel")
+                    .classList.remove("hidden");
+                setTimeout(() => {
+                    const searchInput = document.querySelector(".aa-Input");
+                    if (searchInput) {
+                        searchInput.focus();
+                    }
+                }, 100);
+            }
+        });
+
+        // 防止搜索按钮被隐藏
+        window.addEventListener("load", function () {
+            const searchBtn = document.getElementById("search-toggle-btn");
+            if (searchBtn) {
+                searchBtn.style.display = "flex";
+            }
+        });
+    })();
+</script>
+
+<style>
+    /* 搜索容器样式 */
+    #search-container {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 99999;
+        transition: all 0.2s ease;
+        cursor: move;
+        cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    #search-container:active {
+        cursor: grabbing;
+    }
+
+    /* 搜索按钮包装器 */
+    .search-btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 搜索按钮样式 */
+    #search-toggle-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4a6cf7 0%, #8a63ff 100%);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        touch-action: none;
+        -webkit-user-drag: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #search-toggle-btn:hover:not(.dragging) {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #3a5ce6 0%, #7a53ef 100%);
+    }
+
+    #search-toggle-btn.grabbing {
+        cursor: grabbing;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #search-toggle-btn.dragging {
+        pointer-events: none;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 搜索面板样式 - 居中弹层 */
+    #search-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: all 0.3s ease;
+    }
+
+    #search-panel.hidden {
+        display: none;
+        opacity: 0;
+    }
+
+    /* 搜索面板内容 */
+    .search-panel-content {
+        width: 90%;
+        max-width: 600px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        position: relative;
+        z-index: 100001;
+        animation: fadeInUp 0.3s ease;
+    }
+
+    /* 搜索面板背景遮罩 */
+    .search-panel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 100000;
+    }
+
+    .search-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .search-panel-header h3 {
+        margin: 0;
+        font-size: 20px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    #close-search-btn {
+        background: none;
+        border: none;
+        color: #999;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 6px;
+        transition: all 0.2s ease;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+    }
+
+    #close-search-btn:hover {
+        color: #333;
+        background-color: #f5f5f5;
+    }
+
+    /* 搜索框样式优化 */
+    #searchbox {
+        margin-bottom: 16px;
+    }
+
+    #searchbox .aa-Form {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eaeaea;
+    }
+
+    #hits {
+        margin-top: 20px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    #hits article {
+        padding: 16px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        transition: all 0.2s ease;
+        border: 1px solid #eee;
+    }
+
+    #hits article:hover {
+        background: #f9f9f9;
+        border-color: #ddd;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    #hits article a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    #hits article h3 {
+        margin: 0 0 10px 0;
+        font-size: 17px;
+        color: #4a6cf7;
+        font-weight: 600;
+    }
+
+    #hits article p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    #pagination {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .search-panel-content {
+            width: 90%;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .search-panel-content {
+            width: 95%;
+            padding: 16px;
+        }
+
+        #search-toggle-btn {
+            width: 38px;
+            height: 38px;
+            font-size: 14px;
+        }
+    }
+</style>
+ 
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: "d19b57a9d148457156f3",
+        clientSecret: "86b7b765df5d01718ce8cec5c7ada56842e42e67",
+        repo: "issue",
+        owner: "whitsats",
+        admin: ["whitsats"],
+        id: location.pathname.substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false, // Facebook-like distraction free mode
+    });
+
+    gitalk.render("gitalk-container");
+</script>
+   
+
+<style>
+    #music-player {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        z-index: 99999;
+        transition: all 0.2s ease;
+    }
+
+    .mini-player {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 8px 12px;
+        border-radius: 24px;
+        color: #333;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: visible;
+
+        &:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .play-btn i {
+            color: #555;
+            transition: all 0.15s ease;
+        }
+
+        /* 确保子元素可以接收点击事件 */
+        .wave-animation,
+        .play-btn {
+            position: relative;
+            z-index: 1;
+            pointer-events: auto;
+        }
+
+        /* SVG进度边框样式 */
+        .progress-border {
+            overflow: visible;
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            filter: drop-shadow(0 2px 4px rgba(74, 108, 247, 0.2));
+            pointer-events: none; /* 使SVG不拦截鼠标事件 */
+        }
+
+        .progress-path {
+            transition: stroke-dasharray 0.1s linear;
+            stroke-linecap: round;
+        }
+    }
+
+    .wave-animation {
+        display: flex;
+        align-items: flex-end;
+        height: 20px;
+        margin-right: 8px;
+    }
+
+    .wave-bar {
+        width: 3px;
+        margin: 0 1px;
+        background: linear-gradient(to top, #4a6cf7, #8a63ff);
+        border-radius: 1.5px;
+        animation: wave 0.5s infinite alternate;
+    }
+
+    @keyframes wave {
+        from {
+            height: 3px;
+            opacity: 0.5;
+        }
+        to {
+            height: 15px;
+            opacity: 1;
+        }
+    }
+
+    .play-btn,
+    .expand-btn {
+        background: none;
+        border: none;
+        color: #555;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 10px;
+        transition: all 0.15s ease;
+
+        &:hover {
+            color: #4a6cf7;
+            transform: scale(1.05);
+        }
+    }
+
+    .full-player {
+        background: linear-gradient(
+            135deg,
+            rgba(74, 108, 247, 0.95) 0%,
+            rgba(138, 99, 255, 0.95) 100%
+        );
+        border-radius: 16px;
+        padding: 16px;
+        color: white;
+        width: 360px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 32px rgba(74, 108, 247, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .player-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .player-header .now-playing {
+        font-size: 14px;
+        opacity: 0.9;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 300px;
+    }
+
+    .player-header .now-playing.error {
+        opacity: 1;
+        color: #ffd7d7;
+    }
+
+    .player-header .shrink-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+
+    .player-header .shrink-btn:hover {
+        color: white;
+    }
+
+    .player-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .control-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .control-buttons button {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        padding: 8px;
+        border-radius: 50%;
+    }
+
+    .control-buttons button:hover {
+        color: white;
+    }
+
+    .control-buttons .play-btn {
+        font-size: 32px;
+    }
+
+    .control-buttons .prev-btn,
+    .control-buttons .next-btn {
+        font-size: 20px;
+        opacity: 0.8;
+    }
+
+    .progress-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 4px;
+    }
+
+    .progress-container span {
+        font-size: 12px;
+        opacity: 0.7;
+        min-width: 40px;
+    }
+
+    .progress-bar {
+        flex-grow: 1;
+        height: 4px;
+        appearance: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        transition: all 0.2s ease;
+    }
+
+    .progress-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 4px;
+    }
+
+    .volume-control i {
+        font-size: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .volume-control i:hover {
+        opacity: 1;
+    }
+
+    .volume-bar {
+        width: 80px;
+        height: 4px;
+        appearance: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+    }
+
+    .volume-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .playlist {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(74, 108, 247, 0.95) 0%,
+            rgba(138, 99, 255, 0.95) 100%
+        );
+        width: 360px;
+        max-height: 480px;
+        overflow-y: auto;
+        border-radius: 16px;
+        padding: 20px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 32px rgba(74, 108, 247, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .playlist::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .playlist::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+    }
+
+    .playlist-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .playlist-header h3 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .playlist-header .close-playlist {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.2s ease;
+    }
+
+    .playlist-header .close-playlist:hover {
+        color: white;
+    }
+
+    .song-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .song-list li {
+        padding: 12px 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        margin: 4px 0;
+        display: flex;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .song-list li .song-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .song-list li .song-artist {
+        margin-left: auto;
+        padding-left: 12px;
+        font-size: 12px;
+        opacity: 0.6;
+        white-space: nowrap;
+    }
+
+    .song-list li:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .song-list li.active {
+        background: rgba(74, 108, 247, 0.3);
+        font-weight: 500;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<div id="music-player">
+    <div class="mini-player">
+        <!-- SVG进度边框 -->
+        <svg
+            class="progress-border"
+            width="100%"
+            height="100%"
+            viewBox="0 0 104 44"
+            preserveAspectRatio="xMidYMid meet"
+        >
+            <rect
+                class="progress-path"
+                x="2"
+                y="2"
+                width="100"
+                height="40"
+                rx="20"
+                ry="20"
+                fill="none"
+                stroke="#4a6cf7"
+                stroke-width="2"
+                stroke-dasharray="0"
+                stroke-dashoffset="0"
+                pathLength="100"
+            />
+        </svg>
+        <div class="wave-animation" title="展开播放器"></div>
+        <button class="play-btn" aria-label="播放" title="播放 / 暂停"><i class="fas fa-play"></i></button>
+    </div>
+
+    <div class="full-player hidden">
+        <div class="player-header">
+            <div class="now-playing">正在播放：未选择歌曲</div>
+            <button class="shrink-btn" aria-label="收起播放器" title="收起播放器"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="player-controls">
+            <div class="progress-container">
+                <span class="current-time">0:00</span>
+                <input
+                    type="range"
+                    class="progress-bar"
+                    min="0"
+                    max="100"
+                    value="0"
+                    aria-label="播放进度"
+                />
+                <span class="duration">0:00</span>
+            </div>
+
+            <div class="control-buttons">
+                <button class="mode-btn" title="播放模式：列表循环（点击切换为随机播放）">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <button class="prev-btn" aria-label="上一曲" title="上一曲">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="play-btn" aria-label="播放" title="播放 / 暂停">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="next-btn" aria-label="下一曲" title="下一曲">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="playlist-btn" aria-label="播放列表" title="播放列表">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+
+            <div class="volume-control">
+                <i class="fas fa-volume-up" aria-label="静音" title="静音 / 取消静音"></i>
+                <input
+                    type="range"
+                    class="volume-bar"
+                    min="0"
+                    max="100"
+                    value="80"
+                    aria-label="音量"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="playlist hidden">
+        <div class="playlist-header">
+            <h3>播放列表</h3>
+            <button class="close-playlist" aria-label="关闭列表" title="关闭列表"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="song-list"></ul>
+    </div>
+</div>
+
+<script>
+    (function () {
+        if (window.__whPlayerV2Loaded) return;
+        window.__whPlayerV2Loaded = true;
+
+        var AUDIO_ROOT = "/images/audios";
+        var LS_KEY = "whPlayerV2State";
+
+        function esc(s) {
+            return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+                return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+            });
+        }
+
+        var musicPlayer = {
+            audio: new Audio(),
+            songs: [],
+            currentSongIndex: 0,
+            isPlaying: false,
+            playMode: "list", // list | random
+            currentLoadedSong: null,
+            lastVolume: 0.8,
+
+            init() {
+                this.audio.preload = "none";
+                this.loadSongs();
+                this.setupEventListeners();
+                this.createWaveAnimation();
+                this.updateNowPlaying();
+            },
+
+            loadState() {
+                try {
+                    return JSON.parse(localStorage.getItem(LS_KEY)) || {};
+                } catch (e) {
+                    return {};
+                }
+            },
+
+            saveState() {
+                try {
+                    localStorage.setItem(
+                        LS_KEY,
+                        JSON.stringify({
+                            index: this.currentSongIndex,
+                            mode: this.playMode,
+                            volume: this.audio.volume,
+                        })
+                    );
+                } catch (e) {
+                    /* 隐私模式等场景下静默失败 */
+                }
+            },
+
+            loadSongs() {
+                var self = this;
+                fetch(AUDIO_ROOT + "/list.json?v=" + Date.now(), { cache: "no-store" })
+                    .then(function (r) {
+                        if (!r.ok) throw new Error("HTTP " + r.status);
+                        return r.json();
+                    })
+                    .then(function (data) {
+                        self.songs = Array.isArray(data) ? data : [];
+                        var st = self.loadState();
+                        if (typeof st.volume === "number" && st.volume >= 0 && st.volume <= 1) {
+                            self.audio.volume = st.volume;
+                            var vb = document.querySelector(".volume-bar");
+                            if (vb) vb.value = Math.round(st.volume * 100);
+                        }
+                        if (st.mode === "random" || st.mode === "list") {
+                            self.playMode = st.mode;
+                            self.updateModeIcon();
+                        }
+                        if (Number.isInteger(st.index) && st.index >= 0 && st.index < self.songs.length) {
+                            self.currentSongIndex = st.index;
+                        }
+                        self.renderPlaylist();
+                        self.updateNowPlaying();
+                    })
+                    .catch(function () {
+                        self.showError("歌单加载失败，请稍后刷新重试");
+                    });
+            },
+
+            setupEventListeners() {
+                // 播放/暂停按钮
+                document.querySelectorAll(".play-btn").forEach(
+                    function (btn) {
+                        btn.addEventListener("click", function () {
+                            this.togglePlay();
+                        }.bind(this));
+                    }.bind(this)
+                );
+
+                // 上一曲/下一曲
+                document.querySelector(".prev-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.prevSong();
+                    }.bind(this)
+                );
+                document.querySelector(".next-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.nextSong();
+                    }.bind(this)
+                );
+
+                // 进度条
+                document.querySelector(".progress-bar").addEventListener(
+                    "input",
+                    function (e) {
+                        this.seek(e.target.value);
+                    }.bind(this)
+                );
+
+                // 音量控制
+                document.querySelector(".volume-bar").addEventListener(
+                    "input",
+                    function (e) {
+                        this.setVolume(e.target.value / 100);
+                    }.bind(this)
+                );
+
+                // 音量图标：静音切换
+                document.querySelector(".volume-control i").addEventListener(
+                    "click",
+                    function () {
+                        if (this.audio.volume > 0) {
+                            this.lastVolume = this.audio.volume;
+                            this.setVolume(0);
+                        } else {
+                            this.setVolume(this.lastVolume || 0.8);
+                        }
+                    }.bind(this)
+                );
+
+                // 播放模式
+                document.querySelector(".mode-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlayMode();
+                    }.bind(this)
+                );
+
+                // 音浪区域点击切换播放器大小
+                document.querySelector(".wave-animation").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlayerSize();
+                    }.bind(this)
+                );
+                document.querySelector(".shrink-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlayerSize();
+                    }.bind(this)
+                );
+
+                // 播放列表
+                document.querySelector(".playlist-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlaylist();
+                    }.bind(this)
+                );
+                document.querySelector(".close-playlist").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlaylist();
+                    }.bind(this)
+                );
+
+                // 音频事件
+                this.audio.addEventListener("timeupdate", function () {
+                    this.updateProgress();
+                }.bind(this));
+                this.audio.addEventListener("ended", function () {
+                    this.handleSongEnd();
+                }.bind(this));
+                this.audio.addEventListener("error", function () {
+                    if (this.audio.src) {
+                        this.showError("加载失败：" + this.currentSongName());
+                    }
+                }.bind(this));
+            },
+
+            createWaveAnimation() {
+                var waveContainer = document.querySelector(".wave-animation");
+                for (var i = 0; i < 5; i++) {
+                    var bar = document.createElement("div");
+                    bar.className = "wave-bar";
+                    waveContainer.appendChild(bar);
+                }
+                this.updateWaveAnimation();
+            },
+
+            updateWaveAnimation() {
+                var bars = document.querySelectorAll(".wave-bar");
+                bars.forEach(function (bar) {
+                    bar.style.height = Math.random() * 10 + 2 + "px";
+                    bar.style.animationDuration = Math.random() * 0.8 + 0.5 + "s";
+                });
+                if (this.isPlaying) {
+                    var self = this;
+                    requestAnimationFrame(function () {
+                        self.updateWaveAnimation();
+                    });
+                }
+            },
+
+            renderPlaylist() {
+                var songList = document.querySelector(".song-list");
+                songList.innerHTML = "";
+                var self = this;
+                this.songs.forEach(function (song, index) {
+                    var li = document.createElement("li");
+                    li.innerHTML =
+                        '<span class="song-name">' +
+                        esc(song.name) +
+                        '</span><span class="song-artist">' +
+                        esc(song.author || "") +
+                        "</span>";
+                    if (index === self.currentSongIndex && self.isPlaying) {
+                        li.classList.add("active");
+                    }
+                    li.addEventListener("click", function () {
+                        self.playSong(index);
+                        document.querySelector(".full-player").classList.remove("hidden");
+                        document.querySelector(".mini-player").classList.add("hidden");
+                    });
+                    songList.appendChild(li);
+                });
+            },
+
+            updatePlaylistActive() {
+                var self = this;
+                var items = document.querySelectorAll(".song-list li");
+                items.forEach(function (li, index) {
+                    li.classList.toggle("active", index === self.currentSongIndex && self.isPlaying);
+                });
+            },
+
+            currentSongName() {
+                return this.songs[this.currentSongIndex] ? this.songs[this.currentSongIndex].name : "";
+            },
+
+            togglePlay() {
+                if (this.isPlaying) {
+                    this.pause();
+                } else {
+                    this.play();
+                }
+            },
+
+            play() {
+                if (this.songs.length === 0) return;
+                var self = this;
+                var song = this.songs[this.currentSongIndex];
+                var src = (song.src || "").replace(/^\.?\//, "");
+                var url = AUDIO_ROOT + "/" + src;
+                if (this.currentLoadedSong !== url) {
+                    this.audio.src = url;
+                    this.currentLoadedSong = url;
+                }
+                this.audio.play().then(
+                    function () {
+                        self.isPlaying = true;
+                        self.setPlayIcons(true);
+                        self.updateWaveAnimation();
+                        self.updateNowPlaying();
+                        self.updatePlaylistActive();
+                        self.updateMediaSession();
+                        self.saveState();
+                    },
+                    function () {
+                        self.isPlaying = false;
+                        self.setPlayIcons(false);
+                        self.showError("播放失败：" + song.name);
+                    }
+                );
+            },
+
+            pause() {
+                this.audio.pause();
+                this.isPlaying = false;
+                this.setPlayIcons(false);
+                this.updatePlaylistActive();
+            },
+
+            setPlayIcons(playing) {
+                document.querySelectorAll(".play-btn i").forEach(function (icon) {
+                    icon.className = playing ? "fas fa-pause" : "fas fa-play";
+                });
+                document.querySelectorAll(".play-btn").forEach(function (btn) {
+                    btn.setAttribute("aria-label", playing ? "暂停" : "播放");
+                });
+            },
+
+            setVolume(v) {
+                this.audio.volume = v;
+                var vb = document.querySelector(".volume-bar");
+                if (vb) vb.value = Math.round(v * 100);
+                var icon = document.querySelector(".volume-control i");
+                if (icon) {
+                    icon.className = v > 0 ? "fas fa-volume-up" : "fas fa-volume-mute";
+                }
+                this.saveState();
+            },
+
+            prevSong() {
+                this.currentSongIndex =
+                    (this.currentSongIndex - 1 + this.songs.length) % this.songs.length;
+                this.currentLoadedSong = null;
+                this.play();
+            },
+
+            nextSong() {
+                if (this.playMode === "random" && this.songs.length > 1) {
+                    var i;
+                    do {
+                        i = Math.floor(Math.random() * this.songs.length);
+                    } while (i === this.currentSongIndex);
+                    this.currentSongIndex = i;
+                } else {
+                    this.currentSongIndex = (this.currentSongIndex + 1) % this.songs.length;
+                }
+                this.currentLoadedSong = null;
+                this.play();
+            },
+
+            playSong(index) {
+                this.currentSongIndex = index;
+                this.currentLoadedSong = null;
+                this.play();
+            },
+
+            seek(percent) {
+                if (!isFinite(this.audio.duration) || this.audio.duration <= 0) return;
+                var p = Math.max(0, Math.min(100, percent));
+                this.audio.currentTime = (p / 100) * this.audio.duration;
+            },
+
+            updateProgress() {
+                if (!isFinite(this.audio.duration)) return;
+                var progress = (this.audio.currentTime / this.audio.duration) * 100;
+                document.querySelector(".progress-bar").value = progress || 0;
+                document.querySelector(".current-time").textContent = this.formatTime(this.audio.currentTime);
+                document.querySelector(".duration").textContent = this.formatTime(this.audio.duration);
+
+                var progressPath = document.querySelector(".progress-path");
+                var progressBorder = document.querySelector(".progress-border");
+                if (progressPath) {
+                    var pathLength = 100;
+                    var dashArray = progress + " " + (pathLength - progress);
+                    progressPath.style.strokeDasharray = dashArray;
+                    if (progress >= 99.5) {
+                        progressPath.style.stroke = "#4a6cf7";
+                        progressPath.style.strokeWidth = "2.5";
+                        progressPath.style.strokeDasharray = "100 0";
+                        document.querySelector(".mini-player").style.borderColor = "transparent";
+                        if (progressBorder) {
+                            progressBorder.style.filter = "drop-shadow(0 2px 6px rgba(74, 108, 247, 0.4))";
+                        }
+                    } else {
+                        progressPath.style.stroke = "#4a6cf7";
+                        document.querySelector(".mini-player").style.borderColor = "rgba(0, 0, 0, 0.05)";
+                        if (progressBorder) {
+                            progressBorder.style.filter = "drop-shadow(0 2px 4px rgba(74, 108, 247, 0.2))";
+                        }
+                    }
+                }
+            },
+
+            formatTime(seconds) {
+                if (isNaN(seconds) || seconds === undefined) return "0:00";
+                var mins = Math.floor(seconds / 60);
+                var secs = Math.floor(seconds % 60);
+                return mins + ":" + (secs < 10 ? "0" : "") + secs;
+            },
+
+            handleSongEnd() {
+                this.nextSong();
+            },
+
+            updateNowPlaying() {
+                var el = document.querySelector(".now-playing");
+                el.classList.remove("error");
+                el.textContent = this.currentSongName()
+                    ? "正在播放：" + this.currentSongName()
+                    : "正在播放：未选择歌曲";
+            },
+
+            showError(msg) {
+                var el = document.querySelector(".now-playing");
+                el.classList.add("error");
+                el.textContent = msg;
+            },
+
+            updateMediaSession() {
+                if (!("mediaSession" in navigator)) return;
+                var song = this.songs[this.currentSongIndex];
+                if (!song) return;
+                try {
+                    navigator.mediaSession.metadata = new MediaMetadata({
+                        title: song.name || "",
+                        artist: song.author || "",
+                        album: "W'Blog 音乐",
+                    });
+                } catch (e) {
+                    /* 浏览器不支持时静默跳过 */
+                }
+            },
+
+            togglePlayMode() {
+                this.playMode = this.playMode === "list" ? "random" : "list";
+                this.updateModeIcon();
+                this.saveState();
+            },
+
+            updateModeIcon() {
+                var btn = document.querySelector(".mode-btn");
+                var icon = btn.querySelector("i");
+                icon.className = this.playMode === "list" ? "fas fa-redo" : "fas fa-random";
+                btn.title =
+                    this.playMode === "list"
+                        ? "播放模式：列表循环（点击切换为随机播放）"
+                        : "播放模式：随机播放（点击切换为列表循环）";
+            },
+
+            togglePlayerSize() {
+                document.querySelector(".mini-player").classList.toggle("hidden");
+                document.querySelector(".full-player").classList.toggle("hidden");
+            },
+
+            togglePlaylist() {
+                document.querySelector(".playlist").classList.toggle("hidden");
+            },
+        };
+
+        musicPlayer.init();
+    })();
+</script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({ startOnLoad: false, theme: 'default' });
+            document.querySelectorAll('pre > code.language-mermaid').forEach(function(block) {
+                var pre = block.parentNode;
+                var div = document.createElement('div');
+                div.className = 'mermaid';
+                div.textContent = block.textContent;
+                pre.parentNode.replaceChild(div, pre);
+            });
+            mermaid.init(undefined, '.mermaid');
+        </script>
+    </body>
+</html>

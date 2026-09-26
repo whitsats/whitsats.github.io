@@ -1,0 +1,1877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://whitsats.github.io/</id>
+    <title>W&apos;Blog</title>
+    <updated>2026-09-26T11:30:03.447Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://whitsats.github.io/"/>
+    <link rel="self" href="https://whitsats.github.io/atom.xml"/>
+    <subtitle>兴趣是最好的老师</subtitle>
+    <logo>https://whitsats.github.io/images/avatar.png</logo>
+    <icon>https://whitsats.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2026, W&apos;Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[我的三个开源笔记仓库：AI 教材 · SDD 课程 · LangGraph 教程]]></title>
+        <id>https://whitsats.github.io/post/my-note-repos/</id>
+        <link href="https://whitsats.github.io/post/my-note-repos/">
+        </link>
+        <updated>2026-09-26T08:49:21.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>把这几年沉淀的讲义、示例和实战案例整理成了三个开源仓库：从 AI 应用开发教材，到规格驱动开发课程，再到 LangGraph 智能体教程——篇篇有源码，章章可运行。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://whitsats.github.io//post-images/hero.png" alt="三个笔记仓库总览" loading="lazy"></figure>
+<h2 id="一-ai-dev-textbookai-应用开发教材就业向">📚 一、ai-dev-textbook：AI 应用开发教材（就业向）</h2>
+<figure data-type="image" tabindex="2"><img src="https://whitsats.github.io//post-images/repo-ai-dev-textbook.png" alt="ai-dev-textbook" loading="lazy"></figure>
+<p>面向就业的 AI 应用开发教材：10 篇 69 章，配套六棵可运行的示例树，还有一套把全书手写的数字接进提交门的&quot;对账工具链&quot;。</p>
+<ul>
+<li>🎯 定位：看得懂的就业向教材，不是 API 文档翻译</li>
+<li>🌲 结构：10 大篇 · 69 章 · 六棵示例树随章演进</li>
+<li>✅ 质量：数字可对账、代码可运行、提交可门禁</li>
+</ul>
+<p>👉 仓库：<a href="https://github.com/whitsats/ai-dev-textbook">github.com/whitsats/ai-dev-textbook</a>　|　🌐 在线阅读：<a href="https://whitsats.github.io/ai-dev-textbook/">whitsats.github.io/ai-dev-textbook</a></p>
+<h2 id="二-sdd-coursesdd规格驱动开发实战精修课">🧭 二、sdd-course：SDD（规格驱动开发）实战精修课</h2>
+<figure data-type="image" tabindex="3"><img src="https://whitsats.github.io//post-images/repo-sdd-course.png" alt="sdd-course" loading="lazy"></figure>
+<p>规格驱动开发实战课：13 节讲义 + 3 个递进案例，全部附真实产物，门禁脚本可以直接接进 CI。</p>
+<ul>
+<li>📐 理念：先规格后代码，让 AI 编码有章可循</li>
+<li>🧪 案例：3 个由浅入深、层层递进的实战案例</li>
+<li>🚦 门禁：可接入 CI 的自动化检查脚本</li>
+</ul>
+<p>👉 仓库：<a href="https://github.com/whitsats/sdd-course">github.com/whitsats/sdd-course</a>　|　🌐 在线阅读：<a href="https://whitsats.github.io/sdd-course/">whitsats.github.io/sdd-course</a></p>
+<h2 id="三-langgraph-agent-courselanggraph-智能体开发教程">🤖 三、langgraph-agent-course：LangGraph 智能体开发教程</h2>
+<figure data-type="image" tabindex="4"><img src="https://whitsats.github.io//post-images/repo-langgraph-agent-course.png" alt="langgraph-agent-course" loading="lazy"></figure>
+<p>LangChain + LangGraph 智能体开发教程：14 章讲义 + 14 个可运行示例，附一个用于毕业项目重写的 CrewAI 案例工程。</p>
+<ul>
+<li>🦜 链路：从 Chain 到 Graph，从单 Agent 到多 Agent</li>
+<li>▶️ 示例：每章一个可直接 <code>python</code> 跑起来的示例</li>
+<li>🎓 毕业项目：CrewAI 案例工程带你走完最后一公里</li>
+</ul>
+<p>👉 仓库：<a href="https://github.com/whitsats/langgraph-agent-course">github.com/whitsats/langgraph-agent-course</a>　|　🌐 在线阅读：<a href="https://whitsats.github.io/langgraph-agent-course/">whitsats.github.io/langgraph-agent-course</a></p>
+<h2 id="️-怎么选">🗺️ 怎么选？</h2>
+<table>
+<thead>
+<tr>
+<th>你想……</th>
+<th>推荐仓库</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统补齐 AI 应用开发知识栈、准备求职</td>
+<td>ai-dev-textbook</td>
+</tr>
+<tr>
+<td>学习用规格驱动的方式驾驭 AI 编码</td>
+<td>sdd-course</td>
+</tr>
+<tr>
+<td>上手智能体开发、吃透 LangGraph</td>
+<td>langgraph-agent-course</td>
+</tr>
+</tbody>
+</table>
+<p>三个仓库互相独立，也互为表里：教材打底、课程立方法、教程练实战。欢迎 Star、提 Issue、提 PR。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[完全免费的 AI 辅助编码 Agent：Freebuff 架构解析、多端形态与工程落地指南]]></title>
+        <id>https://whitsats.github.io/post/wan-quan-mian-fei-de-ai-fu-zhu-bian-ma-agentfreebuff-jia-gou-jie-xi-duo-duan-xing-tai-yu-gong-cheng-luo-di-zhi-nan/</id>
+        <link href="https://whitsats.github.io/post/wan-quan-mian-fei-de-ai-fu-zhu-bian-ma-agentfreebuff-jia-gou-jie-xi-duo-duan-xing-tai-yu-gong-cheng-luo-di-zhi-nan/">
+        </link>
+        <updated>2026-08-28T06:32:14.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p><strong>摘要</strong>：在 Claude Code、Cursor、Windsurf 等工具订阅费用与 API Token 消耗居高不下的当下，基于 Codebuff 多智能体框架的 <strong>Freebuff</strong> 凭借“广告赞助覆盖成本、100% 免费使用”的模式迅速引发开发者关注。本文重点剖析 Freebuff 的<strong>免费额度机制、美区虚拟网卡激活 Full Mode 的核心技巧、多模型分级梯度、全端配额打通规则</strong>，并提供一份保姆级的 <strong>Freebuff CLI 终端工程化实战指南</strong>。</p>
+<p>🔗 <strong>官方注册与接入入口</strong>：<a href="https://freebuff.com/?ref=ref-a3543149-12f0-4585-b6e0-c46e4def789b">Freebuff 官方平台（含邀请直达）</a></p>
+</blockquote>
+<hr>
+<h2 id="一-核心定位与多智能体架构简述">一、 核心定位与多智能体架构（简述）</h2>
+<p>Freebuff 并非单纯的模型套壳，其底层基于开源多智能体框架 <code>CodebuffAI/codebuff</code>，通过将复杂的编码任务拆解至不同的专精子智能体（如定位代码上下文的 <code>file-picker</code>、深度推演逻辑的 <code>thinker</code>、生成代码 Diff 的 <code>code-editor</code> 以及终端审查的 <code>code-reviewer</code>），实现端到端的自主代码变更。</p>
+<pre><code class="language-mermaid">flowchart LR
+    User[&quot;开发者指令 (CLI / Web)&quot;] --&gt; Orchestrator[&quot;Codebuff 调度主控&quot;]
+    Orchestrator --&gt; Subagents[&quot;9+ 专精子智能体集群&lt;br/&gt;(Thinker / FilePicker / Editor / Reviewer)&quot;]
+    Subagents --&gt; ModelPool[&quot;模型调度池&lt;br/&gt;(Luna / DeepSeek / MiMo / GLM)&quot;]
+    ModelPool --&gt; Execution[&quot;本地文件改写 &amp; 终端执行&quot;]
+</code></pre>
+<hr>
+<h2 id="二-免费额度-模型梯度与美区虚拟网卡限制核心必读">二、 免费额度、模型梯度与美区虚拟网卡限制（核心必读）</h2>
+<p>许多开发者首次使用 Freebuff 时会发现只能使用单一的 MiMo 模型且 Session 次数极少，这是由于网络环境未满足全功能判定所致。深入理解其<strong>网络判定机制</strong>与<strong>模型梯度池</strong>是顺畅使用的前提。</p>
+<h3 id="21-网络环境关键技巧开启美区虚拟网卡tun-模式">2.1 网络环境关键技巧：开启美区虚拟网卡（TUN 模式）</h3>
+<p>Freebuff 内置严格的地域与代理流量检测逻辑，并划分了两种截然不同的运行模式：</p>
+<figure data-type="image" tabindex="1"><img src="https://whitsats.github.io//post-images/1787901330779.png" alt="" loading="lazy"></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运行模式</th>
+<th style="text-align:left">网络触发条件</th>
+<th style="text-align:left">开放模型池</th>
+<th style="text-align:left">额度与 Session 限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Full Mode（全功能模式）</strong></td>
+<td style="text-align:left"><strong>开启美区虚拟网卡（TUN 模式）</strong>，接管终端全局流量</td>
+<td style="text-align:left"><strong>全部模型解锁</strong>：GPT-5.6 Luna、GLM 5.3 Flash、DeepSeek V4 Flash、MiMo 2.5</td>
+<td style="text-align:left">享有每日 5 次 Premium 独立 Session + 两个 Unlimited 无限模型</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Limited Mode（受限模式）</strong></td>
+<td style="text-align:left">未开启虚拟网卡、普通网页代理或非白名单地区直连</td>
+<td style="text-align:left"><strong>仅限单一 MiMo 2.5 模型</strong>，高端模型全部锁定不可选</td>
+<td style="text-align:left">Session 每日严重缩减（仅 3 次或更低）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!IMPORTANT]<br>
+<strong>关键避坑指南（国内开发者必看）</strong>：<br>
+终端（CLI）发起的 HTTP/WebSocket 流量通常不经过浏览器常规代理插件。<strong>必须开启代理客户端的“虚拟网卡 / TUN 模式（美区节点）”</strong>，实现全系统流量接管，Freebuff 才能正确识别并激活完备的 <strong>Full Mode</strong>。</p>
+</blockquote>
+<hr>
+<h3 id="22-真实的模型分级与-session-计量矩阵">2.2 真实的模型分级与 Session 计量矩阵</h3>
+<p>从实测的控制面板可以看到，Freebuff 将模型划分为三大清晰层级：</p>
+<pre><code class="language-mermaid">graph TD
+    A[Freebuff 全功能模型矩阵] --&gt; B[&quot;1. PREMIUM 旗舰层 (每日 5 Sessions)&quot;]
+    A --&gt; C[&quot;2. UNLIMITED 无限层 (完全不扣 Session)&quot;]
+    A --&gt; D[&quot;3. REFERRAL 邀请解锁层 (专属高阶模型)&quot;]
+
+    B --&gt; B1[&quot;GPT-5.6 Luna (综合主力 / 高推理 / 支持图片)&quot;]
+    B --&gt; B2[&quot;GLM 5.3 Flash (深度推理 / 支持图片 / 每日 2 次独立试用)&quot;]
+
+    C --&gt; C1[&quot;DeepSeek V4 Flash 07/31 (智能极速 / 轮换限时开放)&quot;]
+    C --&gt; C2[&quot;MiMo 2.5 (均衡稳健 / 支持图片 / 完全无限次保底)&quot;]
+
+    D --&gt; D1[&quot;GLM 5.2 顶级开源模型 (邀请好友即可解锁)&quot;]
+    D --&gt; D2[&quot;Earn Trust 机制 (额外累加更多每日可用 Sessions)&quot;]
+</code></pre>
+<h4 id="1-premium-旗舰层每日-5-个会话窗口">1. PREMIUM 旗舰层（每日 5 个会话窗口）</h4>
+<ul>
+<li><strong>Session 机制</strong>：标准账户每日重置 <strong>5 个 Session</strong>（每个 Session 约 1 小时连续开发窗口，例如 <code>0 of 5 used · resets in 23h 55m</code>）。</li>
+<li><strong>GPT-5.6 Luna</strong>：全能主力旗舰，具备高推理能力（Reasoning: high）并支持图像多模态输入，适用于复杂全栈重构与算法编写。</li>
+<li><strong>GLM 5.3 Flash</strong>：深度推理模型（Deep reasoning + Images），当前官方提供每天 2 次独立试用 Session。</li>
+</ul>
+<h4 id="2-unlimited-无限层完全不消耗-5-次-premium-配额">2. UNLIMITED 无限层（完全不消耗 5 次 Premium 配额）</h4>
+<ul>
+<li><strong>DeepSeek V4 Flash 07/31</strong>：<code>Smart &amp; Fast · Reasoning: high</code>，擅长代码推演与快速修 Bug，特定时段开放（如 Back at 18:00），完全不占用 5 次 Premium 额度。</li>
+<li><strong>MiMo 2.5</strong>：<code>Balanced · Images</code>，表现均衡且支持多模态，属于永久保底的无限次模型。</li>
+</ul>
+<h4 id="3-referral-邀请与任务奖励glm-52-与额度提升">3. REFERRAL 邀请与任务奖励（GLM 5.2 与额度提升）</h4>
+<ul>
+<li><strong>解锁 GLM 5.2</strong>：界面提示 <code>✦ Refer friends → GLM 5.2, top open-source model</code>，通过分享邀请链接邀请好友注册，即可直接解锁顶级开源模型 GLM 5.2 的调用权限。</li>
+<li><strong>提升 Session 上限</strong>：参与平台的 <code>Earn Trust</code> 互动任务与好友邀请，每日可用的 Session 配额可从基础的 5 次进一步提升（最高可达 7+ 次）。</li>
+</ul>
+<hr>
+<h3 id="23-订阅管理与额度扩容方案全端打通">2.3 订阅管理与额度扩容方案（全端打通）</h3>
+<p>除了每日免费赠送的 5 个 Session 与保底无限模型外，Freebuff 在订阅后台（<code>settings?tab=subscription</code>）也为重度高频开发者提供了高性价比的会话扩容方案：</p>
+<blockquote>
+<p>[!TIP]<br>
+<strong>免费优先原则（Free Sessions Always Used First）</strong>：<br>
+无论用户是否购买付费套餐，系统<strong>每天永远优先消耗免费赠送的 5 个 Session</strong>；付费购买的额外时间仅在免费额度耗尽后才会接替扣除。</p>
+</blockquote>
+<h4 id="付费扩展档位对比表">付费扩展档位对比表</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方案名称</th>
+<th style="text-align:left">首月优惠价 / 常规价格</th>
+<th style="text-align:left">每日额外新增时长</th>
+<th style="text-align:left">月度累计新增时长</th>
+<th style="text-align:left">等效 Token 价值</th>
+<th style="text-align:left">核心适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Free 免费版</strong></td>
+<td style="text-align:left"><strong>$0 / 永久免费</strong></td>
+<td style="text-align:left">5 次/天 会话 (~5小时)</td>
+<td style="text-align:left">基础 150 小时/月</td>
+<td style="text-align:left">广告赞助覆盖</td>
+<td style="text-align:left">日常模块开发、个人开源项目、代码审查</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Starter 进阶版</strong></td>
+<td style="text-align:left"><strong>$5 首月</strong>（次月 $8/月）</td>
+<td style="text-align:left"><strong>+3 小时 / 天</strong> 旗舰模型</td>
+<td style="text-align:left">+50 小时 / 月</td>
+<td style="text-align:left">约 $40 Token（5倍超值）</td>
+<td style="text-align:left">每天有多段集中编码需求的独立开发者</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Plus 专业版</strong></td>
+<td style="text-align:left"><strong>$22 首月</strong>（次月 $25/月）</td>
+<td style="text-align:left"><strong>+7 小时 / 天</strong> 旗舰模型</td>
+<td style="text-align:left">+125 小时 / 月</td>
+<td style="text-align:left">约 $100 Token（4倍超值）</td>
+<td style="text-align:left">全职高强度开发、重度重构与团队全天候使用</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>多端额度统一打通</strong>：<code>Sessions work everywhere — Web, Desktop and the CLI share one allowance</code>。用户账号下的 Session 额度在 CLI 终端、Desktop 客户端与 Web 生成器之间完全同步共享，无需分端重复配置。</p>
+</blockquote>
+<hr>
+<h2 id="三-freebuff-cli-深度实战指南核心操作">三、 Freebuff CLI 深度实战指南（核心操作）</h2>
+<p>Freebuff 的核心生产力形态是其命令行工具（CLI）。它直接内嵌在本地终端中，拥有读取本地代码、生成 Diff 并执行测试命令的完整权限。</p>
+<h3 id="31-环境准备与一键安装">3.1 环境准备与一键安装</h3>
+<p>Freebuff CLI 依赖 Node.js 环境（要求 Node.js 18 及以上版本）。</p>
+<pre><code class="language-bash"># 1. 检查本地 Node.js 版本
+node -v   # 建议 &gt;= v18.0.0
+
+# 2. 全局安装 Freebuff CLI
+npm install -g freebuff
+
+# 3. 验证安装是否成功
+freebuff --version
+</code></pre>
+<h3 id="32-首次启动与身份认证">3.2 首次启动与身份认证</h3>
+<ol>
+<li><strong>开启美区虚拟网卡（TUN 全局模式）</strong>；</li>
+<li>进入本地待开发工程的根目录并启动：<pre><code class="language-bash">cd ~/my-project
+freebuff
+</code></pre>
+</li>
+<li><strong>浏览器 OAuth 鉴权</strong>：终端首次运行时会输出授权链接并自动调起浏览器，使用 GitHub 或 Google 账号登录完成绑定即可。</li>
+</ol>
+<hr>
+<h3 id="33-核心指令与标准工程工作流">3.3 核心指令与标准工程工作流</h3>
+<p>在实际项目演进中，严禁随意输入模糊提示词让 AI 大面积盲写。Freebuff 设计了一套标准的阶段式命令，保障代码修改安全可控：</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    actor Dev as 开发者
+    participant CLI as Freebuff 终端
+    participant Agent as 智能体集群
+    participant Workspace as 本地代码库
+
+    Dev-&gt;&gt;CLI: 1. 执行 /interview (需求对齐)
+    CLI-&gt;&gt;Agent: 交互式澄清边界与入参规范
+    Agent--&gt;&gt;Dev: 确认功能设计契约
+    Dev-&gt;&gt;CLI: 2. 执行 /plan (生成方案)
+    CLI-&gt;&gt;Agent: 定位受影响文件并生成执行计划
+    Agent--&gt;&gt;Dev: 呈现涉及的文件路径与改动清单
+    Dev-&gt;&gt;CLI: 3. 确认执行修改 (Proceed)
+    CLI-&gt;&gt;Workspace: 应用代码变更并输出 Unified Diff
+    Dev-&gt;&gt;CLI: 4. 执行 /review (代码走查)
+    CLI-&gt;&gt;Agent: 审计潜在 Bug 与破坏性变更
+    Agent--&gt;&gt;Dev: 输出审计结果与优化建议
+</code></pre>
+<h4 id="step-1-需求对齐与契约澄清-interview">Step 1: 需求对齐与契约澄清 (<code>/interview</code>)</h4>
+<p>在着手大功能前，输入 <code>/interview</code> 启动交互式采访模式。智能体会根据你的初步想法，反向提出关键技术决策问题（如：状态持久化方案、错误码规范、依赖包版本兼容等），确保开发边界清晰。</p>
+<h4 id="step-2-方案推演与实施规划-plan">Step 2: 方案推演与实施规划 (<code>/plan</code>)</h4>
+<p>输入 <code>/plan &lt;具体改动目标&gt;</code>。此时 <code>thinker</code> 与 <code>file-picker</code> 智能体会通读相关代码，输出一份详细的实施规划文档，标明涉及的每一处文件与函数改动，但<strong>暂不修改磁盘文件</strong>，供开发者审阅。</p>
+<h4 id="step-3-代码自动实施与-unified-diff-校验">Step 3: 代码自动实施与 Unified Diff 校验</h4>
+<p>在确认 Plan 方案可行后，输入确认指令。<code>code-editor</code> 智能体会生成精准的 Diff 补丁并落盘。终端会高亮展示修改差异（Green/Red 增删行），方便开发者直观比对。</p>
+<h4 id="step-4-代码质量走查与静态审计-review">Step 4: 代码质量走查与静态审计 (<code>/review</code>)</h4>
+<p>在功能完成后，输入 <code>/review</code>。智能体会自动比对本次会话的所有 <code>git diff</code>，检查是否存在未处理的异常分支、内存泄露隐患或命名规范问题。</p>
+<hr>
+<h3 id="34-cli-常用快捷命令与高级技巧">3.4 CLI 常用快捷命令与高级技巧</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">常用命令 / 语法</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">典型应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>/model</code></td>
+<td style="text-align:left">弹出模型选择面板，动态切换当前使用的底层大模型</td>
+<td style="text-align:left">复杂架构推演时切至 Luna/DeepSeek，普通小修切至 MiMo</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/interview</code></td>
+<td style="text-align:left">启动需求澄清会话，明确功能契约与边界</td>
+<td style="text-align:left">复杂业务逻辑开发前的设计对齐</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/plan</code></td>
+<td style="text-align:left">制定多文件修改的实施计划</td>
+<td style="text-align:left">大规模代码重构或新增独立模块</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/review</code></td>
+<td style="text-align:left">针对当前代码变更进行静态质量与安全审计</td>
+<td style="text-align:left">提交 Pull Request 前的自检自查</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/reset</code></td>
+<td style="text-align:left">清理当前会话上下文，重新开始新任务</td>
+<td style="text-align:left">切换至无关的独立任务，避免上下文污染</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/compact</code></td>
+<td style="text-align:left">压缩当前长对话的历史上下文</td>
+<td style="text-align:left">遇到超长会话导致 Token 膨胀时保留关键摘要</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/help</code></td>
+<td style="text-align:left">查看 CLI 完整内置指令帮助手册</td>
+<td style="text-align:left">快速查阅支持的操作语法</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@&lt;filename&gt;</code></td>
+<td style="text-align:left">强制显式引用特定文件或目录至上下文</td>
+<td style="text-align:left">精确指定需要修改或参考的目标源码文件</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="四-多端形态概览与选型矩阵">四、 多端形态概览与选型矩阵</h2>
+<p>除了 CLI 终端版，Freebuff 还提供了另外三种形态，覆盖不同开发场景：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">产品形态</th>
+<th style="text-align:left">适配平台</th>
+<th style="text-align:left">核心定位</th>
+<th style="text-align:left">典型使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>CLI 终端版</strong></td>
+<td style="text-align:left">Windows / macOS / Linux (Node.js)</td>
+<td style="text-align:left">本地工程深度编码主力</td>
+<td style="text-align:left">资深开发者日常编码、终端排错、项目重构</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Desktop 桌面端</strong></td>
+<td style="text-align:left">原生安装包 (.exe / .dmg / .AppImage)</td>
+<td style="text-align:left">本地多 Agent 并发控制台</td>
+<td style="text-align:left">喜欢图形化 Diff 对比与多任务并行管理的开发者</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Web 生成器</strong></td>
+<td style="text-align:left">现代浏览器免安装</td>
+<td style="text-align:left">对话式全栈快速原型构建</td>
+<td style="text-align:left">零本地环境搭建，快速制作 Demo / Landing Page</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Cloud 工作区</strong></td>
+<td style="text-align:left">浏览器 + 绑定 GitHub</td>
+<td style="text-align:left">远程云端容器沙箱</td>
+<td style="text-align:left">随时随地云端修改 GitHub 仓库代码并提 PR</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="五-专属邀请与极速上手">五、 专属邀请与极速上手</h2>
+<p>Freebuff 依托创新的广告赞助模式，让每一位开发者都能免费享受到顶级 Multi-Agent 编码体验。如果您希望提升每日可用 Session 配额并解锁 GLM 高阶算力，欢迎通过以下专属通道注册：</p>
+<blockquote>
+<p>[!TIP]<br>
+📌 <strong>立即获取 Freebuff 完整体验资格（解锁全量模型池）</strong>：<br>
+点击专属链接完成接入，即刻开启免费 AI 编码之旅：<br>
+👉 <strong><a href="https://freebuff.com/?ref=ref-a3543149-12f0-4585-b6e0-c46e4def789b">https://freebuff.com/?ref=ref-a3543149-12f0-4585-b6e0-c46e4def789b</a></strong></p>
+</blockquote>
+<h3 id="3-步极速上手清单">3 步极速上手清单</h3>
+<ol>
+<li>点击上方专属邀请链接注册并激活账号；</li>
+<li>开启美区虚拟网卡（TUN 全局模式）；</li>
+<li>本地终端执行 <code>npm install -g freebuff</code>，进入项目目录键入 <code>freebuff</code>，输入 <code>/model</code> 挑选 GPT-5.6 Luna / DeepSeek 开始编码！</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Spring Boot 极简核心讲义 (基于 IntelliJ IDEA 实战)]]></title>
+        <id>https://whitsats.github.io/post/spring-boot-ji-jian-he-xin-jiang-yi-ji-yu-intellij-idea-shi-zhan/</id>
+        <link href="https://whitsats.github.io/post/spring-boot-ji-jian-he-xin-jiang-yi-ji-yu-intellij-idea-shi-zhan/">
+        </link>
+        <updated>2026-06-11T09:25:55.000Z</updated>
+        <content type="html"><![CDATA[<p>作为一门现代化的工程课程讲义，本文将抛弃一切老旧冗余的理论，直接从<strong>架构认知</strong>和 <strong>IDEA 实战</strong>切入，带你完成从 0 到 1 构建标准化后端 API 的全过程。</p>
+<h2 id="一-核心架构认知现代后端的流水线">一、 核心架构认知：现代后端的“流水线”</h2>
+<p>在编写任何一行代码前，必须建立起现代 Java 后端工程的规范分层认知。不要把所有代码揉在一起，要像工厂流水线一样分工明确。</p>
+<h3 id="1-核心流程图解-层级交互">1. 核心流程图解 (层级交互)</h3>
+<p>这就是一个标准后端 API 从接收请求到响应的全过程，严格遵循“单向调用”原则。</p>
+<pre><code class="language-mermaid">graph TD
+    Client[前端 / App] --&gt;|1. 发起 HTTP 包含 JSON| Controller
+    Controller --&gt;|2. DTO 封装参数| Service
+    Service --&gt;|3. 核心业务处理| Mapper
+    Mapper --&gt;|4. Entity 映射| Database[(MySQL)]
+    Database --&gt;|5. 查询结果集| Mapper
+    Mapper --&gt;|6. Entity 返回| Service
+    Service --&gt;|7. 转化为 VO| Controller
+    Controller --&gt;|8. 响应 JSON| Client
+
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef highlight fill:#d4e6f1,stroke:#2874a6,stroke-width:2px;
+    class Controller,Service,Mapper highlight;
+</code></pre>
+<h3 id="2-数据载体图解-data-models">2. 数据载体图解 (Data Models)</h3>
+<p>数据在各个层级之间流转时，必须“穿不同的衣服”（即使用不同的类）。</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph 客户端视角
+        JSON[JSON 数据]
+    end
+    subgraph 接口网关
+        DTO[DTO&lt;br&gt;用于接收入参]
+        VO[VO&lt;br&gt;用于返回出参]
+    end
+    subgraph 后端核心
+        Entity[Entity / DO&lt;br&gt;数据库表结构的镜像]
+    end
+    subgraph 持久化层
+        Table[(数据库表)]
+    end
+
+    JSON --&gt;|进| DTO
+    DTO -.-&gt;|提取与转换| Entity
+    Entity --&gt;|保存| Table
+    
+    Table --&gt;|查询| Entity
+    Entity -.-&gt;|脱敏与包装| VO
+    VO --&gt;|出| JSON
+</code></pre>
+<ul>
+<li><strong>Entity / DO (Data Object)</strong>：<strong>数据库的绝对镜像</strong>。数据库表里有什么列，它就有什么属性。它只存在于 Service 层和数据库之间。</li>
+<li><strong>DTO (Data Transfer Object)</strong>：<strong>数据传输对象</strong>。专门用于接收前端通过 JSON 传过来的参数。例如注册接口，前端传来的密码会在 DTO 中，但绝不该出现在返回给前端的 VO 中。</li>
+<li><strong>VO (View Object)</strong>：<strong>视图对象</strong>。后端处理完业务后，专门打包返回给前端展示的数据结构。</li>
+</ul>
+<h3 id="3-动作执行-layers">3. 动作执行 (Layers)</h3>
+<p>所有的业务动作严格遵循以下“三板斧”流水线：</p>
+<ol>
+<li><strong>Controller 层 (调度大厅)</strong>：只负责对外暴露 URL 接口，接收前端传来的 <code>DTO</code>，校验无误后，把活儿派发给 Service。最后拿到 Service 的结果，包装成 <code>VO</code> 变成 JSON 返回给前端。</li>
+<li><strong>Service 层 (业务大脑)</strong>：这里写所有的核心业务逻辑（例如计算折扣、校验权限）。它是最重要的地方。</li>
+<li><strong>Mapper 层 / DAO (数据库搬运工)</strong>：纯粹负责和数据库打交道。在现代开发中（例如使用 MyBatis-Plus），这一层你甚至不需要写 SQL，框架自带了所有的增删改查。</li>
+</ol>
+<h2 id="二-第一步在-idea-中极速创建工程">二、 第一步：在 IDEA 中极速创建工程</h2>
+<p>打开你的 IntelliJ IDEA，遵循以下黄金步骤：</p>
+<ol>
+<li>菜单栏选择 <strong>File -&gt; New -&gt; Project...</strong></li>
+<li>左侧选择 <strong>Spring Initializr</strong>。</li>
+<li>配置基础信息：
+<ul>
+<li><strong>Type</strong>: Maven</li>
+<li><strong>Java</strong>: 17 (推荐)</li>
+<li><strong>Packaging</strong>: Jar</li>
+</ul>
+</li>
+<li><strong>【最关键的一步】勾选依赖 (Dependencies)</strong>，相当于配置脚手架插件：
+<ul>
+<li><strong>Web</strong> -&gt; 勾选 <code>Spring Web</code> (提供核心 API 能力和内嵌 Tomcat)</li>
+<li><strong>Developer Tools</strong> -&gt; 勾选 <code>Lombok</code> (神器！自动帮你写 Get/Set 方法)</li>
+<li><strong>SQL</strong> -&gt; 勾选 <code>MySQL Driver</code> (数据库驱动) 和 <code>MyBatis-Plus Framework</code> (现代 DAO 层神器)</li>
+</ul>
+</li>
+<li>点击 <strong>Create</strong>，IDEA 会自动下载依赖并构建项目。</li>
+</ol>
+<h2 id="三-第二步实战演练编写注册-api">三、 第二步：实战演练（编写注册 API）</h2>
+<p>假设我们要写一个“用户注册”接口。我们将严格按照刚才讲的分层架构进行开发。</p>
+<h3 id="1-定义数据载体-dto-entity-vo">1. 定义数据载体 (DTO, Entity, VO)</h3>
+<blockquote>
+<p>[!TIP]<br>
+注意到了吗？我们使用了 <code>@Data</code> 注解，这是 Lombok 提供的神器，它在编译时会自动帮你生成 <code>get/set</code> 方法，保持代码极其干净。</p>
+</blockquote>
+<pre><code class="language-java">// 1. DTO: 接收前端传来的注册信息
+@Data
+public class UserRegisterDTO {
+    private String username;
+    private String password;
+}
+
+// 2. Entity: 映射数据库的表 (t_user)
+@Data
+@TableName(&quot;t_user&quot;) // MyBatis-Plus 注解，指定表名
+public class UserEntity {
+    private Long id;
+    private String username;
+    private String password; 
+    private LocalDateTime createTime;
+}
+
+// 3. VO: 返回给前端的信息（注意：绝对不返回密码！）
+@Data
+public class UserVO {
+    private Long id;
+    private String username;
+}
+</code></pre>
+<h3 id="2-编写-mapper-层-替代传统的-dao">2. 编写 Mapper 层 (替代传统的 DAO)</h3>
+<p>在现代开发中，DAO 层变得极其简单，只需继承 <code>BaseMapper</code>，你瞬间拥有了全部的单表增删改查能力。</p>
+<pre><code class="language-java">import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper // 告诉 Spring 这是一个数据库交互接口
+public interface UserMapper extends BaseMapper&lt;UserEntity&gt; {
+    // 空空如也？是的！BaseMapper 已经包含了 insert(), selectById() 等数十个方法！
+}
+</code></pre>
+<h3 id="3-编写-service-层-核心业务逻辑">3. 编写 Service 层 (核心业务逻辑)</h3>
+<p>业务逻辑必须放在 Service 中处理（比如检查用户名是否冲突，将 DTO 转换为 Entity 保存）。</p>
+<pre><code class="language-java">@Service // 注册到 Spring 容器中
+public class UserService {
+
+    private final UserMapper userMapper;
+
+    // 构造器注入 (依赖注入 DI 实战)
+    public UserService(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+
+    public UserVO register(UserRegisterDTO dto) {
+        // 1. 将 DTO 转为 Entity (通常会用工具类如 MapStruct 或 BeanUtils)
+        UserEntity entity = new UserEntity();
+        entity.setUsername(dto.getUsername());
+        entity.setPassword(dto.getPassword()); // 实际开发中这里应该加密
+        entity.setCreateTime(LocalDateTime.now());
+
+        // 2. 保存入库 (直接调用自带方法)
+        userMapper.insert(entity);
+
+        // 3. 将结果转为 VO 返回
+        UserVO vo = new UserVO();
+        vo.setId(entity.getId());
+        vo.setUsername(entity.getUsername());
+        
+        return vo;
+    }
+}
+</code></pre>
+<h3 id="4-编写-controller-层-对外暴露接口">4. 编写 Controller 层 (对外暴露接口)</h3>
+<p>最后一步，将写好的业务暴露成 HTTP 接口。</p>
+<pre><code class="language-java">@RestController // 声明这是一个返回 JSON 的控制器
+@RequestMapping(&quot;/api/users&quot;) // 统一路由前缀
+public class UserController {
+
+    private final UserService userService;
+
+    // 构造器注入
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping(&quot;/register&quot;) // POST 接口
+    public UserVO register(@RequestBody UserRegisterDTO dto) {
+        // 接收参数 -&gt; 移交业务层 -&gt; 直接返回给前端
+        return userService.register(dto);
+    }
+}
+</code></pre>
+<h2 id="四-总结与自测">四、 总结与自测</h2>
+<p>当你运行程序的 <code>main</code> 方法后，由于 Spring Boot 内嵌了 Tomcat 服务器，它会直接在 <code>8080</code> 端口启动。</p>
+<p>整个数据流向完美闭环：<br>
+<code>JSON ➡️ DTO ➡️ Controller ➡️ Service ➡️ Entity ➡️ Mapper ➡️ 数据库 ➡️ Service ➡️ VO ➡️ Controller ➡️ JSON</code></p>
+<blockquote>
+<p>[!IMPORTANT]<br>
+<strong>思考题</strong>：在上面的代码基础上，如果我的项目中还需要加一个“根据 ID 查询用户信息”的接口，按照这个架构，我需要在刚才的哪几个类里补充哪些代码？</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JavaScript 螺旋式进阶大纲]]></title>
+        <id>https://whitsats.github.io/post/javascript-luo-xuan-shi-jin-jie-da-gang/</id>
+        <link href="https://whitsats.github.io/post/javascript-luo-xuan-shi-jin-jie-da-gang/">
+        </link>
+        <updated>2025-08-04T11:56:42.000Z</updated>
+        <content type="html"><![CDATA[<p>最近借助 Gemini 整理了一下思路，写了一篇 JavaScript 基础大纲，适合初学者学习，现在分享给大家！</p>
+<h2 id="教学哲学从能用到好用的两次飞跃">教学哲学：从“能用”到“好用”的两次飞跃</h2>
+<p>本课程的设计遵循一种精心构建的“螺旋式上升”教学法。我们不会一次性给你所有“正确”的答案，而是引导你像一名真正的开发者一样，经历两次关键的认知飞跃。</p>
+<ul>
+<li>
+<p>第一阶段：建立直觉联系 (能用)</p>
+<p>你的首要任务是建立编程逻辑与浏览器可见结果之间的直接联系。我们会使用最直观的工具（如 innerHTML），让你能以最快的速度、最低的认知成本看到自己代码的成果，从而牢固地建立起编程的核心信心与心智模型。在这个阶段的最后，你将独立完成一个功能完备的“简易购物车 v1.0”。</p>
+</li>
+<li>
+<p>第二阶段：专业认知重构 (好用)</p>
+<p>你将带着自己亲手完成的 v1.0 项目进入第二阶段。此时，你将直面它在性能、可维护性上的真实“痛点”。第二阶段的核心任务，就是围绕性能、抽象、封装三大支柱，对你的 v1.0 项目进行一次彻底的专业化重构。你将学习更专业的工具，并用它们亲手将购物车升级为 v2.0 (性能优化版)、v3.0 (架构升级版)，直至最终的 v4.0 (专业封装版)。这不仅是项目的迭代，更是你个人思维的蜕变。</p>
+</li>
+</ul>
+<hr>
+<h2 id="第一阶段构建心智模型-我的代码看得见的力量">第一阶段：构建心智模型 —— 我的代码，看得见的力量</h2>
+<p><strong>核心目标</strong>：建立编程基础概念与浏览器可见结果的牢固联系，实现“所学即所见”，并完成“简易购物车 v1.0”的开发。</p>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>每周主题</th>
+<th>单元课题</th>
+<th>核心概念与语法</th>
+<th>综合实践与思维训练</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第 1 周</strong></td>
+<td><strong>从数据到交互</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>第一个脚本</td>
+<td>JavaScript 简介；<code>&lt;script&gt;</code> 标签；<code>console.log()</code>；<code>alert()</code></td>
+<td><code>onclick</code> 属性，在 HTML 中触发 JS</td>
+<td>在网页上点击按钮，触发一个 <code>alert</code> 弹窗。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>存储与格式化信息</td>
+<td>变量 (<code>let</code>, <code>const</code>)；字符串类型；拼接；模板字符串 (``` 与 <code>${...}</code>)； 基础字符串方法 (<code>.length</code>, <code>.toUpperCase()</code>, <code>.trim()</code>)</td>
+<td><code>document.getElementById()</code>, <code>.innerHTML</code></td>
+<td>将变量值显示在页面上，并使用模板字符串重构拼接逻辑；使用 <code>.trim()</code> 清理用户输入，并用 <code>.toUpperCase()</code> 格式化输出。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>获取用户输入</td>
+<td>函数定义与调用；DOM 的 <code>.value</code> 属性 ；特殊值 <code>null</code> 与 <code>undefined</code></td>
+<td><code>function greetUser() {...}</code></td>
+<td>完整交互：获取输入 -&gt; 处理数据 -&gt; 更新页面。 演示 <code>getElementById</code> 找不到元素时返回 <code>null</code>，以及未赋值变量为 <code>undefined</code> 的情况。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>处理数字</td>
+<td>数字类型；算术运算符；类型转换 (<code>parseInt</code>, <code>parseFloat</code>)；<code>typeof</code>；</td>
+<td>主动制造并解决 <code>&quot;5&quot; + &quot;3&quot;</code> 的类型陷阱</td>
+<td>构建一个简易计算器；</td>
+</tr>
+<tr>
+<td>5</td>
+<td>做出决策</td>
+<td>布尔类型；比较运算符 (<code>==</code>, <code>!=</code>, <code>===</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>)；<code>if...else</code> 结构</td>
+<td><code>element.style</code></td>
+<td><strong>综合案例一：密码检查器</strong></td>
+</tr>
+<tr>
+<td>考核日 (1)</td>
+<td>第一周综合考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：变量、数据类型、函数、基础DOM操作、条件判断、作用域</td>
+<td><strong>综合考核案例：个性化问候器</strong></td>
+</tr>
+<tr>
+<td><strong>第 2 周</strong></td>
+<td><strong>结构化数据、逻辑与循环</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>对象入门</td>
+<td>对象字面量语法 ；点表示法与方括号表示法访问属性；对象的遍历 <code>for...in</code></td>
+<td><code>let user = { name: 'Alice', age: 25 };</code></td>
+<td>创建用户资料对象，并将其信息展示在页面上。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>结构化数据：数组</td>
+<td>数组 (Array)；字面量语法；<code>.length</code> 属性； 基础数组方法 (<code>.push()</code>, <code>.pop()</code>, <code>.indexOf()</code>)；<code>for</code> 循环遍历</td>
+<td><code>for (let i = 0; i &lt; arr.length; i++)</code></td>
+<td><strong>综合案例二：动态标签管理</strong></td>
+</tr>
+<tr>
+<td>8</td>
+<td>逻辑运算符</td>
+<td>组合逻辑与短路特性</td>
+<td>逻辑运算符</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>循环进阶</td>
+<td><code>while</code> 与 <code>do...while</code> 循环；<code>switch</code>； <code>for...of</code> 循环；<code>break</code> 与 <code>continue</code></td>
+<td>使用 <code>for...of</code> 重构数组遍历代码，对比不同循环的应用场景，并引入 <code>break</code> 退出循环。</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>嵌套循环</td>
+<td>嵌套循环逻辑 ；使用嵌套循环生成二维结构</td>
+<td><code>for (...) { for (...) {...} }</code></td>
+<td><strong>综合案例三：动态生成乘法表</strong></td>
+</tr>
+<tr>
+<td>考核日 (2)</td>
+<td>第二周综合考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：对象、数组、逻辑运算符、循环、嵌套循环</td>
+<td><strong>综合考核案例：动态商品列表渲染</strong></td>
+</tr>
+<tr>
+<td><strong>第 3 周</strong></td>
+<td><strong>函数与交互</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>数据驱动UI</td>
+<td>对象数组 ；遍历对象数组； ES6 解构赋值 (<code>const { name } = user</code>)</td>
+<td><code>for (const { name, age } of users)</code></td>
+<td><strong>综合案例四：数据驱动的UI渲染</strong></td>
+</tr>
+<tr>
+<td>12</td>
+<td>现代事件处理</td>
+<td><code>addEventListener</code>； 事件对象 (<code>event</code>)；基础事件 (<code>click</code>, <code>input</code>, <code>keydown</code>)</td>
+<td><code>btn.addEventListener('click', function(e) {...})</code></td>
+<td>思维训练：关注点分离</td>
+</tr>
+<tr>
+<td>13</td>
+<td>函数进阶</td>
+<td>函数参数与返回值 (<code>return</code>)；函数作用域； 箭头函数 (<code>=&gt;</code>) ； 剩余参数 (<code>...</code>)</td>
+<td><code>function add(a, b) { return a + b; }</code></td>
+<td>使用箭头函数重构所有事件监听器，简化代码；将核心逻辑封装到可复用的函数中。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>DOM操作</td>
+<td><code>querySelector</code>；<code>querySelectorAll</code>； DOM遍历 ：<code>parentNode</code>； DOM操作 ：<code>removeChild</code>，<code>remove</code></td>
+<td><code>element.parentNode</code></td>
+<td><strong>综合案例五：交互式Tab选项卡</strong></td>
+</tr>
+<tr>
+<td>15</td>
+<td>数据与交互结合</td>
+<td>ES6 展开语法 (<code>...</code>) 用于对象/数组浅拷贝</td>
+<td><code>const newArr = [...oldArr]</code></td>
+<td><strong>综合案例六：数据驱动的待办事项 (增/删)</strong></td>
+</tr>
+<tr>
+<td>考核日 (3)</td>
+<td>第三周综合考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：函数、事件、箭头函数、<code>event.target</code>、展开语法、数据驱动交互</td>
+<td><strong>综合考核案例：带头像选择的动态留言板</strong></td>
+</tr>
+<tr>
+<td><strong>第 4 周</strong></td>
+<td><strong>内置对象与阶段整合</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>内置对象</td>
+<td><code>Math</code> 对象 (<code>.random()</code>, <code>.floor()</code>)；<code>Date</code> 对象 (创建与简单格式化)</td>
+<td><code>new Date()</code>, <code>Math.floor(Math.random() * 10)</code></td>
+<td><strong>综合案例七：随机点名器</strong></td>
+</tr>
+<tr>
+<td>17</td>
+<td>定时器入门</td>
+<td><code>setTimeout</code>, <code>setInterval</code>；<code>clearTimeout</code>, <code>clearInterval</code></td>
+<td><code>setInterval(updateClock, 1000)</code></td>
+<td><strong>综合案例八：验证码倒计时</strong></td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>主线项目启动</strong></td>
+<td><strong>综合案例九：简易购物车 (v1.0)</strong></td>
+<td>思维训练：状态联动</td>
+<td><strong>目标</strong>：整合第一阶段所有核心知识点，使用 <code>innerHTML</code> 循环渲染商品列表，并为每个按钮绑定独立的事件监听器，实现商品数量的增减和总价的实时计算功能。</td>
+</tr>
+<tr>
+<td>考核日 (4)</td>
+<td>第一阶段总考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：第一阶段所有核心知识点</td>
+<td><strong>综合考核案例：限时抢购</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="第二阶段认知重构之旅-我的应用专业进化">第二阶段：认知重构之旅 —— 我的应用，专业进化</h2>
+<p><strong>核心目标</strong>：引导学生掌握更专业、高效的编程工具与思想，将“简易购物车 v1.0”重构升级为“专业购物车 v4.0”，完成从“初学者”到“准开发者”的思维转变。</p>
+<h3 id="第五周专业基础-性能与声明式数据">第五周：专业基础 —— 性能与声明式数据</h3>
+<ul>
+<li><strong>叙事目标</strong>：将“简易购物车 v1.0”升级为 <strong>“购物车 v2.0：性能与可读性重构版”</strong>。直面 v1.0 在大量数据渲染时的性能瓶颈，并解决其代码可读性问题。</li>
+<li><strong>核心支柱</strong>：<strong>性能</strong> 与 <strong>抽象</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19</td>
+<td><code>createElement</code>, <code>appendChild</code>, <code>querySelector</code>, <code>querySelectorAll</code>; <code>textContent</code> vs <code>innerHTML</code> vs <code>innerText</code>; <code>DocumentFragment</code></td>
+<td><strong>思维训练：DOM树模型</strong>。通过独立的“渲染长列表”练习，使用性能工具直观对比 <code>innerHTML</code> 与 <code>DocumentFragment</code> 的性能差异。</td>
+<td><strong>性能重构</strong>：将 v1.0 购物车中所有使用 <code>innerHTML</code> 拼接字符串的渲染循环，全部替换为 <code>createElement</code> 和 <code>appendChild</code>。引入 <code>DocumentFragment</code> 优化批量添加商品时的性能。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>DOM遍历 (<code>parentElement</code>, <code>children</code>, <code>nextElementSibling</code>); <code>classList</code> (add, remove, toggle); <code>data-*</code> 属性</td>
+<td><strong>思维训练：数据驱动状态</strong>。重构“交互式Tab选项卡”案例，要求必须使用 <code>classList</code> 和 <code>data-*</code> 属性来管理状态。</td>
+<td><strong>样式与状态重构</strong>：移除 v1.0 中所有直接操作 <code>element.style</code> 的代码。改用 <code>classList.toggle</code> 控制动态样式。使用 <code>data-*</code> 属性在DOM元素上存储商品ID，为后续交互做准备。</td>
+</tr>
+<tr>
+<td>21</td>
+<td>高级字符串方法: <code>startsWith()</code>, <code>endsWith()</code>, <code>includes()</code>, <code>padStart()</code>, <code>padEnd()</code></td>
+<td><strong>综合案例十二：表单输入格式验证与美化</strong>。作为对高级字符串方法的集中火力训练。</td>
+<td><strong>功能增强</strong>：为购物车增加一个商品搜索/过滤输入框。这个真实需求为学习高级字符串方法提供了业务场景。</td>
+</tr>
+<tr>
+<td>22-23</td>
+<td>高阶数组方法: <code>.forEach()</code>, <code>.map()</code>, <code>.filter()</code>, <code>.find()</code>, <code>.some()</code>, <code>.every()</code>, <code>.reduce()</code></td>
+<td><strong>思维训练：声明式编程</strong>。先通过<strong>综合案例十三：商品筛选与搜索</strong>掌握新技能，感受其优越性。</td>
+<td><strong>声明式渲染重构</strong>：将冗长的 <code>createElement</code> 循环重构为简洁的 <code>products.map(p =&gt; createProductElement(p))</code> 模式。随后使用 <code>.filter()</code> 将搜索框逻辑与渲染列表无缝对接。</td>
+</tr>
+<tr>
+<td>考核日 (5)</td>
+<td>考核范围：高级DOM、<code>classList</code>、<code>data-*</code>、高级字符串/数组方法</td>
+<td><strong>综合考核案例：带筛选和记忆功能的商品列表</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="第六周构建可扩展架构-高级事件与浏览器环境">第六周：构建可扩展架构 —— 高级事件与浏览器环境</h3>
+<ul>
+<li><strong>叙事目标</strong>：将购物车升级为 <strong>“v3.0：架构与持久化重构版”</strong>。修复 v2.0 中为每个按钮绑定事件的低效模型，并让购物车数据能够在页面刷新后依然存在。</li>
+<li><strong>核心支柱</strong>：<strong>性能</strong> (架构层面) 与 <strong>抽象</strong> (浏览器能力)。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td>事件流 (冒泡与捕获); <code>e.stopPropagation()</code>; <code>e.preventDefault()</code></td>
+<td><strong>思维训练：事件的传播与控制</strong>。通过简单的嵌套元素点击实验，直观感受冒泡和捕获。</td>
+<td><strong>事件架构理论准备</strong>：学习事件流模型，为次日的事件委托重构打下坚实的理论基础。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>事件委托 (<code>event.target</code>, <code>element.closest()</code>); 各类事件 (鼠标, 键盘, 表单, 点击)</td>
+<td><strong>综合案例十四：事件委托实现的待办列表</strong>。在一个隔离的环境中，首先精通事件委托技术。</td>
+<td><strong>事件架构重构</strong>：移除 v2.0 中为每个商品按钮绑定的独立事件监听器。在购物车列表的父容器上实现单一事件监听器，利用事件委托统一处理所有交互。</td>
+</tr>
+<tr>
+<td>26</td>
+<td>尺寸与定位: <code>offsetWidth/Height</code>, <code>clientWidth/Height</code>; <code>getBoundingClientRect()</code>; <code>offsetLeft/Top</code>, <code>scrollTop</code>; 坐标系 (<code>clientX/Y</code>, <code>pageX/Y</code>)</td>
+<td><strong>综合案例十六：放大镜效果</strong> 与 <strong>思维训练：坐标系辨析</strong>。这是应用尺寸和坐标计算的最佳实践场景。</td>
+<td><strong>高级UI特性预研</strong>：学习精确测量和定位元素的API，为未来可能增加的“拖拽商品入购物车”等高级功能做技术储备。</td>
+</tr>
+<tr>
+<td>27-28</td>
+<td>BOM (<code>window</code>, <code>location</code>, <code>history</code>); <code>localStorage</code>; 滚动事件 (<code>scroll</code>)</td>
+<td><strong>综合案例十五：导航吸顶与主题切换</strong>。此案例为 <code>localStorage</code> 提供了一个更简单的应用场景（如保存用户的主题偏好）。</td>
+<td><strong>持久化升级</strong>：使用 <code>localStorage</code> 实现购物车数据的本地存储。当购物车数据变化时，将其存入 <code>localStorage</code>；页面加载时，读取并恢复购物车状态。</td>
+</tr>
+<tr>
+<td>考核日 (6)</td>
+<td>考核范围：事件流、事件委托、尺寸定位、BOM、<code>localStorage</code></td>
+<td><strong>综合考核案例：可拖拽的卡片</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="第七周封装复杂性-可复用组件的诞生">第七周：封装复杂性 —— 可复用组件的诞生</h3>
+<ul>
+<li><strong>叙事目标</strong>：将购物车升级为 <strong>“v4.0：封装与复用重构版”</strong>。将所有与购物车相关的、散落在各处的逻辑和数据，重构并封装到一个独立的、自包含的 <code>Cart</code> 组件中。</li>
+<li><strong>核心支柱</strong>：<strong>封装</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>29</td>
+<td><code>this</code> 关键字; 构造函数 (Constructor); 对象方法; <code>new</code> 关键字</td>
+<td><strong>综合案例十七：构造函数重构</strong>。使用一个更简单的 <code>Product</code> 构造函数来练习OOP的基本语法。</td>
+<td><strong>OOP重构 (第一部分)</strong>：创建 <code>Cart</code> 构造函数。将购物车的核心数据作为实例的属性，将核心行为定义为构造函数内部的方法。</td>
+</tr>
+<tr>
+<td>30</td>
+<td><code>prototype</code>; 原型链; <code>__proto__</code>; <code>constructor</code></td>
+<td><strong>思维训练</strong>：通过 <code>console.dir</code> 深入探索原型链，理解 <code>new</code> 关键字背后发生的事情，理解为何将方法放在原型上是更优的实践。</td>
+<td><strong>OOP重构 (第二部分)</strong>：进行关键的内存优化。将 <code>Cart</code> 的方法从构造函数内部移到 <code>Cart.prototype</code> 上，确保所有实例共享同一套方法。</td>
+</tr>
+<tr>
+<td>31</td>
+<td>面向对象综合实践 (I)</td>
+<td><strong>综合案例十八：面向对象的轮播图</strong>。将轮播图的功能封装到一个 <code>Swiper</code> 构造函数中，培养<strong>组件化思想</strong>。</td>
+<td><strong>组件化思维强化</strong>：分析轮播图案例的封装思想，为改造更复杂的购物车组件做准备。</td>
+</tr>
+<tr>
+<td>32</td>
+<td><code>requestAnimationFrame</code> (rAF); 复杂定时器逻辑 (<code>setInterval</code> &amp; <code>setTimeout</code> 结合)</td>
+<td><strong>综合案例十九：滚动弹幕</strong>。这是一个专为精通 <code>rAF</code> 设计的高强度训练场，要求实现极致平滑的动画。</td>
+<td><strong>体验优化</strong>：为购物车添加平滑的动画效果。例如，当商品添加或移除时，使用 <code>rAF</code> 实现一个专业的淡入淡出效果。</td>
+</tr>
+<tr>
+<td>33</td>
+<td>面向对象综合实践 (II)</td>
+<td><strong>综合案例二十：可拖拽的软键盘</strong>。综合运用 OOP、事件、DOM 操作，将<strong>组件化思想</strong>融会贯通。</td>
+<td><strong>组件化</strong>：进一步完善 <code>Cart</code> 类，使其内部管理所有的DOM渲染和事件监听。最终目标是让外部代码只需 <code>const myCart = new Cart('#cart-container');</code> 就能实例化整个购物车功能。</td>
+</tr>
+<tr>
+<td>考核日 (7)</td>
+<td>考核范围：面向对象（构造函数、原型）、<code>this</code>、高级动画</td>
+<td><strong>综合考核案例：星级评分与标签发布组件</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="第八周最终整合与专业应用">第八周：最终整合与专业应用</h3>
+<ul>
+<li><strong>叙事目标</strong>：完成项目的最终版本 <strong>“购物车 v4.1：专业打磨与复杂状态管理”</strong>。挑战整个课程中最复杂的状态联动逻辑，完成通往现代框架的“最后一公里”认知对接。</li>
+<li><strong>核心支柱</strong>：三大支柱的<strong>综合应用</strong>，并聚焦于<strong>复杂状态管理</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>34</td>
+<td>正则表达式 (语法, 修饰符, 元字符, 量词, 方法: <code>test</code>, <code>exec</code>, <code>match</code>, <code>replace</code>)</td>
+<td><strong>综合案例二十一：高级表单验证</strong>。在应用到购物车之前，系统学习和掌握正则表达式语法。</td>
+<td><strong>专业打磨：优惠码功能</strong>：为购物车添加一个优惠码输入框。这个功能为学习和应用正则表达式提供了最真实的场景，用于验证用户输入的优惠码格式。</td>
+</tr>
+<tr>
+<td>35-36</td>
+<td>复杂状态管理; 数据结构设计</td>
+<td><strong>思维训练：复杂状态管理</strong>。引导学员在动手前，先用流程图或伪代码设计状态联动的逻辑，体会“状态设计”先于“功能实现”的开发思想。</td>
+<td><strong>终极挑战：复杂状态同步</strong>：在 <code>Cart</code> 类中，实现商品单选、店铺内全选、跨店铺总全选之间的状态联动。这是对数据结构设计和逻辑严谨性的终极考验。</td>
+</tr>
+<tr>
+<td>考核日 (8)</td>
+<td>最终项目考核</td>
+<td>考核范围：课程所有知识点的综合运用</td>
+<td><strong>最终项目考核</strong>：完成“功能完善的购物车”完整页面并进行答辩。</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vue2 + Axios 使用讯飞大模型实现图文对话]]></title>
+        <id>https://whitsats.github.io/post/vue2-axios-shi-yong-xun-fei-da-mo-xing-lite/</id>
+        <link href="https://whitsats.github.io/post/vue2-axios-shi-yong-xun-fei-da-mo-xing-lite/">
+        </link>
+        <updated>2025-05-06T06:37:12.000Z</updated>
+        <summary type="html"><![CDATA[<p>受同事老卢委托，近期我在一个 Vue2 项目中探索集成了 AI 对话功能。考虑到成本和便利性，讯飞星火大模型 Lite 版因其免费且不限次数的特性，成为了本次尝试的首选。下面我将详细记录整个集成过程，希望能为有类似需求的开发者提供一些参考。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>受同事老卢委托，近期我在一个 Vue2 项目中探索集成了 AI 对话功能。考虑到成本和便利性，讯飞星火大模型 Lite 版因其免费且不限次数的特性，成为了本次尝试的首选。下面我将详细记录整个集成过程，希望能为有类似需求的开发者提供一些参考。</p>
+<!-- more -->
+<h2 id="注册与配置讯飞星火大模型">注册与配置讯飞星火大模型</h2>
+<p>首先，我们需要在讯飞开放平台注册并配置我们的应用。</p>
+<p><strong>1. 注册账号与实名认证</strong><br>
+访问讯飞开放平台并完成注册。注册过程相当简便直观。</p>
+<figure data-type="image" tabindex="1"><img src="https://whitsats.github.io//post-images/1746513936583.png" alt="注册界面" width="400" loading="lazy"></figure>
+<p>注册成功后，务必进行微信绑定和实名认证，这是使用后续服务的前提。</p>
+<p><strong>2. 应用创建与配置</strong><br>
+登录后，在控制台的“我的应用”界面，你会看到一个默认的应用。我们可以直接使用这个默认应用，或根据需要进行修改。</p>
+<p><strong>3. 领取免费资源</strong><br>
+进入应用，选择“模型服务与支持”中的 Spark Lite 版本，即可领取无限量的免费 token。</p>
+<figure data-type="image" tabindex="2"><img src="https://whitsats.github.io//post-images/1746514880273.png" alt="领取token" width="600" loading="lazy"></figure>
+<p>类似地，我们也可以领取一些免费的图片生成图点，用于体验图片生成功能。</p>
+<figure data-type="image" tabindex="3"><img src="https://whitsats.github.io//post-images/1746543689686.png" alt="图点领取" width="600" loading="lazy"></figure>
+<p>完成以上步骤后，记下应用的 <strong>APPID、APIKey、APISecret</strong> 以及对话接口的 <strong>APIPassword</strong>，这些凭证在后续调用 API 时至关重要。</p>
+<h2 id="调试-api-参数">调试 API 参数</h2>
+<p>为了确保顺利调用，我们可以先在讯飞提供的 API 调试中心进行测试。</p>
+<p><strong>1. 文本对话 API (Spark Lite)</strong><br>
+在星火调试中心，选择 Spark Lite 模型。既然是免费的，我们可以将各项参数（如 <code>max_tokens</code>、<code>temperature</code> 等）调整到合适的范围进行测试。</p>
+<figure data-type="image" tabindex="4"><img src="https://whitsats.github.io//post-images/1746515114384.png" alt="模型参数" width="800" loading="lazy"></figure>
+<p>调试中心主要演示的是流式对话的用例。如果我们需要非流式接口，可以查阅官方的参考文档。</p>
+<figure data-type="image" tabindex="5"><img src="https://whitsats.github.io//post-images/1746515316767.png" alt="参考文档" width="400" loading="lazy"></figure>
+<p>参考文档中提供了 Python 的非流式调用示例。我们可以参照其请求结构和参数，将其转换为在服务端使用 Axios 等库发送请求的形式。</p>
+<figure data-type="image" tabindex="6"><img src="https://whitsats.github.io//post-images/1746515470897.png" alt="非流式用例" width="400" loading="lazy"></figure>
+<p><strong>2. 图片生成 API</strong><br>
+图片生成 API 的调用方式略有不同，它需要根据一定的规则生成签名 (Authorization)。</p>
+<figure data-type="image" tabindex="7"><img src="https://whitsats.github.io//post-images/1746543834951.png" alt="图片签名" width="600" loading="lazy"></figure>
+<p>官方文档指出，这两个 API（文本对话和图片生成）都不支持跨域请求，因此我们不能直接在前端调用，而是需要通过后端服务器进行代理。接下来，我们将使用 Koa2 搭建一个 Node.js 后端代理服务。</p>
+<h2 id="搭建-koa2-代理服务器">搭建 Koa2 代理服务器</h2>
+<p>为了解决跨域问题并安全地管理 API 密钥，我们将在服务端设置代理。</p>
+<p><strong>1. 初始化项目与依赖</strong><br>
+在你的项目下创建一个 <code>server</code> 文件夹，并初始化 <code>package.json</code>：</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;sparkdemo-server&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;description&quot;: &quot;讯飞星火API代理服务器&quot;,
+    &quot;main&quot;: &quot;app.js&quot;,
+    &quot;scripts&quot;: {
+        &quot;start&quot;: &quot;node app.js&quot;,
+        &quot;dev&quot;: &quot;nodemon app.js&quot;
+    },
+    &quot;dependencies&quot;: {
+        &quot;koa&quot;: &quot;^2.14.2&quot;,
+        &quot;koa-bodyparser&quot;: &quot;^4.4.1&quot;,
+        &quot;koa-router&quot;: &quot;^12.0.0&quot;,
+        &quot;koa-cors&quot;: &quot;^0.0.16&quot;,
+        &quot;axios&quot;: &quot;^1.5.0&quot;,
+        &quot;crypto-js&quot;: &quot;^4.1.1&quot;
+    },
+    &quot;devDependencies&quot;: {
+        &quot;nodemon&quot;: &quot;^3.0.1&quot;
+    }
+}
+</code></pre>
+<p>由于图片服务需要加密签名，我们引入了 <code>crypto-js</code>。运行 <code>npm install</code> 或 <code>yarn install</code> 安装依赖。</p>
+<p><strong>2. 服务器基本配置 (<code>app.js</code>)</strong><br>
+创建 <code>app.js</code> 文件，并配置基本的中间件和 API 信息：</p>
+<pre><code class="language-javascript">const Koa = require(&quot;koa&quot;);
+const Router = require(&quot;koa-router&quot;);
+const bodyParser = require(&quot;koa-bodyparser&quot;);
+const cors = require(&quot;koa-cors&quot;);
+const axios = require(&quot;axios&quot;);
+const CryptoJS = require(&quot;crypto-js&quot;);
+
+// 创建Koa应用实例
+const app = new Koa();
+const router = new Router();
+
+// 配置中间件
+app.use(bodyParser()); // 解析请求体
+app.use(cors()); // 启用CORS，允许跨域请求
+
+// 服务器端口
+const PORT = process.env.PORT || 3000;
+
+// 讯飞星火API配置 (请替换为你的真实凭证)
+const API_CONFIG = {
+    APP_ID: &quot;YOUR_APP_ID&quot;,       // 你的 APPID
+    API_KEY: &quot;YOUR_API_KEY&quot;,     // 你的 APIKey
+    API_SECRET: &quot;YOUR_API_SECRET&quot;, // 你的 APISecret
+    API_PASSWORD: &quot;YOUR_API_PASSWORD&quot;, // 对话接口的 APIPassword
+    IMAGE_API_URL: &quot;https://spark-api.cn-huabei-1.xf-yun.com/v2.1/tti&quot;, // 图片生成接口
+    CHAT_API_URL: &quot;https://spark-api.cn-huabei-1.xf-yun.com/v3.1/chat&quot;,   // v3.1 非流式对话接口
+};
+</code></pre>
+<p><strong>注意：</strong> 请务必将 <code>API_CONFIG</code> 中的 <code>xxx</code> 替换为你自己应用的真实凭证。</p>
+<p><strong>3. 图片生成 API 鉴权函数</strong><br>
+根据讯飞官方文档的签名生成规则，我们编写一个函数来生成图片 API 所需的鉴权 URL：</p>
+<pre><code class="language-javascript">/**
+ * 生成图片API鉴权URL
+ * @param {string} requestUrl - 原始请求URL
+ * @param {string} method - 请求方法 (POST)
+ * @param {string} apiKey - 应用的 APIKey
+ * @param {string} apiSecret - 应用的 APISecret
+ * @returns {string} - 带鉴权参数的URL
+ */
+function assembleAuthUrl(requestUrl, method = &quot;POST&quot;, apiKey, apiSecret) {
+    const urlObj = new URL(requestUrl);
+    const host = urlObj.host;
+    const path = urlObj.pathname;
+    const date = new Date().toUTCString();
+    const signatureOrigin = `host: ${host}\ndate: ${date}\n${method} ${path} HTTP/1.1`;
+    const signatureSha = CryptoJS.HmacSHA256(signatureOrigin, apiSecret);
+    const signature = CryptoJS.enc.Base64.stringify(signatureSha);
+    const authorizationOrigin = `api_key=&quot;${apiKey}&quot;, algorithm=&quot;hmac-sha256&quot;, headers=&quot;host date request-line&quot;, signature=&quot;${signature}&quot;`;
+    const authorization = CryptoJS.enc.Base64.stringify(
+        CryptoJS.enc.Utf8.parse(authorizationOrigin)
+    );
+    const params = new URLSearchParams();
+    params.append(&quot;host&quot;, host);
+    params.append(&quot;date&quot;, date);
+    params.append(&quot;authorization&quot;, authorization);
+    return `${requestUrl}?${params.toString()}`;
+}
+</code></pre>
+<p><strong>4. 图片生成代理路由 (<code>/api/image-generation</code>)</strong><br>
+接下来，配置图片生成的代理路由。此路由接收前端的请求，附加上述生成的鉴权信息，然后转发给讯飞的图片生成 API。</p>
+<pre><code class="language-javascript">router.post(&quot;/api/image-generation&quot;, async (ctx) =&gt; {
+    try {
+        const { prompt, width, height, temperature } = ctx.request.body;
+
+        if (!prompt) {
+            ctx.status = 400;
+            ctx.body = { success: false, message: &quot;缺少必要参数: prompt&quot; };
+            return;
+        }
+
+        const { APP_ID, API_KEY, API_SECRET, IMAGE_API_URL } = API_CONFIG;
+        const authUrl = assembleAuthUrl(IMAGE_API_URL, &quot;POST&quot;, API_KEY, API_SECRET);
+
+        const requestData = {
+            header: {
+                app_id: APP_ID,
+                uid: `user_${Date.now()}`, // 用户标识，可自定义
+            },
+            parameter: {
+                chat: {
+                    domain: &quot;general&quot;, // 图片场景，general 通用场景
+                    width: width || 512,
+                    height: height || 512,
+                    temperature: temperature || 0.5, // 随机度，越大越随机
+                    max_tokens: 4096, // 通常不需要这么大，但与文档保持一致
+                },
+            },
+            payload: {
+                message: {
+                    text: [{ role: &quot;user&quot;, content: prompt }],
+                },
+            },
+        };
+
+        const response = await axios.post(authUrl, requestData, {
+            headers: { &quot;Content-Type&quot;: &quot;application/json&quot; },
+        });
+
+        ctx.body = response.data;
+    } catch (error) {
+        console.error(&quot;图片生成API代理错误:&quot;, error.response ? error.response.data : error.message);
+        ctx.status = error.response?.status || 500;
+        ctx.body = {
+            success: false,
+            message: &quot;图片生成API请求失败&quot;,
+            error: error.response?.data || error.message || &quot;服务器内部错误&quot;,
+        };
+    }
+});
+</code></pre>
+<p><strong>5. 文本对话代理路由 (<code>/api/chat</code>)</strong><br>
+然后，我们配置文本对话的代理路由。这个路由将使用 <code>API_PASSWORD</code> 进行 Bearer Token 认证。</p>
+<pre><code class="language-javascript">router.post(&quot;/api/chat&quot;, async (ctx) =&gt; {
+    try {
+        const { message, history } = ctx.request.body; // history 用于支持多轮对话
+
+        if (!message) {
+            ctx.status = 400;
+            ctx.body = { success: false, message: &quot;缺少必要参数: message&quot; };
+            return;
+        }
+
+        const { API_PASSWORD, CHAT_API_URL } = API_CONFIG; // APP_ID 用于请求体
+
+        // 构建符合讯飞星火非流式API文档的请求体
+        const requestData = {
+           max_tokens: 4096,
+            top_k: 6,
+            temperature: 1,
+            messages: [
+                {
+                    role: &quot;user&quot;,
+                    content: message,
+                },
+                ...(history || []),
+            ],
+            model: &quot;lite&quot;,
+        };
+    
+        const response = await axios.post(CHAT_API_URL, requestData, {
+            headers: {
+                &quot;Content-Type&quot;: &quot;application/json&quot;,
+                &quot;Authorization&quot;: &quot;Bearer &quot; + API_PASSWORD, // 使用 APIPassword 作为 Bearer Token
+            },
+        });
+        ctx.body = response.data;
+        } catch (error) {
+            console.error(&quot;对话API请求失败:&quot;, error.message);
+            ctx.status = 500;
+            ctx.body = {
+                success: false,
+                message: &quot;对话API请求失败&quot;,
+                error: error.message,
+            };
+        }
+});
+</code></pre>
+<p><strong>6. 注册路由并启动服务器</strong><br>
+最后，在 <code>app.js</code> 中注册路由并启动 Koa 服务器：</p>
+<pre><code class="language-javascript">// 注册路由
+app.use(router.routes()).use(router.allowedMethods());
+
+// 添加一个简单的状态检查路由
+router.get(&quot;/api/status&quot;, (ctx) =&gt; {
+    ctx.body = { success: true, message: &quot;讯飞星火API代理服务器运行中&quot; };
+});
+
+// 启动服务器
+app.listen(PORT, () =&gt; {
+    console.log(`讯飞星火API代理服务器已启动，监听端口: ${PORT}`);
+    console.log(`服务器状态检查: http://localhost:${PORT}/api/status`);
+    console.log(`图片生成API代理: POST http://localhost:${PORT}/api/image-generation`);
+    console.log(`对话API代理: POST http://localhost:${PORT}/api/chat`);
+});
+</code></pre>
+<p>现在，你可以通过 <code>npm run dev</code> (如果安装了 nodemon) 或 <code>npm start</code> 来启动后端代理服务。</p>
+<h2 id="前端-api-服务封装">前端 API 服务封装</h2>
+<p>为了使前端代码更整洁，我们将 API 调用封装成服务模块。在 Vue 项目的 <code>src</code> 目录下创建一个 <code>services</code> 文件夹。</p>
+<p><strong>1. 图片生成服务 (<code>ImageGenerationService.js</code>)</strong></p>
+<pre><code class="language-javascript">/**
+ * 讯飞星火图片生成API服务
+ * 通过Koa2代理服务器调用讯飞API，解决跨域问题。
+ * API密钥等敏感信息已配置在后端服务器中。
+ * 参考文档: https://www.xfyun.cn/doc/spark/ImageGeneration.html
+ */
+import axios from &quot;axios&quot;;
+
+const API_CONFIG = {
+    PROXY_URL: &quot;http://localhost:3000/api/image-generation&quot;, // 后端代理地址
+};
+
+/**
+ * 通过代理服务器请求生成图片
+ * @param {string} prompt - 图片描述
+ * @param {number} [width=512] - 图片宽度
+ * @param {number} [height=512] - 图片高度
+ * @param {number} [temperature=0.5] - 随机度
+ * @returns {Promise&lt;string&gt;} - 返回生成的图片Base64数据或URL
+ */
+async function generateImage(prompt, width = 512, height = 512, temperature = 0.5) {
+    try {
+        const requestData = { prompt, width, height, temperature };
+        const response = await axios.post(API_CONFIG.PROXY_URL, requestData, {
+            headers: { &quot;Content-Type&quot;: &quot;application/json&quot; },
+        });
+
+        if (
+            response.data &amp;&amp;
+            response.data.payload &amp;&amp;
+            response.data.payload.choices &amp;&amp;
+            response.data.payload.choices.text &amp;&amp;
+            response.data.payload.choices.text[0] &amp;&amp;
+            response.data.payload.choices.text[0].content
+        ) {
+            const imageData = response.data.payload.choices.text[0].content;
+            // 讯飞图片生成通常返回Base64编码的图片数据，有时可能不带 &quot;data:image/png;base64,&quot; 前缀
+            if (imageData.startsWith(&quot;data:image&quot;)) {
+                return imageData;
+            } else if (imageData.startsWith(&quot;http&quot;)) { // 虽然不常见，但以防万一返回的是URL
+                return imageData;
+            } else {
+                // 如果是纯Base64，添加标准前缀
+                return `data:image/png;base64,${imageData}`;
+            }
+        } else {
+            console.error(&quot;图片API响应格式不符合预期:&quot;, response.data);
+            throw new Error(response.data.message || &quot;图片API响应格式不符合预期&quot;);
+        }
+    } catch (error) {
+        console.error(&quot;图片生成失败:&quot;, error.response ? error.response.data : error);
+        throw error.response ? new Error(error.response.data.message || '图片生成服务调用失败') : error;
+    }
+}
+
+export default {
+    generateImage,
+};
+</code></pre>
+<p><strong>2. 文本对话服务 (<code>ChatService.js</code>)</strong></p>
+<pre><code class="language-javascript">/**
+ * 讯飞星火Lite对话API服务
+ * 通过Koa2代理服务器调用讯飞API，解决跨域问题。
+ * API密钥等敏感信息已配置在后端服务器中。
+ * 参考文档: https://www.xfyun.cn/doc/spark/HTTP%E8%B0%83%E7%94%A8%E6%96%87%E6%A1%A3.html (非流式)
+ */
+import axios from &quot;axios&quot;;
+
+const API_CONFIG = {
+    PROXY_URL: &quot;http://localhost:3000/api/chat&quot;, // 后端代理地址
+};
+
+/**
+ * 通过代理服务器发送对话请求
+ * @param {string} message - 用户消息内容
+ * @param {Array&lt;{role: string, content: string}&gt;} [history=[]] - 历史对话记录
+ * @returns {Promise&lt;string&gt;} - 返回AI的回复文本
+ */
+async function sendMessage(message, history = []) {
+    try {
+        // 构建请求体 - 只发送必要的对话参数
+        const requestData = {
+            message,
+            history,
+        };
+
+        // 发送请求到代理服务器
+        const response = await axios.post(API_CONFIG.PROXY_URL, requestData, {
+            headers: {
+                &quot;Content-Type&quot;: &quot;application/json&quot;,
+            },
+        });
+
+        // 处理响应
+        if (response.data.choices[0].message.content) {
+            // 从响应中提取AI回复
+            return response.data.choices[0].message.content;
+        } else {
+            console.error(&quot;API响应格式:&quot;, response.data);
+            throw new Error(&quot;API响应格式不符合预期&quot;);
+        }
+    } catch (error) {
+        console.error(&quot;对话请求失败:&quot;, error);
+        throw error;
+    }
+}
+export default {
+    sendMessage,
+};
+</code></pre>
+<h2 id="vue-构建-ui-界面">Vue 构建 UI 界面</h2>
+<p>接下来，我们使用 Vue2 构建一个简单的用户界面，允许用户进行文本对话或生成图片。我们将创建一个主组件 <code>App.vue</code>。</p>
+<p><strong>核心思路：</strong></p>
+<ul>
+<li><strong>模式切换：</strong> 顶部提供按钮，用于在“文本对话”和“图片生成”模式间切换。</li>
+<li><strong>消息展示：</strong> 将用户输入和 AI 回复（包括生成的图片）都存储在一个 <code>messages</code> 数组中，并统一渲染到聊天窗口。</li>
+<li><strong>上下文保持：</strong> 对于文本对话，维护一个 <code>chatHistory</code> 数组，用于向 API 传递上下文信息，实现多轮对话。</li>
+</ul>
+<p><strong>1. 数据初始化 (<code>data</code>)</strong><br>
+在 <code>App.vue</code> 的 <code>&lt;script&gt;</code> 部分，我们首先定义组件的 <code>data</code>：</p>
+<pre><code class="language-javascript">// &lt;script&gt;
+// ... (imports)
+export default {
+    name: &quot;App&quot;,
+    data() {
+        return {
+            userInput: &quot;&quot;, // 用户输入的内容
+            messages: [    // 对话/图片消息列表
+                {
+                    role: &quot;assistant&quot;, // 角色：assistant (AI) 或 user (用户)
+                    content: &quot;您好！我是星火AI助手，可以进行文本对话或生成图片。请选择您需要的模式。&quot;,
+                },
+            ],
+            loading: false, // 是否正在加载 (API请求中)
+            imageSize: &quot;512x512&quot;, // 默认图片尺寸
+            mode: &quot;chat&quot;, // 当前模式: 'chat' (对话) 或 'image' (图片生成)
+            chatHistory: [], // 用于API的对话历史记录 (仅文本对话模式)
+        };
+    },
+    // ... (methods, mounted, etc.)
+}
+// &lt;/script&gt;
+</code></pre>
+<p>初始状态下，<code>mode</code> 为对话模式 (<code>'chat'</code>)，<code>loading</code> 为 <code>false</code> (未加载)，并有一条欢迎消息。</p>
+<p><strong>2. UI 模板 (<code>&lt;template&gt;</code>)</strong><br>
+下面是 <code>App.vue</code> 的模板部分，构建了聊天界面的基本布局：</p>
+<pre><code class="language-vue">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;div class=&quot;chat-container&quot;&gt;
+            &lt;div class=&quot;chat-header&quot;&gt;
+                &lt;h1&gt;
+                    {{ mode === &quot;chat&quot; ? &quot;星火AI对话&quot; : &quot;星火AI图片生成&quot; }}
+                &lt;/h1&gt;
+                &lt;div class=&quot;mode-toggle&quot;&gt;
+                    &lt;button
+                        @click=&quot;switchMode('chat')&quot;
+                        :class=&quot;['mode-btn', mode === 'chat' ? 'active' : '']&quot;
+                        title=&quot;文本对话模式&quot;
+                    &gt;
+                        &lt;i class=&quot;mode-icon chat-icon&quot;&gt;💬&lt;/i&gt;
+                    &lt;/button&gt;
+                    &lt;button
+                        @click=&quot;switchMode('image')&quot;
+                        :class=&quot;['mode-btn', mode === 'image' ? 'active' : '']&quot;
+                        title=&quot;图片生成模式&quot;
+                    &gt;
+                        &lt;i class=&quot;mode-icon image-icon&quot;&gt;🖼️&lt;/i&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;chat-messages&quot; ref=&quot;chatMessages&quot;&gt;
+                &lt;div
+                    v-for=&quot;(message, index) in messages&quot;
+                    :key=&quot;index&quot;
+                    :class=&quot;['message', message.role]&quot;
+                &gt;
+                    &lt;div class=&quot;message-content&quot; v-if=&quot;message.content&quot; v-html=&quot;formatMessageContent(message.content)&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;message-image&quot; v-if=&quot;message.imageUrl&quot;&gt;
+                        &lt;img :src=&quot;message.imageUrl&quot; alt=&quot;生成的图片&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;message-error&quot; v-if=&quot;message.error&quot;&gt;
+                        &lt;p&gt;&lt;strong&gt;错误：&lt;/strong&gt;{{ message.error }}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;image-options&quot; v-if=&quot;mode === 'image'&quot;&gt;
+                &lt;div class=&quot;option-group&quot;&gt;
+                    &lt;label for=&quot;imageSizeSelect&quot;&gt;图片尺寸:&lt;/label&gt;
+                    &lt;select id=&quot;imageSizeSelect&quot; v-model=&quot;imageSize&quot;&gt;
+                        &lt;option value=&quot;512x512&quot;&gt;512 x 512&lt;/option&gt;
+                        &lt;option value=&quot;768x768&quot;&gt;768 x 768&lt;/option&gt;
+                        &lt;option value=&quot;1024x1024&quot;&gt;1024 x 1024&lt;/option&gt;
+                         &lt;option value=&quot;1024x768&quot;&gt;1024 x 768 (风景)&lt;/option&gt;
+                        &lt;option value=&quot;768x1024&quot;&gt;768 x 1024 (人像)&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;chat-input&quot;&gt;
+                &lt;input
+                    type=&quot;text&quot;
+                    v-model=&quot;userInput&quot;
+                    @keyup.enter=&quot;handleSubmit&quot;
+                    :placeholder=&quot;
+                        mode === 'chat'
+                            ? '请输入您的问题...'
+                            : '请描述您想要生成的图片...'
+                    &quot;
+                    :disabled=&quot;loading&quot;
+                    ref=&quot;mainInput&quot;
+                /&gt;
+                &lt;button
+                    class=&quot;submit-btn&quot;
+                    @click=&quot;handleSubmit&quot;
+                    :disabled=&quot;loading || !userInput.trim()&quot;
+                &gt;
+                    {{
+                        loading
+                            ? &quot;处理中...&quot;
+                            : mode === &quot;chat&quot;
+                            ? &quot;发送&quot;
+                            : &quot;生成图片&quot;
+                    }}
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p><strong>3. 核心逻辑 (<code>&lt;script&gt;</code>)</strong><br>
+包含了模式切换、消息发送、图片生成等核心方法。</p>
+<pre><code class="language-javascript">// App.vue
+import ImageGenerationService from &quot;./services/ImageGenerationService&quot;;
+import ChatService from &quot;./services/ChatService&quot;;
+
+export default {
+    name: &quot;App&quot;,
+    data() {
+        return {
+            userInput: &quot;&quot;,
+            messages: [
+                {
+                    role: &quot;assistant&quot;,
+                    content: &quot;您好！我是星火AI助手，可以进行文本对话或生成图片。请选择您需要的模式。&quot;,
+                },
+            ],
+            loading: false,
+            imageSize: &quot;512x512&quot;, // 默认图片尺寸
+            mode: &quot;chat&quot;, // 默认为对话模式
+            chatHistory: [], // 用于API的对话历史记录
+        };
+    },
+    methods: {
+        formatMessageContent(content) {
+            // 将换行符 \n 替换为 &lt;br&gt; 以便在HTML中正确显示换行
+            return content.replace(/\n/g, '&lt;br&gt;');
+        },
+        // 切换模式（对话/图片生成）
+        switchMode(newMode) {
+            if (this.mode !== newMode &amp;&amp; !this.loading) {
+                this.mode = newMode;
+                this.userInput = &quot;&quot;; // 清空输入框
+                this.messages.push({
+                    role: &quot;assistant&quot;,
+                    content: newMode === &quot;chat&quot;
+                            ? &quot;已切换到文本对话模式。您可以向我提问任何问题。&quot;
+                            : &quot;已切换到图片生成模式。请描述您想要生成的图片。&quot;,
+                });
+                if (newMode === 'chat') {
+                    // 如果切换到聊天模式，可以考虑是否清空 chatHistory，或根据产品逻辑决定
+                    // this.chatHistory = [];
+                }
+                this.$nextTick(() =&gt; this.$refs.mainInput.focus());
+                this.scrollToBottom();
+            }
+        },
+
+        // 处理用户输入提交
+        handleSubmit() {
+            if (!this.userInput.trim() || this.loading) return;
+
+            if (this.mode === &quot;chat&quot;) {
+                this.sendChatMessage();
+            } else {
+                this.generateImage();
+            }
+        },
+
+        // 发送对话消息
+        async sendChatMessage() {
+            const userMessageContent = this.userInput;
+            this.messages.push({ role: &quot;user&quot;, content: userMessageContent });
+            this.chatHistory.push({ role: &quot;user&quot;, content: userMessageContent }); // 更新API对话历史
+
+            this.userInput = &quot;&quot;;
+            this.loading = true;
+            this.scrollToBottom(); // 用户消息发出后滚动
+
+            const thinkingMessageIndex = this.messages.length; // 记录思考消息的索引
+            this.messages.push({ role: &quot;assistant&quot;, content: &quot;思考中...&quot; });
+            this.scrollToBottom(); // 思考消息发出后滚动
+
+            try {
+                // 注意：传递给API的history不应包含当前正在处理的用户消息，而是它之前的记录
+                // 但讯飞的文档似乎倾向于将当前用户消息也加入到 messages 列表中
+                // 为保险起见，我们传递包含当前用户问题的 history
+                const currentHistoryForAPI = [...this.chatHistory];
+
+                const response = await ChatService.sendMessage(userMessageContent, currentHistoryForAPI.slice(0, -1)); // 传递最近一次用户输入之前的历史
+
+                this.messages.splice(thinkingMessageIndex, 1, { role: &quot;assistant&quot;, content: response }); // 替换思考消息
+                this.chatHistory.push({ role: &quot;assistant&quot;, content: response }); // 更新API对话历史
+
+            } catch (error) {
+                console.error(&quot;对话请求出错:&quot;, error);
+                this.messages.splice(thinkingMessageIndex, 1, {
+                    role: &quot;assistant&quot;,
+                    content: `抱歉，对话过程中发生错误: ${error.message}`,
+                    error: error.message,
+                });
+            } finally {
+                this.loading = false;
+                this.$nextTick(() =&gt; this.$refs.mainInput.focus());
+                this.scrollToBottom();
+            }
+        },
+
+        // 生成图片
+        async generateImage() {
+            const prompt = this.userInput;
+            this.messages.push({ role: &quot;user&quot;, content: `图片描述：${prompt}` });
+
+            this.userInput = &quot;&quot;;
+            this.loading = true;
+            this.scrollToBottom();
+
+            const generatingMessageIndex = this.messages.length;
+            this.messages.push({ role: &quot;assistant&quot;, content: &quot;正在生成您描述的图片，请稍候...&quot; });
+            this.scrollToBottom();
+
+            try {
+                const [widthStr, heightStr] = this.imageSize.split(&quot;x&quot;);
+                const width = parseInt(widthStr, 10);
+                const height = parseInt(heightStr, 10);
+
+                const imageUrl = await ImageGenerationService.generateImage(prompt, width, height, 0.5);
+
+                this.messages.splice(generatingMessageIndex, 1, {
+                    role: &quot;assistant&quot;,
+                    content: `已根据您的描述&quot;${prompt}&quot;生成图片：`,
+                    imageUrl: imageUrl,
+                });
+
+            } catch (error) {
+                console.error(&quot;图片生成出错:&quot;, error);
+                 this.messages.splice(generatingMessageIndex, 1, {
+                    role: &quot;assistant&quot;,
+                    content: `抱歉，图片生成过程中发生错误: ${error.message}`,
+                    error: error.message,
+                });
+            } finally {
+                this.loading = false;
+                this.$nextTick(() =&gt; this.$refs.mainInput.focus());
+                this.scrollToBottom();
+            }
+        },
+
+        // 滚动到最新消息
+        scrollToBottom() {
+            this.$nextTick(() =&gt; {
+                const chatMessagesEl = this.$refs.chatMessages;
+                if (chatMessagesEl) {
+                    chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+                }
+            });
+        },
+    },
+    mounted() {
+        this.$nextTick(() =&gt; {
+            if (this.$refs.mainInput) {
+                this.$refs.mainInput.focus();
+            }
+        });
+    },
+};
+&lt;/script&gt;
+</code></pre>
+<p><strong>4. 样式 (<code>&lt;style&gt;</code>)</strong><br>
+为组件添加一些美化样式：</p>
+<pre><code class="language-css">/* App.vue */
+&lt;style&gt;
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5; /* 更柔和的背景色 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 800px; /* 限制最大宽度 */
+    height: 90vh; /* 调整高度 */
+    max-height: 700px; /* 增加最大高度限制 */
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px; /* 更圆润的边角 */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* 更明显的阴影 */
+    background-color: white;
+    overflow: hidden; /* 确保子元素不会溢出圆角 */
+}
+
+.chat-header {
+    padding: 16px 24px; /* 调整内边距 */
+    background-color: #1890ff; /* 主题色，例如 Ant Design 蓝 */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e8e8e8; /* 底部边框 */
+}
+
+.chat-header h1 {
+    margin: 0;
+    font-size: 1.4rem; /* 调整标题大小 */
+    font-weight: 500;
+}
+
+.mode-toggle {
+    display: flex;
+    gap: 12px; /* 按钮间距 */
+}
+
+.mode-btn {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 添加边框 */
+    border-radius: 8px; /* 圆角按钮 */
+    width: 40px; /* 调整大小 */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white; /* 图标颜色 */
+}
+
+.mode-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.mode-btn.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 2px white, 0 0 8px rgba(255, 255, 255, 0.5); /* 激活状态更明显 */
+}
+
+.mode-icon {
+    font-size: 20px; /* 图标大小 */
+    font-style: normal;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px 24px; /* 内边距 */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* 消息间距 */
+    background-color: #f9f9f9; /* 消息区域背景色 */
+}
+
+.message {
+    max-width: 75%; /* 消息最大宽度 */
+    padding: 12px 18px; /* 消息内边距 */
+    border-radius: 18px; /* 消息气泡圆角 */
+    word-break: break-word;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #1890ff; /* 用户消息颜色 */
+    color: white;
+    border-bottom-right-radius: 6px; /* 调整特定角，使其更像聊天气泡 */
+}
+
+.message.assistant {
+    align-self: flex-start;
+    background-color: #e9e9eb; /* AI消息背景色 */
+    color: #333;
+    border-bottom-left-radius: 6px;
+}
+.message-error {
+    color: #ff4d4f; /* 错误信息颜色 */
+    background-color: #fff1f0;
+    border: 1px solid #ffccc7;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.message-content {
+    white-space: pre-wrap; /* 保留换行符和空格 */
+}
+
+.message-image {
+    margin-top: 8px; /* 图片与文本间距 */
+    border-radius: 10px; /* 图片圆角 */
+    overflow: hidden;
+    max-width: 100%;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
+}
+
+.message-image img {
+    max-width: 100%; /* 限制图片最大宽度 */
+    max-height: 300px; /* 限制图片最大高度 */
+    height: auto;
+    display: block;
+    border-radius: 10px; /* 确保图片本身也有圆角 */
+}
+
+.image-options {
+    padding: 12px 24px; /* 内边距 */
+    background-color: #ffffff; /* 选项区域背景 */
+    border-top: 1px solid #e8e8e8; /* 顶部边框 */
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+
+.option-group {
+    display: flex;
+    align-items: center;
+}
+
+.option-group label {
+    margin-right: 10px; /* 标签与选择框间距 */
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.option-group select {
+    padding: 8px 12px; /* 选择框内边距 */
+    border: 1px solid #d9d9d9; /* 边框颜色 */
+    border-radius: 6px; /* 圆角 */
+    background-color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.option-group select:hover {
+    border-color: #1890ff;
+}
+
+
+.chat-input {
+    display: flex;
+    padding: 15px 24px; /* 内边距 */
+    border-top: 1px solid #e8e8e8; /* 顶部边框 */
+    background-color: #ffffff; /* 输入区域背景 */
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px 15px; /* 输入框内边距 */
+    border: 1px solid #d9d9d9;
+    border-radius: 20px; /* 圆角输入框 */
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.chat-input input:focus {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.chat-input .submit-btn {
+    margin-left: 12px; /* 按钮与输入框间距 */
+    padding: 10px 20px;
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 20px; /* 圆角按钮 */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-input .submit-btn:hover {
+    background-color: #40a9ff; /* 悬停颜色 */
+}
+
+.chat-input .submit-btn:disabled {
+    background-color: #b3d1f0; /* 禁用颜色 */
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+        max-height: none;
+        border-radius: 0;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    .image-options {
+        flex-direction: column;
+        align-items: flex-start; /* 左对齐 */
+        gap: 10px;
+    }
+    .chat-header h1 {
+        font-size: 1.2rem;
+    }
+    .mode-btn {
+        width: 36px;
+        height: 36px;
+    }
+    .mode-icon {
+        font-size: 18px;
+    }
+}
+&lt;/style&gt;
+</code></pre>
+<p>将以上 <code>&lt;template&gt;</code>, <code>&lt;script&gt;</code> 和 <code>&lt;style&gt;</code> 部分整合到一个 <code>App.vue</code> 文件中，并在你的 Vue 项目中正确引入和使用它（通常是替换 <code>main.js</code> 中默认的 <code>App.vue</code>）。确保你的 Vue 项目已经安装了 <code>axios</code> (<code>npm install axios</code>)。</p>
+<h2 id="总结">总结</h2>
+<p>通过以上步骤，我们成功地在 Vue2 项目中集成了讯飞星火大模型的文本对话和图片生成功能。整个过程涉及到了讯飞平台的注册配置、API 的理解、后端 Koa2 代理的搭建，以及前端 Vue 页面的构建和 API 调用。虽然讯飞的 API 文档在某些细节上（特别是 Lite 版的非流式对话接口参数结构）可能需要仔细甄别和测试，但总体而言，其免费的 Lite 版为开发者提供了一个很好的 AI 功能体验入口。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello World]]></title>
+        <id>https://whitsats.github.io/post/hello-world/</id>
+        <link href="https://whitsats.github.io/post/hello-world/">
+        </link>
+        <updated>2025-04-29T00:22:50.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>哈喽，世界！好久不见，我的博客又回来啦！</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>哈喽，世界！好久不见，我的博客又回来啦！</strong></p>
+<!-- more -->
+<p>说起来，这已经不是我第一次开博客了。大概在十年前，我还是一枚青涩的编程小白那会儿，就兴冲冲地搭建了自己的第一个博客。当时的想法其实挺简单的：</p>
+<p>一来呢，是想把自己学习编程过程中踩过的坑、总结的心得都记下来。你知道的，好记性不如烂笔头嘛，写下来方便自己以后查阅，也算是一种网络备份，省得哪天电脑坏了资料全丢。</p>
+<p>二来呢，也是希望能通过这个小小的窗口，认识一些同样在学习或者已经在大厂搬砖的朋友。大家可以交流交流技术，分享分享经验，或者哪怕只是在网上互相打个气，感觉也会很不一样。那会儿真是热情满满啊！</p>
+<p>可是后来嘛，人总会长大，事情也越来越多。不知道从什么时候开始，当初那股爱分享的热情好像慢慢退潮了。可能是觉得自己懂得还不够多，不好意思在网上“班门弄斧”；也可能是各种笔记软件、效率工具用得越来越顺手，觉得随时随地在本地记录更方便、更私密一些。总之，写着写着就更多变成了自己的“私房笔记”，博客这边自然就渐渐荒废了，草都长得老高了吧（笑）。</p>
+<p>最近这段时间，不知道怎么回事，感觉工作和生活都碰到了一个坎儿，有点儿“卡壳”了。工作上，好像进入了一个平台期，每天忙忙碌碌却又觉得有点茫然，不知道下一步该往哪个方向使劲才能突破。生活上呢，也觉得有点提不起精神，日复一日，好像缺少了点新鲜感和前进的动力。</p>
+<p>这种感觉挺不好受的，也让我开始反思：我是不是跑得太快，或者是在原地打转太久，忘了当初为什么出发？也许，现在是时候按下暂停键，稍微放慢脚步，等一等那个有点迷失、有点疲惫的自己了。</p>
+<p>所以，兜兜转转，我又回到了这里，重新搭起了这个小小的博客空间。我希望，能像十年前那样，重新开始用文字记录下我的工作和生活。不一定非要写得多深刻、多高大上，就是记录下那些解决问题的小小成就感，工作中遇到的困惑和思考，生活里的那些温暖瞬间，或者是偶尔的emo时刻。</p>
+<p>我把它看作是一个“重启”按钮，希望能通过这种持续的记录和梳理，帮自己理清思路，找到新的方向感。更重要的，是希望以这样一种开放和记录的方式，督促自己保持学习、保持思考，以一个全新的、更积极的状态，去迎接那个可能就在转角等着我的、全新的自己。</p>
+<p>“Hello World”—— 这句每个程序员入门时在屏幕上敲下的第一行代码，简单，却代表着一个新世界的开启。现在，我把它写在这里，作为我博客重启的第一句话。对我来说，它不仅仅是一句程序员都懂的问候，更像是一种宣告：嘿，世界，我要用一种全新的、像初学者一样充满好奇和探索欲的心态，重新出发啦！</p>
+<p>希望这一次，能坚持得久一点，走得更踏实一点。你好，新开始！</p>
+]]></content>
+    </entry>
+</feed>

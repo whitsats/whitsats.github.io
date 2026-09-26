@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+<title>JavaScript 螺旋式进阶大纲 |
+        W&#39;Blog</title>
+<meta name="algolia-site-verification" content="415B756FDB4308CC" />
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+/>
+<link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous"
+/>
+<link
+    rel="shortcut icon"
+    href="https://whitsats.github.io//favicon.ico?v=1790420076802"
+/>
+<link rel="stylesheet" href="https://whitsats.github.io//styles/main.css" />
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-L6R12L2QHC"
+></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-L6R12L2QHC");
+</script>
+
+
+        <meta name="description" content="最近借助 Gemini 整理了一下思路，写了一篇 JavaScript 基础大纲，适合初学者学习，现在分享给大家！
+教学哲学：从“能用”到“好用”的两次飞跃
+本课程的设计遵循一种精心构建的“螺旋式上升”教学法。我们不会一次性给你所有“正确”..." />
+        <meta
+            name="keywords"
+            content="前端"
+        />
+    </head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar" :class="{ 'full-height': menuVisible }">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a class="site-title-container" href="https://whitsats.github.io/">
+                <img
+                    src="https://whitsats.github.io//images/avatar.png?v=1790420076802"
+                    class="site-logo"
+                />
+                <h1 class="site-title">W&#39;Blog</h1>
+            </a>
+            <div class="menu-btn" @click="menuVisible = !menuVisible">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+             
+            <a href="/" class="site-nav"> 首页 </a>
+              
+            <a href="/archives" class="site-nav"> 归档 </a>
+              
+            <a href="/tags" class="site-nav"> 标签 </a>
+              
+            <a href="/post/about" class="site-nav"> 关于 </a>
+             
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container">
+             
+            <a
+                class="social-link"
+                href="https://github.com/whitsats"
+                target="_blank"
+            >
+                <i class="fab fa-github"></i>
+            </a>
+                     
+        </div>
+        <div class="site-description">兴趣是最好的老师</div>
+        <div class="site-footer">
+            Powered by <a href="https://github.com/whitsats" target="_blank">whitsats❤️</a> |
+            <a
+                class="rss"
+                href="https://whitsats.github.io//atom.xml"
+                target="_blank"
+                >RSS</a
+            >
+        </div>
+    </div>
+</div>
+
+
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+                        <h2 class="post-title">JavaScript 螺旋式进阶大纲</h2>
+                        <div class="post-date">2025-08-04</div>
+                        
+                        <div class="post-content" v-pre>
+                            <p>最近借助 Gemini 整理了一下思路，写了一篇 JavaScript 基础大纲，适合初学者学习，现在分享给大家！</p>
+<h2 id="教学哲学从能用到好用的两次飞跃">教学哲学：从“能用”到“好用”的两次飞跃</h2>
+<p>本课程的设计遵循一种精心构建的“螺旋式上升”教学法。我们不会一次性给你所有“正确”的答案，而是引导你像一名真正的开发者一样，经历两次关键的认知飞跃。</p>
+<ul>
+<li>
+<p>第一阶段：建立直觉联系 (能用)</p>
+<p>你的首要任务是建立编程逻辑与浏览器可见结果之间的直接联系。我们会使用最直观的工具（如 innerHTML），让你能以最快的速度、最低的认知成本看到自己代码的成果，从而牢固地建立起编程的核心信心与心智模型。在这个阶段的最后，你将独立完成一个功能完备的“简易购物车 v1.0”。</p>
+</li>
+<li>
+<p>第二阶段：专业认知重构 (好用)</p>
+<p>你将带着自己亲手完成的 v1.0 项目进入第二阶段。此时，你将直面它在性能、可维护性上的真实“痛点”。第二阶段的核心任务，就是围绕性能、抽象、封装三大支柱，对你的 v1.0 项目进行一次彻底的专业化重构。你将学习更专业的工具，并用它们亲手将购物车升级为 v2.0 (性能优化版)、v3.0 (架构升级版)，直至最终的 v4.0 (专业封装版)。这不仅是项目的迭代，更是你个人思维的蜕变。</p>
+</li>
+</ul>
+<hr>
+<h2 id="第一阶段构建心智模型-我的代码看得见的力量">第一阶段：构建心智模型 —— 我的代码，看得见的力量</h2>
+<p><strong>核心目标</strong>：建立编程基础概念与浏览器可见结果的牢固联系，实现“所学即所见”，并完成“简易购物车 v1.0”的开发。</p>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>每周主题</th>
+<th>单元课题</th>
+<th>核心概念与语法</th>
+<th>综合实践与思维训练</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第 1 周</strong></td>
+<td><strong>从数据到交互</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>第一个脚本</td>
+<td>JavaScript 简介；<code>&lt;script&gt;</code> 标签；<code>console.log()</code>；<code>alert()</code></td>
+<td><code>onclick</code> 属性，在 HTML 中触发 JS</td>
+<td>在网页上点击按钮，触发一个 <code>alert</code> 弹窗。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>存储与格式化信息</td>
+<td>变量 (<code>let</code>, <code>const</code>)；字符串类型；拼接；模板字符串 (``` 与 <code>${...}</code>)； 基础字符串方法 (<code>.length</code>, <code>.toUpperCase()</code>, <code>.trim()</code>)</td>
+<td><code>document.getElementById()</code>, <code>.innerHTML</code></td>
+<td>将变量值显示在页面上，并使用模板字符串重构拼接逻辑；使用 <code>.trim()</code> 清理用户输入，并用 <code>.toUpperCase()</code> 格式化输出。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>获取用户输入</td>
+<td>函数定义与调用；DOM 的 <code>.value</code> 属性 ；特殊值 <code>null</code> 与 <code>undefined</code></td>
+<td><code>function greetUser() {...}</code></td>
+<td>完整交互：获取输入 -&gt; 处理数据 -&gt; 更新页面。 演示 <code>getElementById</code> 找不到元素时返回 <code>null</code>，以及未赋值变量为 <code>undefined</code> 的情况。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>处理数字</td>
+<td>数字类型；算术运算符；类型转换 (<code>parseInt</code>, <code>parseFloat</code>)；<code>typeof</code>；</td>
+<td>主动制造并解决 <code>&quot;5&quot; + &quot;3&quot;</code> 的类型陷阱</td>
+<td>构建一个简易计算器；</td>
+</tr>
+<tr>
+<td>5</td>
+<td>做出决策</td>
+<td>布尔类型；比较运算符 (<code>==</code>, <code>!=</code>, <code>===</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>)；<code>if...else</code> 结构</td>
+<td><code>element.style</code></td>
+<td><strong>综合案例一：密码检查器</strong></td>
+</tr>
+<tr>
+<td>考核日 (1)</td>
+<td>第一周综合考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：变量、数据类型、函数、基础DOM操作、条件判断、作用域</td>
+<td><strong>综合考核案例：个性化问候器</strong></td>
+</tr>
+<tr>
+<td><strong>第 2 周</strong></td>
+<td><strong>结构化数据、逻辑与循环</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>对象入门</td>
+<td>对象字面量语法 ；点表示法与方括号表示法访问属性；对象的遍历 <code>for...in</code></td>
+<td><code>let user = { name: 'Alice', age: 25 };</code></td>
+<td>创建用户资料对象，并将其信息展示在页面上。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>结构化数据：数组</td>
+<td>数组 (Array)；字面量语法；<code>.length</code> 属性； 基础数组方法 (<code>.push()</code>, <code>.pop()</code>, <code>.indexOf()</code>)；<code>for</code> 循环遍历</td>
+<td><code>for (let i = 0; i &lt; arr.length; i++)</code></td>
+<td><strong>综合案例二：动态标签管理</strong></td>
+</tr>
+<tr>
+<td>8</td>
+<td>逻辑运算符</td>
+<td>组合逻辑与短路特性</td>
+<td>逻辑运算符</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>循环进阶</td>
+<td><code>while</code> 与 <code>do...while</code> 循环；<code>switch</code>； <code>for...of</code> 循环；<code>break</code> 与 <code>continue</code></td>
+<td>使用 <code>for...of</code> 重构数组遍历代码，对比不同循环的应用场景，并引入 <code>break</code> 退出循环。</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>嵌套循环</td>
+<td>嵌套循环逻辑 ；使用嵌套循环生成二维结构</td>
+<td><code>for (...) { for (...) {...} }</code></td>
+<td><strong>综合案例三：动态生成乘法表</strong></td>
+</tr>
+<tr>
+<td>考核日 (2)</td>
+<td>第二周综合考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：对象、数组、逻辑运算符、循环、嵌套循环</td>
+<td><strong>综合考核案例：动态商品列表渲染</strong></td>
+</tr>
+<tr>
+<td><strong>第 3 周</strong></td>
+<td><strong>函数与交互</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>数据驱动UI</td>
+<td>对象数组 ；遍历对象数组； ES6 解构赋值 (<code>const { name } = user</code>)</td>
+<td><code>for (const { name, age } of users)</code></td>
+<td><strong>综合案例四：数据驱动的UI渲染</strong></td>
+</tr>
+<tr>
+<td>12</td>
+<td>现代事件处理</td>
+<td><code>addEventListener</code>； 事件对象 (<code>event</code>)；基础事件 (<code>click</code>, <code>input</code>, <code>keydown</code>)</td>
+<td><code>btn.addEventListener('click', function(e) {...})</code></td>
+<td>思维训练：关注点分离</td>
+</tr>
+<tr>
+<td>13</td>
+<td>函数进阶</td>
+<td>函数参数与返回值 (<code>return</code>)；函数作用域； 箭头函数 (<code>=&gt;</code>) ； 剩余参数 (<code>...</code>)</td>
+<td><code>function add(a, b) { return a + b; }</code></td>
+<td>使用箭头函数重构所有事件监听器，简化代码；将核心逻辑封装到可复用的函数中。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>DOM操作</td>
+<td><code>querySelector</code>；<code>querySelectorAll</code>； DOM遍历 ：<code>parentNode</code>； DOM操作 ：<code>removeChild</code>，<code>remove</code></td>
+<td><code>element.parentNode</code></td>
+<td><strong>综合案例五：交互式Tab选项卡</strong></td>
+</tr>
+<tr>
+<td>15</td>
+<td>数据与交互结合</td>
+<td>ES6 展开语法 (<code>...</code>) 用于对象/数组浅拷贝</td>
+<td><code>const newArr = [...oldArr]</code></td>
+<td><strong>综合案例六：数据驱动的待办事项 (增/删)</strong></td>
+</tr>
+<tr>
+<td>考核日 (3)</td>
+<td>第三周综合考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：函数、事件、箭头函数、<code>event.target</code>、展开语法、数据驱动交互</td>
+<td><strong>综合考核案例：带头像选择的动态留言板</strong></td>
+</tr>
+<tr>
+<td><strong>第 4 周</strong></td>
+<td><strong>内置对象与阶段整合</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>内置对象</td>
+<td><code>Math</code> 对象 (<code>.random()</code>, <code>.floor()</code>)；<code>Date</code> 对象 (创建与简单格式化)</td>
+<td><code>new Date()</code>, <code>Math.floor(Math.random() * 10)</code></td>
+<td><strong>综合案例七：随机点名器</strong></td>
+</tr>
+<tr>
+<td>17</td>
+<td>定时器入门</td>
+<td><code>setTimeout</code>, <code>setInterval</code>；<code>clearTimeout</code>, <code>clearInterval</code></td>
+<td><code>setInterval(updateClock, 1000)</code></td>
+<td><strong>综合案例八：验证码倒计时</strong></td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>主线项目启动</strong></td>
+<td><strong>综合案例九：简易购物车 (v1.0)</strong></td>
+<td>思维训练：状态联动</td>
+<td><strong>目标</strong>：整合第一阶段所有核心知识点，使用 <code>innerHTML</code> 循环渲染商品列表，并为每个按钮绑定独立的事件监听器，实现商品数量的增减和总价的实时计算功能。</td>
+</tr>
+<tr>
+<td>考核日 (4)</td>
+<td>第一阶段总考核</td>
+<td>（本单元为独立考核日，不授课）</td>
+<td>考核范围：第一阶段所有核心知识点</td>
+<td><strong>综合考核案例：限时抢购</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="第二阶段认知重构之旅-我的应用专业进化">第二阶段：认知重构之旅 —— 我的应用，专业进化</h2>
+<p><strong>核心目标</strong>：引导学生掌握更专业、高效的编程工具与思想，将“简易购物车 v1.0”重构升级为“专业购物车 v4.0”，完成从“初学者”到“准开发者”的思维转变。</p>
+<h3 id="第五周专业基础-性能与声明式数据">第五周：专业基础 —— 性能与声明式数据</h3>
+<ul>
+<li><strong>叙事目标</strong>：将“简易购物车 v1.0”升级为 <strong>“购物车 v2.0：性能与可读性重构版”</strong>。直面 v1.0 在大量数据渲染时的性能瓶颈，并解决其代码可读性问题。</li>
+<li><strong>核心支柱</strong>：<strong>性能</strong> 与 <strong>抽象</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19</td>
+<td><code>createElement</code>, <code>appendChild</code>, <code>querySelector</code>, <code>querySelectorAll</code>; <code>textContent</code> vs <code>innerHTML</code> vs <code>innerText</code>; <code>DocumentFragment</code></td>
+<td><strong>思维训练：DOM树模型</strong>。通过独立的“渲染长列表”练习，使用性能工具直观对比 <code>innerHTML</code> 与 <code>DocumentFragment</code> 的性能差异。</td>
+<td><strong>性能重构</strong>：将 v1.0 购物车中所有使用 <code>innerHTML</code> 拼接字符串的渲染循环，全部替换为 <code>createElement</code> 和 <code>appendChild</code>。引入 <code>DocumentFragment</code> 优化批量添加商品时的性能。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>DOM遍历 (<code>parentElement</code>, <code>children</code>, <code>nextElementSibling</code>); <code>classList</code> (add, remove, toggle); <code>data-*</code> 属性</td>
+<td><strong>思维训练：数据驱动状态</strong>。重构“交互式Tab选项卡”案例，要求必须使用 <code>classList</code> 和 <code>data-*</code> 属性来管理状态。</td>
+<td><strong>样式与状态重构</strong>：移除 v1.0 中所有直接操作 <code>element.style</code> 的代码。改用 <code>classList.toggle</code> 控制动态样式。使用 <code>data-*</code> 属性在DOM元素上存储商品ID，为后续交互做准备。</td>
+</tr>
+<tr>
+<td>21</td>
+<td>高级字符串方法: <code>startsWith()</code>, <code>endsWith()</code>, <code>includes()</code>, <code>padStart()</code>, <code>padEnd()</code></td>
+<td><strong>综合案例十二：表单输入格式验证与美化</strong>。作为对高级字符串方法的集中火力训练。</td>
+<td><strong>功能增强</strong>：为购物车增加一个商品搜索/过滤输入框。这个真实需求为学习高级字符串方法提供了业务场景。</td>
+</tr>
+<tr>
+<td>22-23</td>
+<td>高阶数组方法: <code>.forEach()</code>, <code>.map()</code>, <code>.filter()</code>, <code>.find()</code>, <code>.some()</code>, <code>.every()</code>, <code>.reduce()</code></td>
+<td><strong>思维训练：声明式编程</strong>。先通过<strong>综合案例十三：商品筛选与搜索</strong>掌握新技能，感受其优越性。</td>
+<td><strong>声明式渲染重构</strong>：将冗长的 <code>createElement</code> 循环重构为简洁的 <code>products.map(p =&gt; createProductElement(p))</code> 模式。随后使用 <code>.filter()</code> 将搜索框逻辑与渲染列表无缝对接。</td>
+</tr>
+<tr>
+<td>考核日 (5)</td>
+<td>考核范围：高级DOM、<code>classList</code>、<code>data-*</code>、高级字符串/数组方法</td>
+<td><strong>综合考核案例：带筛选和记忆功能的商品列表</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="第六周构建可扩展架构-高级事件与浏览器环境">第六周：构建可扩展架构 —— 高级事件与浏览器环境</h3>
+<ul>
+<li><strong>叙事目标</strong>：将购物车升级为 <strong>“v3.0：架构与持久化重构版”</strong>。修复 v2.0 中为每个按钮绑定事件的低效模型，并让购物车数据能够在页面刷新后依然存在。</li>
+<li><strong>核心支柱</strong>：<strong>性能</strong> (架构层面) 与 <strong>抽象</strong> (浏览器能力)。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td>事件流 (冒泡与捕获); <code>e.stopPropagation()</code>; <code>e.preventDefault()</code></td>
+<td><strong>思维训练：事件的传播与控制</strong>。通过简单的嵌套元素点击实验，直观感受冒泡和捕获。</td>
+<td><strong>事件架构理论准备</strong>：学习事件流模型，为次日的事件委托重构打下坚实的理论基础。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>事件委托 (<code>event.target</code>, <code>element.closest()</code>); 各类事件 (鼠标, 键盘, 表单, 点击)</td>
+<td><strong>综合案例十四：事件委托实现的待办列表</strong>。在一个隔离的环境中，首先精通事件委托技术。</td>
+<td><strong>事件架构重构</strong>：移除 v2.0 中为每个商品按钮绑定的独立事件监听器。在购物车列表的父容器上实现单一事件监听器，利用事件委托统一处理所有交互。</td>
+</tr>
+<tr>
+<td>26</td>
+<td>尺寸与定位: <code>offsetWidth/Height</code>, <code>clientWidth/Height</code>; <code>getBoundingClientRect()</code>; <code>offsetLeft/Top</code>, <code>scrollTop</code>; 坐标系 (<code>clientX/Y</code>, <code>pageX/Y</code>)</td>
+<td><strong>综合案例十六：放大镜效果</strong> 与 <strong>思维训练：坐标系辨析</strong>。这是应用尺寸和坐标计算的最佳实践场景。</td>
+<td><strong>高级UI特性预研</strong>：学习精确测量和定位元素的API，为未来可能增加的“拖拽商品入购物车”等高级功能做技术储备。</td>
+</tr>
+<tr>
+<td>27-28</td>
+<td>BOM (<code>window</code>, <code>location</code>, <code>history</code>); <code>localStorage</code>; 滚动事件 (<code>scroll</code>)</td>
+<td><strong>综合案例十五：导航吸顶与主题切换</strong>。此案例为 <code>localStorage</code> 提供了一个更简单的应用场景（如保存用户的主题偏好）。</td>
+<td><strong>持久化升级</strong>：使用 <code>localStorage</code> 实现购物车数据的本地存储。当购物车数据变化时，将其存入 <code>localStorage</code>；页面加载时，读取并恢复购物车状态。</td>
+</tr>
+<tr>
+<td>考核日 (6)</td>
+<td>考核范围：事件流、事件委托、尺寸定位、BOM、<code>localStorage</code></td>
+<td><strong>综合考核案例：可拖拽的卡片</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="第七周封装复杂性-可复用组件的诞生">第七周：封装复杂性 —— 可复用组件的诞生</h3>
+<ul>
+<li><strong>叙事目标</strong>：将购物车升级为 <strong>“v4.0：封装与复用重构版”</strong>。将所有与购物车相关的、散落在各处的逻辑和数据，重构并封装到一个独立的、自包含的 <code>Cart</code> 组件中。</li>
+<li><strong>核心支柱</strong>：<strong>封装</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>29</td>
+<td><code>this</code> 关键字; 构造函数 (Constructor); 对象方法; <code>new</code> 关键字</td>
+<td><strong>综合案例十七：构造函数重构</strong>。使用一个更简单的 <code>Product</code> 构造函数来练习OOP的基本语法。</td>
+<td><strong>OOP重构 (第一部分)</strong>：创建 <code>Cart</code> 构造函数。将购物车的核心数据作为实例的属性，将核心行为定义为构造函数内部的方法。</td>
+</tr>
+<tr>
+<td>30</td>
+<td><code>prototype</code>; 原型链; <code>__proto__</code>; <code>constructor</code></td>
+<td><strong>思维训练</strong>：通过 <code>console.dir</code> 深入探索原型链，理解 <code>new</code> 关键字背后发生的事情，理解为何将方法放在原型上是更优的实践。</td>
+<td><strong>OOP重构 (第二部分)</strong>：进行关键的内存优化。将 <code>Cart</code> 的方法从构造函数内部移到 <code>Cart.prototype</code> 上，确保所有实例共享同一套方法。</td>
+</tr>
+<tr>
+<td>31</td>
+<td>面向对象综合实践 (I)</td>
+<td><strong>综合案例十八：面向对象的轮播图</strong>。将轮播图的功能封装到一个 <code>Swiper</code> 构造函数中，培养<strong>组件化思想</strong>。</td>
+<td><strong>组件化思维强化</strong>：分析轮播图案例的封装思想，为改造更复杂的购物车组件做准备。</td>
+</tr>
+<tr>
+<td>32</td>
+<td><code>requestAnimationFrame</code> (rAF); 复杂定时器逻辑 (<code>setInterval</code> &amp; <code>setTimeout</code> 结合)</td>
+<td><strong>综合案例十九：滚动弹幕</strong>。这是一个专为精通 <code>rAF</code> 设计的高强度训练场，要求实现极致平滑的动画。</td>
+<td><strong>体验优化</strong>：为购物车添加平滑的动画效果。例如，当商品添加或移除时，使用 <code>rAF</code> 实现一个专业的淡入淡出效果。</td>
+</tr>
+<tr>
+<td>33</td>
+<td>面向对象综合实践 (II)</td>
+<td><strong>综合案例二十：可拖拽的软键盘</strong>。综合运用 OOP、事件、DOM 操作，将<strong>组件化思想</strong>融会贯通。</td>
+<td><strong>组件化</strong>：进一步完善 <code>Cart</code> 类，使其内部管理所有的DOM渲染和事件监听。最终目标是让外部代码只需 <code>const myCart = new Cart('#cart-container');</code> 就能实例化整个购物车功能。</td>
+</tr>
+<tr>
+<td>考核日 (7)</td>
+<td>考核范围：面向对象（构造函数、原型）、<code>this</code>、高级动画</td>
+<td><strong>综合考核案例：星级评分与标签发布组件</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="第八周最终整合与专业应用">第八周：最终整合与专业应用</h3>
+<ul>
+<li><strong>叙事目标</strong>：完成项目的最终版本 <strong>“购物车 v4.1：专业打磨与复杂状态管理”</strong>。挑战整个课程中最复杂的状态联动逻辑，完成通往现代框架的“最后一公里”认知对接。</li>
+<li><strong>核心支柱</strong>：三大支柱的<strong>综合应用</strong>，并聚焦于<strong>复杂状态管理</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>天数</th>
+<th>核心概念与语法</th>
+<th>专项练习 (融合案例)</th>
+<th>主线项目：购物车升级任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>34</td>
+<td>正则表达式 (语法, 修饰符, 元字符, 量词, 方法: <code>test</code>, <code>exec</code>, <code>match</code>, <code>replace</code>)</td>
+<td><strong>综合案例二十一：高级表单验证</strong>。在应用到购物车之前，系统学习和掌握正则表达式语法。</td>
+<td><strong>专业打磨：优惠码功能</strong>：为购物车添加一个优惠码输入框。这个功能为学习和应用正则表达式提供了最真实的场景，用于验证用户输入的优惠码格式。</td>
+</tr>
+<tr>
+<td>35-36</td>
+<td>复杂状态管理; 数据结构设计</td>
+<td><strong>思维训练：复杂状态管理</strong>。引导学员在动手前，先用流程图或伪代码设计状态联动的逻辑，体会“状态设计”先于“功能实现”的开发思想。</td>
+<td><strong>终极挑战：复杂状态同步</strong>：在 <code>Cart</code> 类中，实现商品单选、店铺内全选、跨店铺总全选之间的状态联动。这是对数据结构设计和逻辑严谨性的终极考验。</td>
+</tr>
+<tr>
+<td>考核日 (8)</td>
+<td>最终项目考核</td>
+<td>考核范围：课程所有知识点的综合运用</td>
+<td><strong>最终项目考核</strong>：完成“功能完善的购物车”完整页面并进行答辩。</td>
+</tr>
+</tbody>
+</table>
+
+                        </div>
+                        
+                        <div class="tag-container">
+                            
+                            <a href="https://whitsats.github.io/tag/c7p7yGMKHc/" class="tag">
+                                前端
+                            </a>
+                            
+                        </div>
+                         
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://whitsats.github.io/post/vue2-axios-shi-yong-xun-fei-da-mo-xing-lite/">
+                                <h3 class="post-title">
+                                    Vue2 + Axios 使用讯飞大模型实现图文对话
+                                </h3>
+                            </a>
+                        </div>
+                          
+                        <div id="gitalk-container" data-aos="fade-in"></div>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            menuVisible: false,
+        },
+    });
+</script>
+
+
+<!-- Algolia Search -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/instantsearch.css@8/themes/satellite-min.css"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic@1.11.0/dist/theme.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.10.5/dist/algoliasearch-lite.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.78.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@1.19.1/dist/umd/index.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-query-suggestions@1.19.1/dist/umd/index.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-recent-searches@1.19.1/dist/umd/index.production.min.js"></script>
+
+<!-- Algolia Search Button and Container -->
+<div id="search-container">
+    <!-- 搜索按钮 -->
+    <div class="search-btn-wrapper">
+        <button id="search-toggle-btn" title="搜索">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>
+
+<!-- 搜索面板 (独立于按钮，居中显示) -->
+<div id="search-panel" class="hidden">
+    <div class="search-panel-content">
+        <div class="search-panel-header">
+            <h3>搜索</h3>
+            <button id="close-search-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="searchbox"></div>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+    </div>
+    <div class="search-panel-overlay"></div>
+</div>
+
+<script>
+    // Algolia Search Implementation
+    (function () {
+        const searchClient = algoliasearch(
+            "1VXCOCG7P2",
+            "35a939430a6999044879d9abf650cae7"
+        );
+        const search = instantsearch({
+            indexName: "whitsats_github_io_1vxcocg7p2_pages",
+            searchClient,
+            future: { preserveSharedStateOnUnmount: true },
+        });
+
+        // Connect virtual search box
+        const virtualSearchBox = instantsearch.connectors.connectSearchBox(
+            () => {}
+        );
+
+        search.addWidgets([
+            virtualSearchBox({}),
+            instantsearch.widgets.hits({
+                container: "#hits",
+                templates: {
+                    item: (hit, { html, components }) => html`
+                        <article>
+                            <a href="${hit.url}">
+                                <h3>
+                                    ${components.Highlight({
+                                        hit: hit,
+                                        attribute: "title",
+                                    })}
+                                </h3>
+                                <p>
+                                    ${components.Highlight({
+                                        hit: hit,
+                                        attribute: "description",
+                                    })}
+                                </p>
+                            </a>
+                        </article>
+                    `,
+                },
+            }),
+            instantsearch.widgets.configure({ hitsPerPage: 8 }),
+            instantsearch.widgets.pagination({ container: "#pagination" }),
+        ]);
+
+        search.start();
+
+        // Autocomplete implementation
+        const recentSearchesPlugin = window[
+            "@algolia/autocomplete-plugin-recent-searches"
+        ].createLocalStorageRecentSearchesPlugin({
+            key: "instantsearch",
+            limit: 3,
+            transformSource: ({ source }) => ({
+                ...source,
+                onSelect({ setIsOpen, setQuery, item, event }) {
+                    onSelect({ setQuery, setIsOpen, event, query: item.label });
+                },
+            }),
+        });
+
+        const querySuggestionsPlugin = window[
+            "@algolia/autocomplete-plugin-query-suggestions"
+        ].createQuerySuggestionsPlugin({
+            searchClient,
+            indexName: "instant_search_demo_query_suggestions",
+            getSearchParams: () =>
+                recentSearchesPlugin.data.getAlgoliaSearchParams({
+                    hitsPerPage: 6,
+                }),
+            transformSource: ({ source }) => ({
+                ...source,
+                sourceId: "querySuggestionsPlugin",
+                onSelect({ setIsOpen, setQuery, event, item }) {
+                    onSelect({ setQuery, setIsOpen, event, query: item.query });
+                },
+                getItems: (params) =>
+                    params.state.query ? source.getItems(params) : [],
+            }),
+        });
+
+        function setInstantSearchUiState(uiState) {
+            search.mainIndex.setIndexUiState({ page: 1, ...uiState });
+        }
+
+        function onSelect({ setIsOpen, setQuery, event, query }) {
+            if (isModifierEvent(event)) {
+                return;
+            }
+
+            setQuery(query);
+            setIsOpen(false);
+            setInstantSearchUiState({ query });
+        }
+
+        function isModifierEvent(event) {
+            return (
+                event.button === 1 ||
+                event.altKey ||
+                event.ctrlKey ||
+                event.metaKey ||
+                event.shiftKey
+            );
+        }
+
+        window["@algolia/autocomplete-js"].autocomplete({
+            container: "#searchbox",
+            openOnFocus: true,
+            detachedMediaQuery: "none",
+            onSubmit({ state }) {
+                setInstantSearchUiState({ query: state.query });
+            },
+            plugins: [recentSearchesPlugin, querySuggestionsPlugin],
+        });
+
+        // 搜索面板交互
+        document
+            .getElementById("search-toggle-btn")
+            .addEventListener("click", function (e) {
+                // 防止拖动时触发点击事件
+                if (e.target.classList.contains("dragging")) {
+                    return;
+                }
+                document
+                    .getElementById("search-panel")
+                    .classList.remove("hidden");
+                // 聚焦搜索框
+                setTimeout(() => {
+                    const searchInput = document.querySelector(".aa-Input");
+                    if (searchInput) {
+                        searchInput.focus();
+                    }
+                }, 100);
+            });
+
+        // 搜索按钮拖动功能
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let elementStartX = 0;
+        let elementStartY = 0;
+        let animationId = null;
+
+        const searchContainer = document.getElementById("search-container");
+        const searchBtn = document.getElementById("search-toggle-btn");
+
+        // 禁用拖动时的transition，提高性能
+        function disableTransition() {
+            searchContainer.style.transition = "none";
+        }
+
+        function enableTransition() {
+            searchContainer.style.transition = "all 0.2s ease";
+        }
+
+        // 鼠标拖动
+        searchBtn.addEventListener("mousedown", function (e) {
+            isDragging = false;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+
+            const rect = searchContainer.getBoundingClientRect();
+            elementStartX = rect.left;
+            elementStartY = rect.top;
+
+            searchBtn.classList.add("grabbing");
+            disableTransition();
+
+            document.addEventListener("mousemove", handleMouseMove, {
+                passive: false,
+            });
+            document.addEventListener("mouseup", handleMouseUp, {
+                passive: true,
+            });
+            e.preventDefault();
+        });
+
+        // 触摸拖动
+        searchBtn.addEventListener("touchstart", function (e) {
+            isDragging = false;
+            const touch = e.touches[0];
+            dragStartX = touch.clientX;
+            dragStartY = touch.clientY;
+
+            const rect = searchContainer.getBoundingClientRect();
+            elementStartX = rect.left;
+            elementStartY = rect.top;
+
+            searchBtn.classList.add("grabbing");
+            disableTransition();
+
+            document.addEventListener("touchmove", handleTouchMove, {
+                passive: false,
+            });
+            document.addEventListener("touchend", handleTouchEnd, {
+                passive: true,
+            });
+            e.preventDefault();
+        });
+
+        function handleMouseMove(e) {
+            const deltaX = e.clientX - dragStartX;
+            const deltaY = e.clientY - dragStartY;
+
+            if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+                if (!isDragging) {
+                    isDragging = true;
+                    searchBtn.classList.add("dragging");
+                }
+            }
+
+            if (isDragging) {
+                // 使用requestAnimationFrame确保流畅的拖动
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                animationId = requestAnimationFrame(() => {
+                    updatePosition(
+                        elementStartX + deltaX,
+                        elementStartY + deltaY
+                    );
+                });
+                e.preventDefault();
+            }
+        }
+
+        function handleTouchMove(e) {
+            const touch = e.touches[0];
+            const deltaX = touch.clientX - dragStartX;
+            const deltaY = touch.clientY - dragStartY;
+
+            if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+                if (!isDragging) {
+                    isDragging = true;
+                    searchBtn.classList.add("dragging");
+                }
+            }
+
+            if (isDragging) {
+                // 使用requestAnimationFrame确保流畅的拖动
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                animationId = requestAnimationFrame(() => {
+                    updatePosition(
+                        elementStartX + deltaX,
+                        elementStartY + deltaY
+                    );
+                });
+                e.preventDefault();
+            }
+        }
+
+        function handleMouseUp() {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+            finishDrag();
+        }
+
+        function handleTouchEnd() {
+            document.removeEventListener("touchmove", handleTouchMove);
+            document.removeEventListener("touchend", handleTouchEnd);
+            finishDrag();
+        }
+
+        function finishDrag() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+
+            searchBtn.classList.remove("grabbing");
+            enableTransition();
+
+            // 延迟移除dragging类，防止立即触发点击事件
+            setTimeout(() => {
+                searchBtn.classList.remove("dragging");
+            }, 100);
+        }
+
+        function updatePosition(x, y) {
+            // 获取视窗尺寸
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const containerSize = 46; // 按钮容器的实际大小
+
+            // 限制拖动范围，保持按钮完全在视窗内
+            x = Math.max(0, Math.min(x, viewportWidth - containerSize));
+            y = Math.max(0, Math.min(y, viewportHeight - containerSize));
+
+            // 使用transform而不是left/top，提高性能
+            searchContainer.style.transform = `translate(${x}px, ${y}px)`;
+            searchContainer.style.left = "0";
+            searchContainer.style.top = "0";
+            searchContainer.style.right = "auto";
+            searchContainer.style.bottom = "auto";
+
+            // 节流保存位置，避免频繁写入localStorage
+            clearTimeout(updatePosition.saveTimer);
+            updatePosition.saveTimer = setTimeout(() => {
+                localStorage.setItem(
+                    "searchButtonPosition",
+                    JSON.stringify({ x, y })
+                );
+            }, 500);
+        }
+
+        // 恢复保存的位置
+        function restorePosition() {
+            const savedPosition = localStorage.getItem("searchButtonPosition");
+            if (savedPosition) {
+                try {
+                    const { x, y } = JSON.parse(savedPosition);
+                    // 使用transform恢复位置
+                    searchContainer.style.transform = `translate(${x}px, ${y}px)`;
+                    searchContainer.style.left = "0";
+                    searchContainer.style.top = "0";
+                    searchContainer.style.right = "auto";
+                    searchContainer.style.bottom = "auto";
+                } catch (e) {
+                    console.log("Failed to restore search button position");
+                }
+            }
+        }
+
+        // 页面加载时恢复位置
+        window.addEventListener("load", restorePosition);
+
+        document
+            .getElementById("close-search-btn")
+            .addEventListener("click", function () {
+                document.getElementById("search-panel").classList.add("hidden");
+            });
+
+        // 点击遮罩层关闭搜索面板
+        document.addEventListener("DOMContentLoaded", function () {
+            const overlay = document.querySelector(".search-panel-overlay");
+            if (overlay) {
+                overlay.addEventListener("click", function () {
+                    document
+                        .getElementById("search-panel")
+                        .classList.add("hidden");
+                });
+            }
+
+            // 确保搜索容器始终可见
+            const searchContainer = document.getElementById("search-container");
+            if (searchContainer) {
+                // 将搜索容器添加到body末尾，确保它不会被其他元素影响
+                document.body.appendChild(searchContainer);
+            }
+
+            // 将搜索面板添加到body末尾
+            const searchPanel = document.getElementById("search-panel");
+            if (searchPanel) {
+                document.body.appendChild(searchPanel);
+            }
+        });
+
+        // 处理搜索完成后的状态
+        search.on("render", function () {
+            // 确保搜索按钮始终可见
+            const searchBtn = document.getElementById("search-toggle-btn");
+            if (searchBtn) {
+                searchBtn.style.display = "flex";
+            }
+        });
+
+        // 添加键盘快捷键 - 按ESC关闭搜索面板
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+                document.getElementById("search-panel").classList.add("hidden");
+            }
+
+            // 按Ctrl+K或Command+K打开搜索面板
+            if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+                e.preventDefault();
+                document
+                    .getElementById("search-panel")
+                    .classList.remove("hidden");
+                setTimeout(() => {
+                    const searchInput = document.querySelector(".aa-Input");
+                    if (searchInput) {
+                        searchInput.focus();
+                    }
+                }, 100);
+            }
+        });
+
+        // 防止搜索按钮被隐藏
+        window.addEventListener("load", function () {
+            const searchBtn = document.getElementById("search-toggle-btn");
+            if (searchBtn) {
+                searchBtn.style.display = "flex";
+            }
+        });
+    })();
+</script>
+
+<style>
+    /* 搜索容器样式 */
+    #search-container {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 99999;
+        transition: all 0.2s ease;
+        cursor: move;
+        cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    #search-container:active {
+        cursor: grabbing;
+    }
+
+    /* 搜索按钮包装器 */
+    .search-btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 搜索按钮样式 */
+    #search-toggle-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4a6cf7 0%, #8a63ff 100%);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        touch-action: none;
+        -webkit-user-drag: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #search-toggle-btn:hover:not(.dragging) {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #3a5ce6 0%, #7a53ef 100%);
+    }
+
+    #search-toggle-btn.grabbing {
+        cursor: grabbing;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #search-toggle-btn.dragging {
+        pointer-events: none;
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 搜索面板样式 - 居中弹层 */
+    #search-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: all 0.3s ease;
+    }
+
+    #search-panel.hidden {
+        display: none;
+        opacity: 0;
+    }
+
+    /* 搜索面板内容 */
+    .search-panel-content {
+        width: 90%;
+        max-width: 600px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 24px;
+        position: relative;
+        z-index: 100001;
+        animation: fadeInUp 0.3s ease;
+    }
+
+    /* 搜索面板背景遮罩 */
+    .search-panel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 100000;
+    }
+
+    .search-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .search-panel-header h3 {
+        margin: 0;
+        font-size: 20px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    #close-search-btn {
+        background: none;
+        border: none;
+        color: #999;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 6px;
+        transition: all 0.2s ease;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+    }
+
+    #close-search-btn:hover {
+        color: #333;
+        background-color: #f5f5f5;
+    }
+
+    /* 搜索框样式优化 */
+    #searchbox {
+        margin-bottom: 16px;
+    }
+
+    #searchbox .aa-Form {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eaeaea;
+    }
+
+    #hits {
+        margin-top: 20px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    #hits article {
+        padding: 16px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        transition: all 0.2s ease;
+        border: 1px solid #eee;
+    }
+
+    #hits article:hover {
+        background: #f9f9f9;
+        border-color: #ddd;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    #hits article a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    #hits article h3 {
+        margin: 0 0 10px 0;
+        font-size: 17px;
+        color: #4a6cf7;
+        font-weight: 600;
+    }
+
+    #hits article p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    #pagination {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .search-panel-content {
+            width: 90%;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .search-panel-content {
+            width: 95%;
+            padding: 16px;
+        }
+
+        #search-toggle-btn {
+            width: 38px;
+            height: 38px;
+            font-size: 14px;
+        }
+    }
+</style>
+ 
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: "d19b57a9d148457156f3",
+        clientSecret: "86b7b765df5d01718ce8cec5c7ada56842e42e67",
+        repo: "issue",
+        owner: "whitsats",
+        admin: ["whitsats"],
+        id: location.pathname.substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false, // Facebook-like distraction free mode
+    });
+
+    gitalk.render("gitalk-container");
+</script>
+   
+
+<style>
+    #music-player {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        z-index: 99999;
+        transition: all 0.2s ease;
+    }
+
+    .mini-player {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 8px 12px;
+        border-radius: 24px;
+        color: #333;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: visible;
+
+        &:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .play-btn i {
+            color: #555;
+            transition: all 0.15s ease;
+        }
+
+        /* 确保子元素可以接收点击事件 */
+        .wave-animation,
+        .play-btn {
+            position: relative;
+            z-index: 1;
+            pointer-events: auto;
+        }
+
+        /* SVG进度边框样式 */
+        .progress-border {
+            overflow: visible;
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            filter: drop-shadow(0 2px 4px rgba(74, 108, 247, 0.2));
+            pointer-events: none; /* 使SVG不拦截鼠标事件 */
+        }
+
+        .progress-path {
+            transition: stroke-dasharray 0.1s linear;
+            stroke-linecap: round;
+        }
+    }
+
+    .wave-animation {
+        display: flex;
+        align-items: flex-end;
+        height: 20px;
+        margin-right: 8px;
+    }
+
+    .wave-bar {
+        width: 3px;
+        margin: 0 1px;
+        background: linear-gradient(to top, #4a6cf7, #8a63ff);
+        border-radius: 1.5px;
+        animation: wave 0.5s infinite alternate;
+    }
+
+    @keyframes wave {
+        from {
+            height: 3px;
+            opacity: 0.5;
+        }
+        to {
+            height: 15px;
+            opacity: 1;
+        }
+    }
+
+    .play-btn,
+    .expand-btn {
+        background: none;
+        border: none;
+        color: #555;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 10px;
+        transition: all 0.15s ease;
+
+        &:hover {
+            color: #4a6cf7;
+            transform: scale(1.05);
+        }
+    }
+
+    .full-player {
+        background: linear-gradient(
+            135deg,
+            rgba(74, 108, 247, 0.95) 0%,
+            rgba(138, 99, 255, 0.95) 100%
+        );
+        border-radius: 16px;
+        padding: 16px;
+        color: white;
+        width: 360px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 32px rgba(74, 108, 247, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .player-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .player-header .now-playing {
+        font-size: 14px;
+        opacity: 0.9;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 300px;
+    }
+
+    .player-header .now-playing.error {
+        opacity: 1;
+        color: #ffd7d7;
+    }
+
+    .player-header .shrink-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+
+    .player-header .shrink-btn:hover {
+        color: white;
+    }
+
+    .player-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .control-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .control-buttons button {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        padding: 8px;
+        border-radius: 50%;
+    }
+
+    .control-buttons button:hover {
+        color: white;
+    }
+
+    .control-buttons .play-btn {
+        font-size: 32px;
+    }
+
+    .control-buttons .prev-btn,
+    .control-buttons .next-btn {
+        font-size: 20px;
+        opacity: 0.8;
+    }
+
+    .progress-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 4px;
+    }
+
+    .progress-container span {
+        font-size: 12px;
+        opacity: 0.7;
+        min-width: 40px;
+    }
+
+    .progress-bar {
+        flex-grow: 1;
+        height: 4px;
+        appearance: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        transition: all 0.2s ease;
+    }
+
+    .progress-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 4px;
+    }
+
+    .volume-control i {
+        font-size: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .volume-control i:hover {
+        opacity: 1;
+    }
+
+    .volume-bar {
+        width: 80px;
+        height: 4px;
+        appearance: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+    }
+
+    .volume-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .playlist {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(74, 108, 247, 0.95) 0%,
+            rgba(138, 99, 255, 0.95) 100%
+        );
+        width: 360px;
+        max-height: 480px;
+        overflow-y: auto;
+        border-radius: 16px;
+        padding: 20px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 32px rgba(74, 108, 247, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .playlist::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .playlist::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+    }
+
+    .playlist-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .playlist-header h3 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .playlist-header .close-playlist {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.2s ease;
+    }
+
+    .playlist-header .close-playlist:hover {
+        color: white;
+    }
+
+    .song-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .song-list li {
+        padding: 12px 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        margin: 4px 0;
+        display: flex;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .song-list li .song-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .song-list li .song-artist {
+        margin-left: auto;
+        padding-left: 12px;
+        font-size: 12px;
+        opacity: 0.6;
+        white-space: nowrap;
+    }
+
+    .song-list li:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .song-list li.active {
+        background: rgba(74, 108, 247, 0.3);
+        font-weight: 500;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<div id="music-player">
+    <div class="mini-player">
+        <!-- SVG进度边框 -->
+        <svg
+            class="progress-border"
+            width="100%"
+            height="100%"
+            viewBox="0 0 104 44"
+            preserveAspectRatio="xMidYMid meet"
+        >
+            <rect
+                class="progress-path"
+                x="2"
+                y="2"
+                width="100"
+                height="40"
+                rx="20"
+                ry="20"
+                fill="none"
+                stroke="#4a6cf7"
+                stroke-width="2"
+                stroke-dasharray="0"
+                stroke-dashoffset="0"
+                pathLength="100"
+            />
+        </svg>
+        <div class="wave-animation" title="展开播放器"></div>
+        <button class="play-btn" aria-label="播放" title="播放 / 暂停"><i class="fas fa-play"></i></button>
+    </div>
+
+    <div class="full-player hidden">
+        <div class="player-header">
+            <div class="now-playing">正在播放：未选择歌曲</div>
+            <button class="shrink-btn" aria-label="收起播放器" title="收起播放器"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="player-controls">
+            <div class="progress-container">
+                <span class="current-time">0:00</span>
+                <input
+                    type="range"
+                    class="progress-bar"
+                    min="0"
+                    max="100"
+                    value="0"
+                    aria-label="播放进度"
+                />
+                <span class="duration">0:00</span>
+            </div>
+
+            <div class="control-buttons">
+                <button class="mode-btn" title="播放模式：列表循环（点击切换为随机播放）">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <button class="prev-btn" aria-label="上一曲" title="上一曲">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="play-btn" aria-label="播放" title="播放 / 暂停">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="next-btn" aria-label="下一曲" title="下一曲">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="playlist-btn" aria-label="播放列表" title="播放列表">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+
+            <div class="volume-control">
+                <i class="fas fa-volume-up" aria-label="静音" title="静音 / 取消静音"></i>
+                <input
+                    type="range"
+                    class="volume-bar"
+                    min="0"
+                    max="100"
+                    value="80"
+                    aria-label="音量"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="playlist hidden">
+        <div class="playlist-header">
+            <h3>播放列表</h3>
+            <button class="close-playlist" aria-label="关闭列表" title="关闭列表"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="song-list"></ul>
+    </div>
+</div>
+
+<script>
+    (function () {
+        if (window.__whPlayerV2Loaded) return;
+        window.__whPlayerV2Loaded = true;
+
+        var AUDIO_ROOT = "/images/audios";
+        var LS_KEY = "whPlayerV2State";
+
+        function esc(s) {
+            return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+                return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+            });
+        }
+
+        var musicPlayer = {
+            audio: new Audio(),
+            songs: [],
+            currentSongIndex: 0,
+            isPlaying: false,
+            playMode: "list", // list | random
+            currentLoadedSong: null,
+            lastVolume: 0.8,
+
+            init() {
+                this.audio.preload = "none";
+                this.loadSongs();
+                this.setupEventListeners();
+                this.createWaveAnimation();
+                this.updateNowPlaying();
+            },
+
+            loadState() {
+                try {
+                    return JSON.parse(localStorage.getItem(LS_KEY)) || {};
+                } catch (e) {
+                    return {};
+                }
+            },
+
+            saveState() {
+                try {
+                    localStorage.setItem(
+                        LS_KEY,
+                        JSON.stringify({
+                            index: this.currentSongIndex,
+                            mode: this.playMode,
+                            volume: this.audio.volume,
+                        })
+                    );
+                } catch (e) {
+                    /* 隐私模式等场景下静默失败 */
+                }
+            },
+
+            loadSongs() {
+                var self = this;
+                fetch(AUDIO_ROOT + "/list.json?v=" + Date.now(), { cache: "no-store" })
+                    .then(function (r) {
+                        if (!r.ok) throw new Error("HTTP " + r.status);
+                        return r.json();
+                    })
+                    .then(function (data) {
+                        self.songs = Array.isArray(data) ? data : [];
+                        var st = self.loadState();
+                        if (typeof st.volume === "number" && st.volume >= 0 && st.volume <= 1) {
+                            self.audio.volume = st.volume;
+                            var vb = document.querySelector(".volume-bar");
+                            if (vb) vb.value = Math.round(st.volume * 100);
+                        }
+                        if (st.mode === "random" || st.mode === "list") {
+                            self.playMode = st.mode;
+                            self.updateModeIcon();
+                        }
+                        if (Number.isInteger(st.index) && st.index >= 0 && st.index < self.songs.length) {
+                            self.currentSongIndex = st.index;
+                        }
+                        self.renderPlaylist();
+                        self.updateNowPlaying();
+                    })
+                    .catch(function () {
+                        self.showError("歌单加载失败，请稍后刷新重试");
+                    });
+            },
+
+            setupEventListeners() {
+                // 播放/暂停按钮
+                document.querySelectorAll(".play-btn").forEach(
+                    function (btn) {
+                        btn.addEventListener("click", function () {
+                            this.togglePlay();
+                        }.bind(this));
+                    }.bind(this)
+                );
+
+                // 上一曲/下一曲
+                document.querySelector(".prev-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.prevSong();
+                    }.bind(this)
+                );
+                document.querySelector(".next-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.nextSong();
+                    }.bind(this)
+                );
+
+                // 进度条
+                document.querySelector(".progress-bar").addEventListener(
+                    "input",
+                    function (e) {
+                        this.seek(e.target.value);
+                    }.bind(this)
+                );
+
+                // 音量控制
+                document.querySelector(".volume-bar").addEventListener(
+                    "input",
+                    function (e) {
+                        this.setVolume(e.target.value / 100);
+                    }.bind(this)
+                );
+
+                // 音量图标：静音切换
+                document.querySelector(".volume-control i").addEventListener(
+                    "click",
+                    function () {
+                        if (this.audio.volume > 0) {
+                            this.lastVolume = this.audio.volume;
+                            this.setVolume(0);
+                        } else {
+                            this.setVolume(this.lastVolume || 0.8);
+                        }
+                    }.bind(this)
+                );
+
+                // 播放模式
+                document.querySelector(".mode-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlayMode();
+                    }.bind(this)
+                );
+
+                // 音浪区域点击切换播放器大小
+                document.querySelector(".wave-animation").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlayerSize();
+                    }.bind(this)
+                );
+                document.querySelector(".shrink-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlayerSize();
+                    }.bind(this)
+                );
+
+                // 播放列表
+                document.querySelector(".playlist-btn").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlaylist();
+                    }.bind(this)
+                );
+                document.querySelector(".close-playlist").addEventListener(
+                    "click",
+                    function () {
+                        this.togglePlaylist();
+                    }.bind(this)
+                );
+
+                // 音频事件
+                this.audio.addEventListener("timeupdate", function () {
+                    this.updateProgress();
+                }.bind(this));
+                this.audio.addEventListener("ended", function () {
+                    this.handleSongEnd();
+                }.bind(this));
+                this.audio.addEventListener("error", function () {
+                    if (this.audio.src) {
+                        this.showError("加载失败：" + this.currentSongName());
+                    }
+                }.bind(this));
+            },
+
+            createWaveAnimation() {
+                var waveContainer = document.querySelector(".wave-animation");
+                for (var i = 0; i < 5; i++) {
+                    var bar = document.createElement("div");
+                    bar.className = "wave-bar";
+                    waveContainer.appendChild(bar);
+                }
+                this.updateWaveAnimation();
+            },
+
+            updateWaveAnimation() {
+                var bars = document.querySelectorAll(".wave-bar");
+                bars.forEach(function (bar) {
+                    bar.style.height = Math.random() * 10 + 2 + "px";
+                    bar.style.animationDuration = Math.random() * 0.8 + 0.5 + "s";
+                });
+                if (this.isPlaying) {
+                    var self = this;
+                    requestAnimationFrame(function () {
+                        self.updateWaveAnimation();
+                    });
+                }
+            },
+
+            renderPlaylist() {
+                var songList = document.querySelector(".song-list");
+                songList.innerHTML = "";
+                var self = this;
+                this.songs.forEach(function (song, index) {
+                    var li = document.createElement("li");
+                    li.innerHTML =
+                        '<span class="song-name">' +
+                        esc(song.name) +
+                        '</span><span class="song-artist">' +
+                        esc(song.author || "") +
+                        "</span>";
+                    if (index === self.currentSongIndex && self.isPlaying) {
+                        li.classList.add("active");
+                    }
+                    li.addEventListener("click", function () {
+                        self.playSong(index);
+                        document.querySelector(".full-player").classList.remove("hidden");
+                        document.querySelector(".mini-player").classList.add("hidden");
+                    });
+                    songList.appendChild(li);
+                });
+            },
+
+            updatePlaylistActive() {
+                var self = this;
+                var items = document.querySelectorAll(".song-list li");
+                items.forEach(function (li, index) {
+                    li.classList.toggle("active", index === self.currentSongIndex && self.isPlaying);
+                });
+            },
+
+            currentSongName() {
+                return this.songs[this.currentSongIndex] ? this.songs[this.currentSongIndex].name : "";
+            },
+
+            togglePlay() {
+                if (this.isPlaying) {
+                    this.pause();
+                } else {
+                    this.play();
+                }
+            },
+
+            play() {
+                if (this.songs.length === 0) return;
+                var self = this;
+                var song = this.songs[this.currentSongIndex];
+                var src = (song.src || "").replace(/^\.?\//, "");
+                var url = AUDIO_ROOT + "/" + src;
+                if (this.currentLoadedSong !== url) {
+                    this.audio.src = url;
+                    this.currentLoadedSong = url;
+                }
+                this.audio.play().then(
+                    function () {
+                        self.isPlaying = true;
+                        self.setPlayIcons(true);
+                        self.updateWaveAnimation();
+                        self.updateNowPlaying();
+                        self.updatePlaylistActive();
+                        self.updateMediaSession();
+                        self.saveState();
+                    },
+                    function () {
+                        self.isPlaying = false;
+                        self.setPlayIcons(false);
+                        self.showError("播放失败：" + song.name);
+                    }
+                );
+            },
+
+            pause() {
+                this.audio.pause();
+                this.isPlaying = false;
+                this.setPlayIcons(false);
+                this.updatePlaylistActive();
+            },
+
+            setPlayIcons(playing) {
+                document.querySelectorAll(".play-btn i").forEach(function (icon) {
+                    icon.className = playing ? "fas fa-pause" : "fas fa-play";
+                });
+                document.querySelectorAll(".play-btn").forEach(function (btn) {
+                    btn.setAttribute("aria-label", playing ? "暂停" : "播放");
+                });
+            },
+
+            setVolume(v) {
+                this.audio.volume = v;
+                var vb = document.querySelector(".volume-bar");
+                if (vb) vb.value = Math.round(v * 100);
+                var icon = document.querySelector(".volume-control i");
+                if (icon) {
+                    icon.className = v > 0 ? "fas fa-volume-up" : "fas fa-volume-mute";
+                }
+                this.saveState();
+            },
+
+            prevSong() {
+                this.currentSongIndex =
+                    (this.currentSongIndex - 1 + this.songs.length) % this.songs.length;
+                this.currentLoadedSong = null;
+                this.play();
+            },
+
+            nextSong() {
+                if (this.playMode === "random" && this.songs.length > 1) {
+                    var i;
+                    do {
+                        i = Math.floor(Math.random() * this.songs.length);
+                    } while (i === this.currentSongIndex);
+                    this.currentSongIndex = i;
+                } else {
+                    this.currentSongIndex = (this.currentSongIndex + 1) % this.songs.length;
+                }
+                this.currentLoadedSong = null;
+                this.play();
+            },
+
+            playSong(index) {
+                this.currentSongIndex = index;
+                this.currentLoadedSong = null;
+                this.play();
+            },
+
+            seek(percent) {
+                if (!isFinite(this.audio.duration) || this.audio.duration <= 0) return;
+                var p = Math.max(0, Math.min(100, percent));
+                this.audio.currentTime = (p / 100) * this.audio.duration;
+            },
+
+            updateProgress() {
+                if (!isFinite(this.audio.duration)) return;
+                var progress = (this.audio.currentTime / this.audio.duration) * 100;
+                document.querySelector(".progress-bar").value = progress || 0;
+                document.querySelector(".current-time").textContent = this.formatTime(this.audio.currentTime);
+                document.querySelector(".duration").textContent = this.formatTime(this.audio.duration);
+
+                var progressPath = document.querySelector(".progress-path");
+                var progressBorder = document.querySelector(".progress-border");
+                if (progressPath) {
+                    var pathLength = 100;
+                    var dashArray = progress + " " + (pathLength - progress);
+                    progressPath.style.strokeDasharray = dashArray;
+                    if (progress >= 99.5) {
+                        progressPath.style.stroke = "#4a6cf7";
+                        progressPath.style.strokeWidth = "2.5";
+                        progressPath.style.strokeDasharray = "100 0";
+                        document.querySelector(".mini-player").style.borderColor = "transparent";
+                        if (progressBorder) {
+                            progressBorder.style.filter = "drop-shadow(0 2px 6px rgba(74, 108, 247, 0.4))";
+                        }
+                    } else {
+                        progressPath.style.stroke = "#4a6cf7";
+                        document.querySelector(".mini-player").style.borderColor = "rgba(0, 0, 0, 0.05)";
+                        if (progressBorder) {
+                            progressBorder.style.filter = "drop-shadow(0 2px 4px rgba(74, 108, 247, 0.2))";
+                        }
+                    }
+                }
+            },
+
+            formatTime(seconds) {
+                if (isNaN(seconds) || seconds === undefined) return "0:00";
+                var mins = Math.floor(seconds / 60);
+                var secs = Math.floor(seconds % 60);
+                return mins + ":" + (secs < 10 ? "0" : "") + secs;
+            },
+
+            handleSongEnd() {
+                this.nextSong();
+            },
+
+            updateNowPlaying() {
+                var el = document.querySelector(".now-playing");
+                el.classList.remove("error");
+                el.textContent = this.currentSongName()
+                    ? "正在播放：" + this.currentSongName()
+                    : "正在播放：未选择歌曲";
+            },
+
+            showError(msg) {
+                var el = document.querySelector(".now-playing");
+                el.classList.add("error");
+                el.textContent = msg;
+            },
+
+            updateMediaSession() {
+                if (!("mediaSession" in navigator)) return;
+                var song = this.songs[this.currentSongIndex];
+                if (!song) return;
+                try {
+                    navigator.mediaSession.metadata = new MediaMetadata({
+                        title: song.name || "",
+                        artist: song.author || "",
+                        album: "W'Blog 音乐",
+                    });
+                } catch (e) {
+                    /* 浏览器不支持时静默跳过 */
+                }
+            },
+
+            togglePlayMode() {
+                this.playMode = this.playMode === "list" ? "random" : "list";
+                this.updateModeIcon();
+                this.saveState();
+            },
+
+            updateModeIcon() {
+                var btn = document.querySelector(".mode-btn");
+                var icon = btn.querySelector("i");
+                icon.className = this.playMode === "list" ? "fas fa-redo" : "fas fa-random";
+                btn.title =
+                    this.playMode === "list"
+                        ? "播放模式：列表循环（点击切换为随机播放）"
+                        : "播放模式：随机播放（点击切换为列表循环）";
+            },
+
+            togglePlayerSize() {
+                document.querySelector(".mini-player").classList.toggle("hidden");
+                document.querySelector(".full-player").classList.toggle("hidden");
+            },
+
+            togglePlaylist() {
+                document.querySelector(".playlist").classList.toggle("hidden");
+            },
+        };
+
+        musicPlayer.init();
+    })();
+</script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({ startOnLoad: false, theme: 'default' });
+            document.querySelectorAll('pre > code.language-mermaid').forEach(function(block) {
+                var pre = block.parentNode;
+                var div = document.createElement('div');
+                div.className = 'mermaid';
+                div.textContent = block.textContent;
+                pre.parentNode.replaceChild(div, pre);
+            });
+            mermaid.init(undefined, '.mermaid');
+        </script>
+    </body>
+</html>
